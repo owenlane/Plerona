@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --container: 1080px;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* fixed nav offset for anchor links */
+}
+
+body {
+  background: #ffffff;
+  color: #0a0a0a;
+  font-feature-settings: 'kern', 'liga', 'calt';
+}
+
+@layer base {
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+  ::selection {
+    background: #1a56db;
+    color: #ffffff;
+  }
+}
+
+@layer components {
+  .container-px {
+    @apply mx-auto w-full max-w-container px-6 md:px-8;
+  }
+  .eyebrow {
+    @apply text-eyebrow font-semibold uppercase text-blue;
+  }
+  .eyebrow-muted {
+    @apply text-eyebrow font-semibold uppercase tracking-eyebrow text-graymid;
+  }
+  /* Section vertical rhythm — §03: 96–140px between major sections */
+  .section {
+    @apply py-24 md:py-32;
+  }
+  .hairline {
+    @apply border-rule;
+  }
+}
+
+/* Respect reduced motion globally as a safety net (components also handle it) */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Keyboard focus — quality floor */
+:focus-visible {
+  outline: 2px solid #1a56db;
+  outline-offset: 2px;
+}
+
+/* Hide scrollbar on the horizontal timeline track while keeping scroll */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
