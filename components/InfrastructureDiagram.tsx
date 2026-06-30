@@ -71,7 +71,7 @@ export default function InfrastructureDiagram() {
                 fill={n.center ? '#1a56db' : '#ffffff'}
                 stroke={isActive ? '#1a56db' : 'transparent'}
                 strokeWidth={3}
-                className={n.center && !reduced ? 'animate-pulse2' : ''}
+                className={n.center && inView && !reduced ? 'animate-pulse2' : ''}
               />
               <text
                 x={n.x}

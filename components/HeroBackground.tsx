@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
 import { useReducedMotion } from 'framer-motion';
@@ -121,16 +121,48 @@ function Graph({ reduced }: { reduced: boolean }) {
   );
 }
 
+/** Feature-detect WebGL without throwing. */
+function webglAvailable(): boolean {
+  try {
+    const canvas = document.createElement('canvas');
+    return Boolean(
+      window.WebGLRenderingContext &&
+        (canvas.getContext('webgl') || canvas.getContext('experimental-webgl')),
+    );
+  } catch {
+    return false;
+  }
+}
+
 export default function HeroBackground() {
   const reduced = useReducedMotion() ?? false;
+  const [enabled, setEnabled] = useState(false);
+
+  // Decide entirely on the client, after mount. The 3D layer is a progressive
+  // enhancement: it only turns on for non-touch, full-pointer devices that
+  // support WebGL and don't ask for reduced motion. Phones/tablets and any
+  // unsupported environment keep the static gradient — guaranteed stable.
+  useEffect(() => {
+    if (reduced) return;
+    if (typeof window === 'undefined') return;
+
+    const touchPrimary = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+    const wideEnough = window.matchMedia('(min-width: 768px)').matches;
+    if (touchPrimary || !wideEnough) return;
+    if (!webglAvailable()) return;
+
+    setEnabled(true);
+  }, [reduced]);
+
+  if (!enabled) return null;
 
   return (
     <div className="absolute inset-0" aria-hidden="true">
       <Canvas
         camera={{ position: [0, 0, 6], fov: 60 }}
-        dpr={[1, 1.75]}
-        gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
-        frameloop={reduced ? 'demand' : 'always'}
+        dpr={[1, 1.5]}
+        gl={{ antialias: true, alpha: true, failIfMajorPerformanceCaveat: false }}
+        frameloop="always"
       >
         <Graph reduced={reduced} />
       </Canvas>
