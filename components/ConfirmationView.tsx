@@ -1,7 +1,4 @@
-'use client';
-
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
 import {
   CONSULT,
   IMPLEMENTATION,
@@ -56,14 +53,19 @@ const IMPL_STEPS = [
   },
 ];
 
-export default function ThankYouClient() {
-  const params = useSearchParams();
-  const isConsult = params.get('offer') === 'consult';
+interface Props {
+  offer: 'consult' | 'implementation';
+  additionalConnections: number;
+  hostingId: HostingId | null;
+}
 
-  const connections = Math.max(0, parseInt(params.get('connections') ?? '0', 10) || 0);
-  const hostingId = params.get('hosting') as HostingId | null;
+/**
+ * Presentational order confirmation. Rendered only after a payment has been
+ * verified server-side (see app/success/page.tsx) — never on its own.
+ */
+export default function ConfirmationView({ offer, additionalConnections, hostingId }: Props) {
+  const isConsult = offer === 'consult';
   const hostingTier = hostingId ? HOSTING_TIERS.find((t) => t.id === hostingId) ?? null : null;
-
   const delivery = estimatedDelivery();
   const steps = isConsult ? CONSULT_STEPS : IMPL_STEPS;
   const offerName = isConsult ? CONSULT.name : IMPLEMENTATION.name;
@@ -82,13 +84,13 @@ export default function ThankYouClient() {
               <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </div>
-          <p className="eyebrow tracking-eyebrow mb-6">Order Confirmed</p>
+          <p className="eyebrow tracking-eyebrow mb-6">Payment Confirmed</p>
           <h1 className="max-w-3xl text-4xl font-bold leading-[1.06] tracking-tighter2 sm:text-5xl">
             {isConsult ? 'Your Roadmap is reserved.' : 'Your implementation is underway.'}
           </h1>
           <p className="mt-7 max-w-2xl text-base leading-[1.7] text-silver md:text-lg">
-            You made a clear decision — the kind that compounds. A confirmation is on its way to
-            your inbox, and the work begins now.
+            You made a clear decision — the kind that compounds. A receipt and confirmation are on
+            their way to your inbox, and the work begins now.
           </p>
         </div>
       </section>
@@ -129,7 +131,7 @@ export default function ThankYouClient() {
                   <div className="flex justify-between gap-4">
                     <span className="text-graymid">Connections</span>
                     <span className="font-medium tabular-nums">
-                      {IMPLEMENTATION.baseConnections + connections}
+                      {IMPLEMENTATION.baseConnections + additionalConnections}
                     </span>
                   </div>
                 )}

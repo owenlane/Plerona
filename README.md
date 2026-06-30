@@ -45,7 +45,7 @@ app/
   consult/                Intermediary Consult sales page
   about/                  Mission, founder journey, philosophy, vision
   checkout/               Two-mode checkout (consult vs implementation)
-  thank-you/              Order confirmation + next steps
+  thank-you/              Legacy route — redirects to /success flow
   privacy/  terms/        Legal
   api/
     checkout/route.ts     Creates Stripe Checkout Session (server-side pricing)
@@ -105,7 +105,7 @@ Checkout uses **Stripe hosted Checkout**. Prices are recomputed server-side from
 
 1. Buyer fills contact details on `/checkout` and clicks **Continue to Payment**.
 2. `POST /api/checkout` validates input, rebuilds line items from the pricing source of truth, and creates a Checkout Session.
-3. Buyer is redirected to Stripe, pays, and returns to `/thank-you` with the order recap.
+3. Buyer is redirected to Stripe, pays, and returns to `/success`, which verifies the session against Stripe (`payment_status === 'paid'`) before showing any confirmation.
 4. `POST /api/webhook` receives `checkout.session.completed` (signature-verified) — the fulfillment hook where onboarding/CRM is triggered.
 
 Hosting is intentionally **not** charged at checkout: per the business model it begins after implementation. The selected tier is stored in session metadata so the subscription can be set up at handoff.
@@ -122,7 +122,7 @@ Hosting is intentionally **not** charged at checkout: per the business model it 
 3. In the Stripe Dashboard → Developers → Webhooks, add an endpoint at `https://plerona.com/api/webhook` subscribed to `checkout.session.completed`. Copy its signing secret into `STRIPE_WEBHOOK_SECRET`.
 4. Redeploy. To test locally: `stripe listen --forward-to localhost:3000/api/webhook` and use card `4242 4242 4242 4242`.
 
-> **Demo mode:** until `STRIPE_SECRET_KEY` is set, `/api/checkout` returns a safe "not configured" response and the UI proceeds straight to the confirmation page with no charge — so preview deploys stay fully clickable.
+> **No fake completions.** If `STRIPE_SECRET_KEY` is not set, `/api/checkout` returns a 503 error and the checkout button surfaces it — the flow never silently "completes" an order. A confirmation is shown only on `/success` after Stripe verifies the payment as paid. The legacy `/thank-you` route now redirects home and can no longer display an unverified success state.
 
 ---
 

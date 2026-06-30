@@ -1,17 +1,8 @@
-import type { Metadata } from 'next';
-import { Suspense } from 'react';
-import ThankYouClient from '@/components/ThankYouClient';
+import { redirect } from 'next/navigation';
 
-export const metadata: Metadata = {
-  title: 'Thank You',
-  description: 'Your order is confirmed. Here is what happens next.',
-  robots: { index: false, follow: false },
-};
-
+// The confirmation page is now /success, which verifies payment against Stripe
+// before showing anything. This legacy route can no longer display an
+// unverified "order complete" state — it simply sends visitors home.
 export default function ThankYouPage() {
-  return (
-    <Suspense fallback={<div className="min-h-[60vh]" />}>
-      <ThankYouClient />
-    </Suspense>
-  );
+  redirect('/');
 }

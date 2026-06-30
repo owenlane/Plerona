@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import {
   CONSULT,
   IMPLEMENTATION,
@@ -51,7 +51,6 @@ function Field({
 }
 
 export default function CheckoutClient() {
-  const router = useRouter();
   const params = useSearchParams();
 
   const isConsult = params.get('offer') === 'consult';
@@ -89,17 +88,6 @@ export default function CheckoutClient() {
       contact.phone.trim(),
   );
 
-  const fallbackThankYou = () => {
-    const q = new URLSearchParams();
-    q.set('offer', isConsult ? 'consult' : 'implementation');
-    if (!isConsult) {
-      if (cfg.config.additionalConnections > 0)
-        q.set('connections', String(cfg.config.additionalConnections));
-      if (cfg.config.hosting) q.set('hosting', cfg.config.hosting);
-    }
-    router.push(`/thank-you?${q.toString()}`);
-  };
-
   const handleSubmit = async () => {
     if (!canSubmit || submitting) return;
     setSubmitting(true);
@@ -115,23 +103,15 @@ export default function CheckoutClient() {
           contact,
         }),
       });
-      const data = (await res.json()) as {
-        url?: string;
-        configured?: boolean;
-        error?: string;
-      };
+      const data = (await res.json()) as { url?: string; error?: string };
 
       if (data.url) {
         // Redirect to Stripe's secure hosted checkout.
         window.location.href = data.url;
         return;
       }
-      if (data.configured === false) {
-        // Stripe not wired yet (preview/demo): continue the flow.
-        fallbackThankYou();
-        return;
-      }
-      setError(data.error ?? 'Something went wrong. Please try again.');
+      // No URL means no session was created — surface the error, never fake success.
+      setError(data.error ?? 'Payments are temporarily unavailable. Please try again shortly.');
       setSubmitting(false);
     } catch {
       setError('Could not reach the payment service. Please try again.');

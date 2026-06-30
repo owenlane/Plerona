@@ -1,5 +1,5 @@
 import { NextResponse, type NextRequest } from 'next/server';
-import { getStripe, isStripeConfigured } from '@/lib/stripe';
+import { getStripe } from '@/lib/stripe';
 import {
   CONSULT,
   IMPLEMENTATION,
@@ -118,14 +118,14 @@ export async function POST(req: NextRequest) {
   if (hosting) recap.set('hosting', hosting);
   const recapQs = recap.toString();
 
-  // ── Graceful preview/demo mode when Stripe isn't configured ──
-  if (!isStripeConfigured()) {
-    return NextResponse.json({ configured: false, recap: recapQs });
-  }
-
+  // No silent fallback: if Stripe isn't configured, checkout fails loudly.
+  // An order is NEVER marked complete without a real, paid Stripe session.
   const stripe = getStripe();
   if (!stripe) {
-    return NextResponse.json({ configured: false, recap: recapQs });
+    return NextResponse.json(
+      { error: 'Payments are temporarily unavailable. Please try again shortly.' },
+      { status: 503 },
+    );
   }
 
   try {
@@ -133,7 +133,7 @@ export async function POST(req: NextRequest) {
       mode: 'payment',
       line_items: lineItems,
       customer_email: contact.email,
-      success_url: `${origin}/thank-you?${recapQs}&session_id={CHECKOUT_SESSION_ID}`,
+      success_url: `${origin}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/checkout?${recapQs}`,
       billing_address_collection: 'auto',
       metadata: {
