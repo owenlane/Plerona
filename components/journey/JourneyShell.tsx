@@ -10,6 +10,8 @@ import dynamic from 'next/dynamic';
 import { useCallback, useEffect, type ReactNode } from 'react';
 import JourneyProvider, { useJourney } from './JourneyProvider';
 import { MiniMap, TravelControls } from './Wayfinding';
+import SafeCanvasBoundary from '@/components/SafeCanvasBoundary';
+import JourneyErrorBoundary from './JourneyErrorBoundary';
 import { persistMode, type JourneyMode } from '@/lib/journey/capability';
 
 const WorldCanvas = dynamic(() => import('@/components/world/WorldCanvas'), {
@@ -37,14 +39,18 @@ function ShellInner({ children }: { children: ReactNode }) {
   }, [setMode]);
 
   return (
-    <>
-      {ready && mode === '3d' && <WorldCanvas onFallback={engageFocused} />}
+    <JourneyErrorBoundary onRecover={engageFocused}>
+      {ready && mode === '3d' && (
+        <SafeCanvasBoundary onError={engageFocused}>
+          <WorldCanvas onFallback={engageFocused} />
+        </SafeCanvasBoundary>
+      )}
       <div id="journey-root" className="relative z-10">
         {children}
       </div>
       <MiniMap />
       <TravelControls />
-    </>
+    </JourneyErrorBoundary>
   );
 }
 

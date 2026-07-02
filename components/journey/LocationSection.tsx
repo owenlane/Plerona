@@ -7,7 +7,7 @@
  * viewport while the world moves behind it. In Focused Mode it collapses to a
  * calm, complete 2D museum section. Native scroll only — no capture.
  */
-import { useEffect, useRef, type ReactNode } from 'react';
+import { useEffect, useRef, type CSSProperties, type ReactNode } from 'react';
 import { LOCATIONS, SECTION_WEIGHTS } from '@/lib/journey/graph';
 import { useJourney } from './JourneyProvider';
 
@@ -53,7 +53,7 @@ export default function LocationSection({ id, children }: LocationSectionProps) 
       className="journey-section relative"
       style={
         mode === '3d'
-          ? ({ '--section-vh': Math.max(heightVh, 110) } as React.CSSProperties)
+          ? ({ '--section-vh': Math.max(heightVh, 110) } as CSSProperties)
           : undefined
       }
     >
