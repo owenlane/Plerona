@@ -6,6 +6,8 @@ interface Props {
   children: ReactNode;
   /** Rendered if a child throws. Defaults to nothing (the layer behind shows). */
   fallback?: ReactNode;
+  /** Notified once on first error (e.g. to engage Focused Mode). */
+  onError?: () => void;
 }
 
 interface State {
@@ -25,6 +27,7 @@ export default class SafeCanvasBoundary extends Component<Props, State> {
   }
 
   componentDidCatch(error: unknown) {
+    this.props.onError?.();
     // Non-fatal: the static hero remains. Logged for observability only.
     if (process.env.NODE_ENV !== 'production') {
       // eslint-disable-next-line no-console

@@ -26,17 +26,18 @@ interface ButtonProps extends BaseProps {
 
 function classesFor(variant: Variant, surface: Surface, full?: boolean): string {
   const base =
-    'inline-flex items-center justify-center px-8 py-3.5 text-sm font-semibold tracking-tight transition-colors duration-150 ease-out rounded-[2px] select-none';
+    'inline-flex items-center justify-center px-8 py-3.5 text-sm font-semibold tracking-tight transition-colors duration-fast ease-cinematic rounded-sm select-none';
   const width = full ? 'w-full' : '';
   if (variant === 'primary') {
-    // Blue CTA — §16. Hover darken 8%, active 16%.
-    return `${base} ${width} bg-blue text-white hover:bg-blue-hover active:bg-blue-active`;
+    // Beam CTA — interactive highlights carry the Wordmark's gold (Part IV, Art. 2).
+    return `${base} ${width} bg-beam text-space hover:bg-beam-hover active:bg-beam-active`;
   }
-  // Secondary — transparent, hairline border, text color matches surface.
+  // Secondary — transparent, hairline border. The world is one dark surface
+  // now, so both surface variants resolve identically (param kept for API).
   const sec =
     surface === 'dark'
-      ? 'border border-white/30 text-white hover:bg-white/10'
-      : 'border border-ink/20 text-ink hover:bg-ink/[0.04]';
+      ? 'border border-snow/30 text-snow hover:bg-snow/10'
+      : 'border border-snow/30 text-snow hover:bg-snow/10';
   return `${base} ${width} ${sec}`;
 }
 

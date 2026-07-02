@@ -1,0 +1,73 @@
+/**
+ * PLERONA DESIGN TOKENS — single source of truth.
+ * Governed by The Plerona Website Constitution, Part IV.
+ * Expressed simultaneously as: this CSS file, lib/design-tokens.json,
+ * and tailwind.config.ts. No visual value may exist outside these tokens.
+ */
+
+:root {
+  /* ── Color Tokens (Part IV, Article 2) ─────────────────────────────── */
+  --color-beam: #e8c670; /* Warm gold of the Beam, Wordmark glow, interactive highlights */
+  --color-space-deep: #0b0f1a; /* Deep space base of the universe */
+  --color-panel: #1a1f2e; /* Panel and surface backgrounds */
+  --color-text-primary: #f5f7fa; /* Primary high-contrast text */
+  --color-text-secondary: #a8b0c0; /* Secondary text */
+  --color-accent-success: #4ade80; /* Success states */
+  --color-accent-error: #f87171; /* Error states */
+
+  /* Derived (opacity-only variants of the tokens above — no new hues) */
+  --color-rule: rgba(245, 247, 250, 0.14); /* hairline borders from text-primary */
+  --color-beam-wash: rgba(232, 198, 112, 0.1); /* selected fills from beam */
+
+  /* ── Typography Tokens (Part IV, Article 3) ────────────────────────── */
+  --font-header: var(--font-inter), system-ui, sans-serif; /* Inter Bold in use */
+  --font-body: var(--font-inter), system-ui, sans-serif;
+
+  /* Type scale: 12px → 96px. Body ratio 1.125, header ratio 1.25. */
+  --text-body-1: 0.75rem; /* 12px */
+  --text-body-2: 0.844rem; /* 13.5px */
+  --text-body-3: 0.949rem; /* 15.19px */
+  --text-body-4: 1.068rem; /* 17.09px */
+  --text-body-5: 1.201rem; /* 19.22px */
+  --text-head-1: 1.25rem; /* 20px */
+  --text-head-2: 1.563rem; /* 25px */
+  --text-head-3: 1.953rem; /* 31.25px */
+  --text-head-4: 2.441rem; /* 39.06px */
+  --text-head-5: 3.052rem; /* 48.83px */
+  --text-head-6: 3.815rem; /* 61.04px */
+  --text-head-7: 4.768rem; /* 76.29px */
+  --text-head-8: 6rem; /* 96px — scale ceiling */
+
+  /* ── Spacing Tokens (Part IV, Article 4) — 8px base ────────────────── */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 40px;
+  --space-8: 48px;
+  --space-9: 56px;
+  --space-10: 64px;
+  --space-11: 80px;
+  --space-12: 96px;
+
+  /* ── Radius Tokens (Part IV, Article 5) ────────────────────────────── */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  /* ── Elevation (Part IV, Article 5.2): soft inner glow + subtle outer ── */
+  --elevation-panel:
+    inset 0 0 24px rgba(232, 198, 112, 0.06),
+    0 8px 24px rgba(0, 0, 0, 0.35);
+  --elevation-panel-focused:
+    inset 0 0 32px rgba(232, 198, 112, 0.12),
+    0 8px 28px rgba(0, 0, 0, 0.4);
+
+  /* ── Motion Tokens (Part IV, Article 6) ────────────────────────────── */
+  --duration-fast: 150ms;
+  --duration-base: 300ms;
+  --duration-slow: 600ms;
+  --ease-cinematic: cubic-bezier(0.23, 1, 0.32, 1);
+}

@@ -35,7 +35,7 @@ export default function OfferSection() {
         </ul>
         <Link
           href="/consult"
-          className="mt-8 block rounded-[2px] border border-ink/20 px-6 py-3.5 text-center text-sm font-semibold transition-colors hover:bg-ink/[0.04]"
+          className="mt-8 block rounded-[2px] border border-snow/20 px-6 py-3.5 text-center text-sm font-semibold transition-colors hover:bg-snow/[0.06]"
         >
           {CONSULT.ctaLabel}
         </Link>
@@ -45,7 +45,7 @@ export default function OfferSection() {
       <div className="flex flex-col rounded-[2px] border-2 border-blue bg-surface p-8">
         <div className="flex items-center justify-between">
           <p className="eyebrow tracking-eyebrow">Flagship</p>
-          <span className="rounded-[2px] bg-blue px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-white">
+          <span className="rounded-[2px] bg-blue px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-space">
             Most chosen
           </span>
         </div>
@@ -85,7 +85,7 @@ export default function OfferSection() {
 
         <Link
           href={`/checkout${cfg.queryString}`}
-          className="mt-6 block rounded-[2px] bg-blue px-6 py-3.5 text-center text-sm font-semibold text-white transition-colors hover:bg-blue-hover"
+          className="mt-6 block rounded-[2px] bg-blue px-6 py-3.5 text-center text-sm font-semibold text-space transition-colors hover:bg-blue-hover"
         >
           {IMPLEMENTATION.ctaLabel}
         </Link>

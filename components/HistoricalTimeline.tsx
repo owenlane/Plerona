@@ -28,7 +28,7 @@ export default function HistoricalTimeline() {
           >
             <div className="mb-4 flex items-center gap-3">
               <span
-                className={`h-2.5 w-2.5 rounded-full ${m.active ? 'animate-pulse2 bg-blue' : 'bg-silver'}`}
+                className={`h-2.5 w-2.5 rounded-full ${m.active ? 'bg-blue ring-4 ring-blue/25' : 'bg-silver'}`}
               />
               <span className="text-xs font-semibold uppercase tracking-eyebrow text-graymid">
                 {String(i + 1).padStart(2, '0')}

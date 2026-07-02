@@ -39,7 +39,7 @@ export default function ComparisonTable() {
         <button
           type="button"
           onClick={() => setCol(1)}
-          className={`px-4 py-2 text-sm font-medium ${col === 1 ? 'bg-blue text-white' : 'text-graymid'}`}
+          className={`px-4 py-2 text-sm font-medium ${col === 1 ? 'bg-blue text-space' : 'text-graymid'}`}
         >
           Implementation
         </button>
@@ -63,7 +63,7 @@ export default function ComparisonTable() {
             <div className="border-l border-t border-rule p-5 text-sm leading-[1.6] text-graymid">
               {CELLS[dim][0]}
             </div>
-            <div className="border-l-2 border-t border-blue/40 bg-blue/[0.03] p-5 text-sm leading-[1.6] text-ink">
+            <div className="border-l-2 border-t border-blue/40 bg-blue/[0.03] p-5 text-sm leading-[1.6] text-snow">
               {CELLS[dim][1]}
             </div>
           </div>

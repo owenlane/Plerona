@@ -20,8 +20,8 @@ export default function TransformationTabs() {
             onClick={() => setActive(i)}
             className={`flex-shrink-0 rounded-[2px] border px-4 py-2 text-sm font-medium transition-colors ${
               active === i
-                ? 'border-blue bg-blue text-white'
-                : 'border-rule bg-surface text-graymid hover:text-ink'
+                ? 'border-blue bg-blue text-space'
+                : 'border-rule bg-surface text-graymid hover:text-snow'
             }`}
           >
             {item.industry}
@@ -63,7 +63,7 @@ export default function TransformationTabs() {
               type="button"
               onClick={() => setShowAfter(true)}
               className={`px-4 py-1.5 text-sm font-medium transition-colors ${
-                showAfter ? 'bg-blue text-white' : 'text-graymid'
+                showAfter ? 'bg-blue text-space' : 'text-graymid'
               }`}
             >
               After
@@ -101,7 +101,7 @@ function Flow({ n, body, accent }: { n: string; body: string; accent?: boolean }
       >
         {n}
       </p>
-      <p className="mt-1.5 text-sm leading-[1.6] text-ink">{body}</p>
+      <p className="mt-1.5 text-sm leading-[1.6] text-snow">{body}</p>
     </li>
   );
 }

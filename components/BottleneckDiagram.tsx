@@ -43,7 +43,7 @@ export default function BottleneckDiagram() {
             y1={points[a].y}
             x2={points[b].x}
             y2={points[b].y}
-            stroke="#888888"
+            stroke="#A8B0C0"
             strokeWidth={1}
             strokeDasharray="4 5"
             initial={{ pathLength: 0, opacity: 0 }}
@@ -59,7 +59,7 @@ export default function BottleneckDiagram() {
             transition={{ duration: reduced ? 0 : 0.35, delay: reduced ? 0 : i * 0.1 }}
             style={{ transformOrigin: `${p.x}px ${p.y}px` }}
           >
-            <circle cx={p.x} cy={p.y} r={5} fill="#1a56db" />
+            <circle cx={p.x} cy={p.y} r={5} fill="#E8C670" />
             <text
               x={p.x}
               y={p.y - 12}

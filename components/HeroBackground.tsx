@@ -7,8 +7,8 @@ import { useReducedMotion } from 'framer-motion';
 
 const NODE_COUNT = 42;
 const LINK_DISTANCE = 1.45;
-const BLUE = new THREE.Color('#1a56db');
-const WHITE = new THREE.Color('#ffffff');
+const BLUE = new THREE.Color('#E8C670');
+const WHITE = new THREE.Color('#F5F7FA');
 
 interface NodeData {
   base: THREE.Vector3;

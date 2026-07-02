@@ -10,7 +10,7 @@ interface Props {
 
 export default function ProcessSteps({ surface = 'dark' }: Props) {
   const dark = surface === 'dark';
-  const title = dark ? 'text-white' : 'text-ink';
+  const title = dark ? 'text-white' : 'text-snow';
   const body = dark ? 'text-silver' : 'text-graymid';
   const border = dark ? 'border-white/10' : 'border-rule';
 

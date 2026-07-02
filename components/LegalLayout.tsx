@@ -25,7 +25,7 @@ export default function LegalLayout({ title, updated, intro, sections }: Props) 
 
       <section className="container-px py-20">
         <div className="mx-auto max-w-2xl">
-          <p className="text-base leading-[1.8] text-ink/80">{intro}</p>
+          <p className="text-base leading-[1.8] text-snow/80">{intro}</p>
           <div className="mt-14 space-y-12">
             {sections.map((s, i) => (
               <div key={s.heading}>

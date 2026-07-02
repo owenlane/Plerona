@@ -11,11 +11,11 @@ interface Props {
 
 export default function ConnectionStepper({ value, onAdd, onRemove, surface = 'light' }: Props) {
   const dark = surface === 'dark';
-  const text = dark ? 'text-white' : 'text-ink';
+  const text = dark ? 'text-white' : 'text-snow';
   const sub = dark ? 'text-silver' : 'text-graymid';
   const btn = dark
     ? 'border-white/25 text-white hover:bg-white/10'
-    : 'border-ink/15 text-ink hover:bg-ink/[0.04]';
+    : 'border-snow/15 text-snow hover:bg-snow/[0.06]';
 
   return (
     <div>

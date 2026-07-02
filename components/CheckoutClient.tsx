@@ -34,7 +34,7 @@ function Field({
 }) {
   return (
     <label className="block">
-      <span className="mb-1.5 block text-sm font-medium text-ink">
+      <span className="mb-1.5 block text-sm font-medium text-snow">
         {label}
         {required && <span className="ml-1 text-blue">*</span>}
       </span>
@@ -44,7 +44,7 @@ function Field({
         placeholder={placeholder}
         autoComplete={autoComplete}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full rounded-[2px] border border-rule bg-surface px-4 py-3 text-sm text-ink outline-none transition-colors placeholder:text-silver focus:border-blue"
+        className="w-full rounded-[2px] border border-rule bg-surface px-4 py-3 text-sm text-snow outline-none transition-colors placeholder:text-silver focus:border-blue"
       />
     </label>
   );
@@ -243,13 +243,13 @@ export default function CheckoutClient() {
                 className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-[2px] bg-ink"
                 aria-hidden
               >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5F7FA" strokeWidth="2">
                   <rect x="3" y="11" width="18" height="10" rx="2" />
                   <path d="M7 11V7a5 5 0 0 1 10 0v4" strokeLinecap="round" />
                 </svg>
               </div>
               <div>
-                <p className="text-sm font-semibold text-ink">Secure payment via Stripe</p>
+                <p className="text-sm font-semibold text-snow">Secure payment via Stripe</p>
                 <p className="mt-1.5 text-sm leading-[1.6] text-graymid">
                   Continue to Stripe&apos;s encrypted checkout to enter your card. Plerona never sees
                   or stores your card details.
@@ -259,7 +259,7 @@ export default function CheckoutClient() {
             {error && (
               <p
                 role="alert"
-                className="mt-4 rounded-[2px] border border-blue/30 bg-blue-wash px-4 py-3 text-sm text-ink"
+                className="mt-4 rounded-[2px] border border-blue/30 bg-blue-wash px-4 py-3 text-sm text-snow"
               >
                 {error}
               </p>
@@ -332,7 +332,7 @@ export default function CheckoutClient() {
               type="button"
               onClick={handleSubmit}
               disabled={!canSubmit || submitting}
-              className="mt-6 block w-full rounded-[2px] bg-blue px-6 py-3.5 text-center text-sm font-semibold text-white transition-colors hover:bg-blue-hover disabled:cursor-not-allowed disabled:opacity-40"
+              className="mt-6 block w-full rounded-[2px] bg-blue px-6 py-3.5 text-center text-sm font-semibold text-space transition-colors hover:bg-blue-hover disabled:cursor-not-allowed disabled:opacity-40"
             >
               {submitting ? 'Redirecting…' : 'Continue to Payment'}
             </button>

@@ -57,7 +57,7 @@ export default function ImplementationPage() {
                 <p className="eyebrow tracking-eyebrow">{c.fn}</p>
                 <ul className="mt-4 space-y-3">
                   {c.items.map((it) => (
-                    <li key={it} className="flex gap-3 text-sm leading-[1.6] text-ink">
+                    <li key={it} className="flex gap-3 text-sm leading-[1.6] text-snow">
                       <span className="text-blue">→</span>
                       {it}
                     </li>

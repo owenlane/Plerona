@@ -82,7 +82,7 @@ export default function OrderSummary({
     ctaHref != null ? (
       <Link
         href={ctaHref}
-        className="block w-full rounded-[2px] bg-blue px-6 py-3.5 text-center text-sm font-semibold text-white transition-colors hover:bg-blue-hover"
+        className="block w-full rounded-[2px] bg-blue px-6 py-3.5 text-center text-sm font-semibold text-space transition-colors hover:bg-blue-hover"
       >
         {ctaLabel}
       </Link>
@@ -90,7 +90,7 @@ export default function OrderSummary({
       <button
         type="button"
         onClick={onCta}
-        className="block w-full rounded-[2px] bg-blue px-6 py-3.5 text-center text-sm font-semibold text-white transition-colors hover:bg-blue-hover"
+        className="block w-full rounded-[2px] bg-blue px-6 py-3.5 text-center text-sm font-semibold text-space transition-colors hover:bg-blue-hover"
       >
         {ctaLabel}
       </button>

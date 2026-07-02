@@ -1,0 +1,128 @@
+{
+  "$description": "THE SCENE GRAPH — Constitution Part V, Article 2. The single JSON registry of every Location in the world. No Location, Travel Zone, or camera path may exist outside this file. Camera/look values are world-space anchors consumed by lib/journey/path.ts. sectionAssignment records which pre-V2 site sections each Location re-presents (content preserved verbatim per Part I, Article 5.5).",
+  "version": 1,
+  "world": {
+    "shipRadius": 15,
+    "shipTube": 4.5,
+    "beamStrut": { "halfLength": 15, "height": 4.4, "depth": 4.4 },
+    "interiorTunnelRadius": 1.7
+  },
+  "locations": [
+    {
+      "id": "hero-viewpoint",
+      "name": "Hero Viewpoint",
+      "type": "viewpoint",
+      "travelZone": true,
+      "sectionAssignment": "HS-01 Hero",
+      "founderAssigned": true,
+      "camera": [0, 1.5, 54],
+      "look": [0, 0, 0],
+      "flags": { "showBeamFront": true }
+    },
+    {
+      "id": "the-approach",
+      "name": "The Approach",
+      "type": "viewpoint",
+      "travelZone": true,
+      "sectionAssignment": "HS-02 Why Businesses Are Falling Behind",
+      "founderAssigned": false,
+      "camera": [30, 5, 26],
+      "look": [4, 0, 2],
+      "flags": {}
+    },
+    {
+      "id": "chronicle-room",
+      "name": "Chronicle Room",
+      "type": "room",
+      "travelZone": true,
+      "sectionAssignment": "HS-03 Philosophy / Historical Timeline",
+      "founderAssigned": false,
+      "camera": [11.2, 0, 0],
+      "look": [6, 0, 0],
+      "flags": { "interior": true, "station": true }
+    },
+    {
+      "id": "diagnostics-bay",
+      "name": "Diagnostics Bay",
+      "type": "room",
+      "travelZone": true,
+      "sectionAssignment": "HS-04 The Bottleneck",
+      "founderAssigned": false,
+      "camera": [7.6, 0, 0],
+      "look": [2, 0, 0],
+      "flags": { "interior": true, "station": true }
+    },
+    {
+      "id": "engineering-deck",
+      "name": "Engineering Deck",
+      "type": "room",
+      "travelZone": true,
+      "sectionAssignment": "HS-05 The Infrastructure",
+      "founderAssigned": false,
+      "camera": [4.0, 0, 0],
+      "look": [-1, 0, 0],
+      "flags": { "interior": true, "station": true }
+    },
+    {
+      "id": "captains-room",
+      "name": "Captain's Room",
+      "type": "room",
+      "travelZone": true,
+      "sectionAssignment": "HS-10 Why Plerona + About (founder story, portrait)",
+      "founderAssigned": true,
+      "camera": [0.4, 0, 0],
+      "look": [-2.2, 0.6, -3.4],
+      "flags": { "interior": true, "commandSphere": true, "founderPortrait": true }
+    },
+    {
+      "id": "observation-deck",
+      "name": "Observation Deck",
+      "type": "room",
+      "travelZone": true,
+      "sectionAssignment": "HS-06 Infrastructure Transformations",
+      "founderAssigned": false,
+      "camera": [-4.2, 0, 0],
+      "look": [-9, 0, 0],
+      "flags": { "interior": true, "station": true }
+    },
+    {
+      "id": "operations-room",
+      "name": "Operations Room",
+      "type": "room",
+      "travelZone": true,
+      "sectionAssignment": "HS-07 Process",
+      "founderAssigned": false,
+      "camera": [-8.0, 0, 0],
+      "look": [-12.5, 0, 0],
+      "flags": { "interior": true, "station": true }
+    },
+    {
+      "id": "package-room",
+      "name": "Package Room",
+      "type": "room",
+      "travelZone": true,
+      "sectionAssignment": "HS-08 Offers + HS-09 Comparison (purchasing experience)",
+      "founderAssigned": true,
+      "camera": [-11.8, 0, 0],
+      "look": [-15.5, 0, 0],
+      "flags": { "interior": true, "station": true, "shop": true }
+    },
+    {
+      "id": "transmission-deck",
+      "name": "Transmission Deck",
+      "type": "viewpoint",
+      "travelZone": true,
+      "sectionAssignment": "HS-11 Final Conversion",
+      "founderAssigned": false,
+      "camera": [-14, 9, -46],
+      "look": [0, 2, -4],
+      "flags": { "showEngines": true }
+    }
+  ],
+  "transitPoints": [
+    { "after": "the-approach", "camera": [22, 1, 4], "look": [16, 0, 0] },
+    { "after": "the-approach", "camera": [17.5, 0, 0], "look": [14, 0, 0] },
+    { "after": "package-room", "camera": [-17.5, 0, 0], "look": [-21, 0, 0] },
+    { "after": "package-room", "camera": [-24, 3, -14], "look": [-4, 2, -4] }
+  ]
+}

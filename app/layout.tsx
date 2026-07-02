@@ -44,7 +44,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="bg-surface text-ink antialiased">
+      <body className="bg-space text-snow antialiased">
         <Navigation />
         <main id="content">{children}</main>
         <Footer />

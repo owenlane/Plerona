@@ -46,7 +46,7 @@ export default function Hero({
     <section className="relative flex min-h-[88vh] items-center overflow-hidden bg-ink pt-16 text-white">
       {/* Static gradient base — always present, so the hero is never blank
           even if the 3D layer is skipped (mobile) or fails to initialize. */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(26,86,219,0.14),_transparent_60%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(232,198,112,0.14),_transparent_60%)]" />
 
       {/* Progressive enhancement: 3D node graph on capable devices only,
           isolated by an error boundary so it can never crash the page. */}

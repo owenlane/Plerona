@@ -1,0 +1,25 @@
+{
+  "$description": "Plerona Design Tokens — Constitution Part IV. Single source of truth, expressed simultaneously as JSON (this file), CSS custom properties (styles/tokens.css), and Tailwind configuration (tailwind.config.ts).",
+  "color": {
+    "beam": "#E8C670",
+    "spaceDeep": "#0B0F1A",
+    "panel": "#1A1F2E",
+    "textPrimary": "#F5F7FA",
+    "textSecondary": "#A8B0C0",
+    "accentSuccess": "#4ADE80",
+    "accentError": "#F87171"
+  },
+  "typography": {
+    "fontHeader": "Inter Bold",
+    "fontBody": "Inter, system-ui",
+    "scale": { "minPx": 12, "maxPx": 96, "headerRatio": 1.25, "bodyRatio": 1.125 }
+  },
+  "spacing": { "baseUnitPx": 8, "scale": [4, 8, 12, 16, 24, 32, 40, 48, 56, 64, 80, 96] },
+  "radius": { "sm": 4, "md": 8, "lg": 16 },
+  "motion": {
+    "durationFastMs": 150,
+    "durationBaseMs": 300,
+    "durationSlowMs": 600,
+    "easing": "cubic-bezier(0.23, 1.0, 0.32, 1)"
+  }
+}

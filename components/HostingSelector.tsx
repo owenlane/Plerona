@@ -13,15 +13,15 @@ export default function HostingSelector({ selected, onSelect, surface = 'light' 
 
   return (
     <div>
-      <p className={`text-sm font-semibold ${dark ? 'text-white' : 'text-ink'}`}>
+      <p className={`text-sm font-semibold ${dark ? 'text-white' : 'text-snow'}`}>
         Monthly hosting <span className="font-normal text-graymid">(optional)</span>
       </p>
       <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
         {HOSTING_TIERS.map((tier) => {
           const active = selected === tier.id;
-          const baseCard = dark ? 'bg-white/[0.03] text-white' : 'bg-white text-ink';
+          const baseCard = 'bg-space/60 text-snow';
           const border = active
-            ? 'border-blue bg-blue-wash text-ink'
+            ? 'border-blue bg-blue-wash text-snow'
             : dark
               ? 'border-white/15'
               : 'border-rule';
@@ -39,7 +39,7 @@ export default function HostingSelector({ selected, onSelect, surface = 'light' 
                 <span className="text-xs font-normal text-graymid">/mo</span>
               </span>
               <span
-                className={`mt-2 text-xs leading-relaxed ${active ? 'text-ink/70' : 'text-graymid'}`}
+                className={`mt-2 text-xs leading-relaxed ${active ? 'text-snow/70' : 'text-graymid'}`}
               >
                 {tier.description}
               </span>

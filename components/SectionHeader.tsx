@@ -21,7 +21,7 @@ export default function SectionHeader({
 }: SectionHeaderProps) {
   const heading = Array.isArray(headline) ? headline : [headline];
   const sub = surface === 'dark' ? 'text-silver' : 'text-graymid';
-  const head = surface === 'dark' ? 'text-white' : 'text-ink';
+  const head = surface === 'dark' ? 'text-white' : 'text-snow';
   const alignment = align === 'center' ? 'text-center mx-auto' : 'text-left';
 
   return (

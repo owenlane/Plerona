@@ -43,7 +43,7 @@ export default function InfrastructureDiagram() {
             y1={cy}
             x2={n.x}
             y2={n.y}
-            stroke="#1a56db"
+            stroke="#E8C670"
             strokeWidth={1.25}
             initial={{ pathLength: 0, opacity: 0 }}
             animate={inView ? { pathLength: 1, opacity: 0.6 } : {}}
@@ -68,16 +68,16 @@ export default function InfrastructureDiagram() {
                 cx={n.x}
                 cy={n.y}
                 r={n.center ? 12 : 8}
-                fill={n.center ? '#1a56db' : '#ffffff'}
-                stroke={isActive ? '#1a56db' : 'transparent'}
+                fill={n.center ? '#E8C670' : '#F5F7FA'}
+                stroke={isActive ? '#E8C670' : 'transparent'}
                 strokeWidth={3}
-                className={n.center && inView && !reduced ? 'animate-pulse2' : ''}
+                className={''}
               />
               <text
                 x={n.x}
                 y={n.y + (n.center ? 30 : -16)}
                 textAnchor="middle"
-                fill={isActive ? '#ffffff' : '#c0c4cc'}
+                fill={isActive ? '#F5F7FA' : '#A8B0C0'}
                 style={{ fontSize: n.center ? 12 : 10.5, fontWeight: 600 }}
               >
                 {n.label}

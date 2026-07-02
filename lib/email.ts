@@ -4,7 +4,7 @@ import { MONEY, estimatedDelivery, CONSULT, IMPLEMENTATION } from './pricing';
 import type { Order } from './orders';
 
 const INK = '#0a0a0a';
-const BLUE = '#1a56db';
+const BLUE = '#E8C670'; // Beam token — transactional email accent
 const OFFWHITE = '#f7f7f7';
 const RULE = '#e4e4e4';
 const GRAY = '#888888';

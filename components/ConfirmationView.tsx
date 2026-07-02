@@ -74,13 +74,13 @@ export default function ConfirmationView({ offer, additionalConnections, hosting
     <>
       {/* Confirmation hero */}
       <section className="relative flex min-h-[60vh] items-center overflow-hidden bg-ink pt-16 text-white">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(26,86,219,0.14),_transparent_60%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(232,198,112,0.14),_transparent_60%)]" />
         <div className="container-px relative z-10 py-24">
           <div
             className="mb-8 flex h-12 w-12 items-center justify-center rounded-full border border-blue"
             aria-hidden
           >
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a56db" strokeWidth="2.5">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E8C670" strokeWidth="2.5">
               <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </div>
@@ -167,7 +167,7 @@ export default function ConfirmationView({ offer, additionalConnections, hosting
 
         {/* Reassurance — no upsell */}
         <div className="mt-16 rounded-[2px] border-l-[3px] border-blue bg-offwhite p-8">
-          <p className="max-w-2xl text-lg leading-[1.7] text-ink">
+          <p className="max-w-2xl text-lg leading-[1.7] text-snow">
             There is nothing else to buy right now. The next move is ours. Watch your inbox — we
             will be in touch shortly to begin.
           </p>

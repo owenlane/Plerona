@@ -108,14 +108,14 @@ export default function ConsultPage() {
           {/* 08 Upgrade Path */}
           <section className="rounded-[2px] border-l-[3px] border-blue bg-offwhite p-8">
             <p className="eyebrow tracking-eyebrow mb-3">What Happens Next</p>
-            <p className="max-w-2xl text-lg leading-[1.7] text-ink">
+            <p className="max-w-2xl text-lg leading-[1.7] text-snow">
               Most clients who complete the Roadmap proceed to Implementation. Your roadmap becomes
               the blueprint — and your Roadmap credit applies to Implementation if you proceed within
               30 days.
             </p>
             <Link
               href="/implementation"
-              className="mt-6 inline-flex rounded-[2px] border border-ink/20 px-6 py-3 text-sm font-semibold transition-colors hover:bg-ink/[0.04]"
+              className="mt-6 inline-flex rounded-[2px] border border-snow/20 px-6 py-3 text-sm font-semibold transition-colors hover:bg-snow/[0.06]"
             >
               View Implementation
             </Link>
@@ -138,7 +138,7 @@ export default function ConsultPage() {
             </ul>
             <Link
               href="/checkout?offer=consult"
-              className="mt-7 block rounded-[2px] bg-blue px-6 py-3.5 text-center text-sm font-semibold text-white transition-colors hover:bg-blue-hover"
+              className="mt-7 block rounded-[2px] bg-blue px-6 py-3.5 text-center text-sm font-semibold text-space transition-colors hover:bg-blue-hover"
             >
               {CONSULT.ctaLabel}
             </Link>
