@@ -6,7 +6,8 @@
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
 <meta name="referrer" content="no-referrer" />
 <meta name="theme-color" content="#FCFBF9" />
-<title>The Content Operating System · Private Workspace</title>
+<!-- CALL_TWO_WORKSPACE_VERSION = "2026-call-two-v1" -->
+<title>The Complete Growth Blueprint · Call Two · Private Workspace</title>
 <style>
   :root{
     --bg:#FCFBF8;
@@ -21,371 +22,21 @@
     --bronze-deep:#7E4F1E;
     --bronze-tint:rgba(162,104,44,0.06);
     --bronze-tint-2:rgba(162,104,44,0.14);
+    --green:#3E5F45;
+    --amber:#B5771F;
+    --red:#8C3B2E;
     --serif:"Iowan Old Style","Palatino Linotype","Palatino","Book Antiqua",Georgia,"Times New Roman",serif;
     --sans:"Inter","Inter Variable",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
     --shadow:0 1px 1px rgba(10,10,10,0.02), 0 10px 30px -22px rgba(10,10,10,0.28);
     --ease:cubic-bezier(.22,1,.36,1);
   }
-
   *{box-sizing:border-box;}
   html,body{height:100%;}
   body{
-    margin:0;
-    background:var(--bg);
-    color:var(--ink);
-    font-family:var(--sans);
-    font-size:17px;
-    line-height:1.55;
-    -webkit-font-smoothing:antialiased;
-    overflow:hidden;
+    margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+    font-size:16.5px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow:hidden;
   }
   ::selection{background:var(--bronze-tint-2);}
-
-  /* ---------- Chrome ---------- */
-  header.bar{
-    position:fixed;top:0;left:0;right:0;height:64px;z-index:40;
-    display:flex;align-items:center;gap:24px;
-    padding:0 32px;
-    background:rgba(252,251,248,0.88);
-    backdrop-filter:saturate(1.2) blur(14px);
-    border-bottom:1px solid var(--line);
-  }
-  .mark{display:flex;align-items:baseline;gap:12px;white-space:nowrap;}
-  .mark .word{
-    font-family:var(--sans);font-size:11px;letter-spacing:.2em;text-transform:uppercase;
-    color:var(--ink);font-weight:700;
-  }
-  .mark .sep{width:1px;height:14px;background:var(--line-strong);display:inline-block;transform:translateY(2px);}
-  .mark .sub{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);}
-
-  .rail{flex:1;display:flex;align-items:center;gap:16px;min-width:0;}
-  .track{position:relative;height:2px;background:var(--line);flex:1;border-radius:2px;overflow:hidden;}
-  .track .fill{position:absolute;inset:0 auto 0 0;width:0;background:var(--bronze);transition:width .6s var(--ease);}
-  .clock{
-    font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
-    white-space:nowrap;font-variant-numeric:tabular-nums;
-  }
-
-  .tools{display:flex;align-items:center;gap:8px;}
-  .tool{
-    appearance:none;border:1px solid var(--line-strong);background:transparent;
-    color:var(--ink-2);font-family:var(--sans);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
-    padding:9px 14px;border-radius:999px;cursor:pointer;transition:all .25s var(--ease);white-space:nowrap;
-  }
-  .tool:hover{border-color:var(--bronze);color:var(--bronze-deep);background:var(--bronze-tint);}
-  .tool.on{background:var(--ink);border-color:var(--ink);color:var(--bg);}
-
-  /* ---------- Stage ---------- */
-  main{
-    position:fixed;top:64px;bottom:88px;left:0;right:0;
-    overflow-y:auto;overflow-x:hidden;scroll-behavior:smooth;
-  }
-  .wrap{max-width:1140px;margin:0 auto;padding:56px 40px 80px;}
-
-  section.step{display:none;}
-  section.step.active{display:block;}
-  section.step.active .rise{animation:rise .62s var(--ease) both;}
-  section.step.active .rise:nth-child(1){animation-delay:.02s}
-  section.step.active .rise:nth-child(2){animation-delay:.08s}
-  section.step.active .rise:nth-child(3){animation-delay:.14s}
-  section.step.active .rise:nth-child(4){animation-delay:.20s}
-  section.step.active .rise:nth-child(5){animation-delay:.26s}
-  section.step.active .rise:nth-child(6){animation-delay:.32s}
-  section.step.active .rise:nth-child(7){animation-delay:.38s}
-  @keyframes rise{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
-  @media (prefers-reduced-motion:reduce){
-    *{animation:none !important;transition:none !important;}
-  }
-
-  .eyebrow{
-    font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--bronze-deep);
-    font-weight:600;margin:0 0 18px;display:flex;align-items:center;gap:12px;
-  }
-  .eyebrow:before{content:"";width:22px;height:1px;background:var(--bronze);display:block;}
-
-  h1{
-    font-family:var(--serif);font-weight:400;color:var(--ink);
-    font-size:clamp(38px,4.4vw,60px);line-height:1.06;letter-spacing:-0.015em;
-    margin:0 0 20px;
-  }
-  h2{
-    font-family:var(--serif);font-weight:400;color:var(--ink);
-    font-size:clamp(30px,3.2vw,44px);line-height:1.1;letter-spacing:-0.012em;
-    margin:0 0 14px;
-  }
-  h3{font-family:var(--sans);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:700;margin:0 0 14px;}
-  .lede{font-size:20px;line-height:1.5;color:var(--ink-2);max-width:62ch;margin:0 0 40px;}
-  .lede em{font-family:var(--serif);font-style:italic;color:var(--ink);}
-  .quiet{color:var(--muted);font-size:14.5px;}
-
-  hr.rule{border:0;height:1px;background:var(--line);margin:44px 0;}
-
-  /* ---------- Cards & fields ---------- */
-  .grid{display:grid;gap:18px;}
-  .g2{grid-template-columns:repeat(2,1fr);}
-  .g3{grid-template-columns:repeat(3,1fr);}
-  .g4{grid-template-columns:repeat(4,1fr);}
-  @media (max-width:900px){.g2,.g3,.g4{grid-template-columns:1fr;}}
-
-  .card{
-    background:var(--card);border:1px solid var(--line);border-radius:14px;
-    padding:24px 26px;box-shadow:var(--shadow);transition:border-color .3s var(--ease),transform .3s var(--ease);
-  }
-  .card.flat{box-shadow:none;background:transparent;}
-  .card.picked{border-color:var(--bronze);box-shadow:0 0 0 1px var(--bronze), var(--shadow);}
-  .card .num{
-    font-family:var(--serif);font-size:13px;color:var(--bronze);letter-spacing:.06em;margin-bottom:10px;display:block;
-  }
-  .card h4{font-family:var(--serif);font-weight:400;font-size:23px;margin:0 0 8px;letter-spacing:-0.01em;}
-  .card p{margin:0;color:var(--ink-2);font-size:15.5px;line-height:1.5;}
-
-  label.field{display:block;margin-bottom:20px;}
-  label.field > span{
-    display:block;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
-    color:var(--muted);font-weight:600;margin-bottom:9px;
-  }
-  input[type=text], textarea{
-    width:100%;font-family:var(--sans);font-size:17px;color:var(--ink);
-    background:var(--card);border:1px solid var(--line);border-radius:10px;
-    padding:14px 16px;line-height:1.5;resize:vertical;
-    transition:border-color .25s var(--ease), box-shadow .25s var(--ease), background .25s var(--ease);
-  }
-  textarea{min-height:92px;}
-  textarea.tall{min-height:130px;}
-  textarea.short{min-height:64px;}
-  input[type=text]:focus, textarea:focus{
-    outline:none;border-color:var(--bronze);
-    box-shadow:0 0 0 4px var(--bronze-tint);
-    background:#fff;
-  }
-  input::placeholder, textarea::placeholder{color:#A9A49A;}
-
-  .verbatim{
-    font-family:var(--serif);font-size:19px;font-style:italic;line-height:1.5;
-    border:1px solid var(--line);border-left:2px solid var(--bronze);
-    border-radius:0 10px 10px 0;background:var(--card);padding:16px 18px;min-height:74px;
-  }
-  .verbatim:focus{border-left-color:var(--bronze-deep);}
-
-  /* choices */
-  .choices{display:flex;flex-wrap:wrap;gap:10px;}
-  .choice{
-    appearance:none;cursor:pointer;font-family:var(--sans);
-    background:var(--card);border:1px solid var(--line-strong);color:var(--ink-2);
-    padding:11px 20px;border-radius:999px;font-size:14.5px;letter-spacing:.01em;
-    transition:all .28s var(--ease);
-  }
-  .choice:hover{border-color:var(--bronze);color:var(--bronze-deep);}
-  .choice[aria-pressed=true]{
-    background:var(--ink);border-color:var(--ink);color:var(--bg);
-    box-shadow:0 6px 18px -10px rgba(23,21,15,.6);
-  }
-  .choice.bronze[aria-pressed=true]{background:var(--bronze);border-color:var(--bronze);color:#fff;}
-
-  /* big selectable cards */
-  .pickset{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
-  @media (max-width:900px){.pickset{grid-template-columns:1fr;}}
-  .pick{
-    text-align:left;cursor:pointer;font-family:var(--sans);
-    background:var(--card);border:1px solid var(--line);border-radius:16px;
-    padding:28px;transition:all .32s var(--ease);position:relative;overflow:hidden;
-  }
-  .pick:before{
-    content:"";position:absolute;inset:0;background:var(--bronze-tint);opacity:0;transition:opacity .32s var(--ease);
-  }
-  .pick > *{position:relative;}
-  .pick:hover{transform:translateY(-2px);border-color:var(--line-strong);}
-  .pick[aria-pressed=true]{border-color:var(--bronze);box-shadow:0 0 0 1px var(--bronze), var(--shadow);}
-  .pick[aria-pressed=true]:before{opacity:1;}
-  .pick .tick{
-    position:absolute;top:20px;right:20px;width:22px;height:22px;border-radius:50%;
-    border:1px solid var(--line-strong);display:grid;place-items:center;transition:all .3s var(--ease);
-  }
-  .pick[aria-pressed=true] .tick{background:var(--bronze);border-color:var(--bronze);}
-  .pick .tick svg{width:12px;height:12px;opacity:0;transition:opacity .3s var(--ease);}
-  .pick[aria-pressed=true] .tick svg{opacity:1;}
-  .pick h4{font-family:var(--serif);font-size:26px;font-weight:400;margin:0 0 10px;letter-spacing:-0.01em;}
-  .pick p{margin:0;font-size:15px;color:var(--ink-2);line-height:1.5;}
-  .pick .kicker{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--bronze-deep);font-weight:600;margin-bottom:14px;display:block;}
-
-  /* checklist */
-  .checks{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
-  @media (max-width:900px){.checks{grid-template-columns:1fr;}}
-  .check{
-    display:flex;align-items:center;gap:14px;cursor:pointer;
-    background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;
-    transition:all .26s var(--ease);font-size:16px;
-  }
-  .check:hover{border-color:var(--line-strong);}
-  .check input{position:absolute;opacity:0;pointer-events:none;}
-  .box{
-    width:20px;height:20px;border-radius:5px;border:1px solid var(--line-strong);
-    display:grid;place-items:center;flex:none;transition:all .26s var(--ease);background:#fff;
-  }
-  .box svg{width:12px;height:12px;opacity:0;transform:scale(.6);transition:all .26s var(--ease);}
-  .check input:checked ~ .box{background:var(--bronze);border-color:var(--bronze);}
-  .check input:checked ~ .box svg{opacity:1;transform:none;}
-  .check input:checked ~ .txt{color:var(--ink);}
-  .check input:focus-visible ~ .box{box-shadow:0 0 0 4px var(--bronze-tint);}
-  .check .txt{color:var(--ink-2);transition:color .26s var(--ease);}
-
-  /* risk rows */
-  .riskrow{
-    display:grid;grid-template-columns:210px 1fr 260px;gap:20px;align-items:start;
-    padding:22px 0;border-top:1px solid var(--line);
-  }
-  .riskrow:last-of-type{border-bottom:1px solid var(--line);}
-  @media (max-width:1000px){.riskrow{grid-template-columns:1fr;gap:12px;}}
-  .riskrow .name{font-family:var(--serif);font-size:22px;letter-spacing:-0.01em;}
-  .riskrow .name small{display:block;font-family:var(--sans);font-size:13px;color:var(--muted);letter-spacing:0;margin-top:4px;line-height:1.4;}
-  .lvl{display:flex;gap:8px;}
-  .lvl .choice{padding:9px 16px;font-size:13.5px;flex:1;text-align:center;}
-  .lvl .choice[data-value=Low][aria-pressed=true]{background:#3E5F45;border-color:#3E5F45;color:#fff;}
-  .lvl .choice[data-value=Medium][aria-pressed=true]{background:var(--bronze);border-color:var(--bronze);color:#fff;}
-  .lvl .choice[data-value=High][aria-pressed=true]{background:#8C3B2E;border-color:#8C3B2E;color:#fff;}
-
-  /* statement slides */
-  .statement{
-    display:flex;flex-direction:column;justify-content:center;min-height:56vh;
-  }
-  .statement .big{
-    font-family:var(--serif);font-size:clamp(34px,4.2vw,58px);line-height:1.14;letter-spacing:-0.015em;
-    max-width:20ch;margin:0 0 28px;
-  }
-  .statement .big .accent{color:var(--bronze);}
-
-  .split{display:grid;grid-template-columns:1fr auto 1fr;gap:40px;align-items:center;margin-top:20px;}
-  @media (max-width:900px){.split{grid-template-columns:1fr;gap:20px;}}
-  .split .side{padding:32px;border:1px solid var(--line);border-radius:16px;background:var(--card);}
-  .split .side.dim{background:transparent;box-shadow:none;}
-  .split .side h4{font-family:var(--serif);font-size:30px;font-weight:400;margin:0 0 12px;}
-  .split .side ul{margin:0;padding-left:18px;color:var(--ink-2);}
-  .split .side li{margin-bottom:8px;}
-  .split .vs{font-family:var(--serif);font-style:italic;color:var(--muted);font-size:20px;text-align:center;}
-  .split .side.strong{border-color:var(--bronze);box-shadow:0 0 0 1px var(--bronze), var(--shadow);}
-
-  /* output badge */
-  .output{
-    margin-top:44px;display:inline-flex;align-items:center;gap:12px;
-    border:1px solid var(--line);border-radius:999px;padding:10px 18px 10px 12px;background:var(--card);
-    font-size:13.5px;color:var(--muted);
-  }
-  .output .dot{
-    width:20px;height:20px;border-radius:50%;border:1px solid var(--line-strong);
-    display:grid;place-items:center;transition:all .4s var(--ease);
-  }
-  .output .dot svg{width:11px;height:11px;opacity:0;transition:opacity .3s var(--ease);}
-  .output.done{border-color:var(--bronze);color:var(--bronze-deep);}
-  .output.done .dot{background:var(--bronze);border-color:var(--bronze);}
-  .output.done .dot svg{opacity:1;}
-
-  /* blueprint */
-  .bp{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
-  @media (max-width:900px){.bp{grid-template-columns:1fr;}}
-  .bp .panel{
-    background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 28px;
-    opacity:0;transform:translateY(12px);
-  }
-  .bp .panel.in{animation:rise .6s var(--ease) forwards;}
-  .bp .panel.wide{grid-column:1 / -1;}
-  .bp .panel header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
-  .bp .panel h3{margin:0;}
-  .bp .check{all:unset;width:22px;height:22px;border-radius:50%;background:var(--bronze-tint);display:grid;place-items:center;}
-  .bp .check svg{width:12px;height:12px;opacity:0;transform:scale(.5);}
-  .bp .panel.in .check svg{animation:pop .5s var(--ease) .35s forwards;}
-  @keyframes pop{to{opacity:1;transform:none;}}
-  .bp .val{font-family:var(--serif);font-size:21px;line-height:1.4;color:var(--ink);white-space:pre-wrap;}
-  .bp .val.small{font-size:17px;font-family:var(--sans);color:var(--ink-2);}
-  .bp ul.list{list-style:none;margin:0;padding:0;}
-  .bp ul.list li{
-    padding:10px 0;border-bottom:1px dashed var(--line);display:flex;gap:12px;align-items:baseline;
-    font-size:16.5px;color:var(--ink-2);
-  }
-  .bp ul.list li:last-child{border-bottom:0;}
-  .bp ul.list li .idx{font-family:var(--serif);color:var(--bronze);font-size:13px;min-width:16px;}
-  .empty{color:#A9A49A;font-style:italic;font-family:var(--sans);font-size:15px;}
-  .chip{
-    display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;
-    padding:5px 11px;border-radius:999px;border:1px solid var(--line-strong);color:var(--muted);
-  }
-  .chip.Low{background:#3E5F45;border-color:#3E5F45;color:#fff;}
-  .chip.Medium{background:var(--bronze);border-color:var(--bronze);color:#fff;}
-  .chip.High{background:#8C3B2E;border-color:#8C3B2E;color:#fff;}
-
-  /* ---------- Footer nav ---------- */
-  footer.nav{
-    position:fixed;bottom:0;left:0;right:0;height:88px;z-index:40;
-    display:flex;align-items:center;justify-content:space-between;gap:24px;padding:0 32px;
-    background:rgba(252,251,248,0.92);backdrop-filter:saturate(1.2) blur(14px);
-    border-top:1px solid var(--line);
-  }
-  .navbtn{
-    appearance:none;cursor:pointer;font-family:var(--sans);font-size:14px;letter-spacing:.02em;
-    border:1px solid var(--line-strong);background:transparent;color:var(--ink);
-    padding:14px 26px;border-radius:999px;transition:all .28s var(--ease);white-space:nowrap;
-    display:inline-flex;align-items:center;gap:10px;
-  }
-  .navbtn:hover{border-color:var(--bronze);color:var(--bronze-deep);}
-  .navbtn.primary{background:var(--ink);border-color:var(--ink);color:var(--bg);}
-  .navbtn.primary:hover{background:var(--bronze-deep);border-color:var(--bronze-deep);color:#fff;}
-  .navbtn:disabled{opacity:.3;cursor:not-allowed;}
-  .dots{display:flex;gap:7px;flex:1;justify-content:center;flex-wrap:wrap;}
-  .dot-btn{
-    appearance:none;border:0;background:transparent;padding:6px 2px;cursor:pointer;
-  }
-  .dot-btn i{
-    display:block;width:24px;height:3px;border-radius:2px;background:var(--line-strong);
-    transition:all .32s var(--ease);
-  }
-  .dot-btn:hover i{background:var(--bronze);}
-  .dot-btn.active i{background:var(--ink);}
-  .dot-btn.past i{background:var(--bronze-tint-2);}
-  .dot-btn:focus-visible i{box-shadow:0 0 0 3px var(--bronze-tint);}
-
-  /* ---------- Facilitator notes ---------- */
-  .fnotes{
-    position:fixed;right:24px;bottom:104px;width:340px;max-height:46vh;overflow-y:auto;z-index:50;
-    background:#0A0A0A;color:#F2EFE9;border-radius:14px;padding:22px 24px;
-    box-shadow:0 24px 60px -24px rgba(0,0,0,.6);
-    transform:translateY(12px) scale(.98);opacity:0;pointer-events:none;transition:all .35s var(--ease);
-  }
-  .fnotes.show{transform:none;opacity:1;pointer-events:auto;}
-  .fnotes h5{margin:0 0 12px;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:#D6A863;font-weight:600;}
-  .fnotes p{margin:0 0 10px;font-size:14.5px;line-height:1.55;color:#E2DED5;}
-  .fnotes p:last-child{margin:0;}
-  .fnotes strong{color:#fff;font-weight:600;}
-  .fnotes .say{font-family:var(--serif);font-style:italic;color:#F1E7D6;}
-
-  .toast{
-    position:fixed;left:50%;bottom:104px;transform:translate(-50%,10px);z-index:60;
-    background:var(--ink);color:var(--bg);padding:12px 20px;border-radius:999px;font-size:13.5px;
-    opacity:0;pointer-events:none;transition:all .35s var(--ease);letter-spacing:.02em;
-  }
-  .toast.show{opacity:1;transform:translate(-50%,0);}
-
-  .cover-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:8px;}
-  @media (max-width:900px){.cover-meta{grid-template-columns:1fr;}}
-
-  .timemap{border-top:1px solid var(--line);}
-  .timemap .row{
-    display:grid;grid-template-columns:120px 1fr;gap:24px;padding:16px 0;border-bottom:1px solid var(--line);
-    align-items:baseline;
-  }
-  .timemap .t{font-size:12.5px;letter-spacing:.12em;color:var(--bronze-deep);font-variant-numeric:tabular-nums;text-transform:uppercase;}
-  .timemap .d{font-family:var(--serif);font-size:20px;}
-  .timemap .d small{display:block;font-family:var(--sans);font-size:14px;color:var(--muted);margin-top:2px;}
-
-  .sortrow{
-    display:grid;grid-template-columns:1fr 300px;gap:20px;align-items:center;
-    padding:18px 0;border-top:1px solid var(--line);
-  }
-  .sortrow:last-of-type{border-bottom:1px solid var(--line);}
-  @media (max-width:900px){.sortrow{grid-template-columns:1fr;gap:10px;}}
-  .sortrow .pname{font-family:var(--serif);font-size:22px;}
-  .sortrow .pnote{font-size:14.5px;color:var(--muted);margin-top:2px;}
-
-  .hint{font-size:14px;color:var(--muted);margin:-8px 0 20px;}
-  .ask{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--bronze-deep);margin:0 0 26px;}
 
   /* ---------- Password gate ---------- */
   body.locked header.bar,
@@ -393,91 +44,287 @@
   body.locked footer.nav,
   body.locked .fnotes,
   body.locked .toast{display:none !important;}
-
-  .gate{
-    position:fixed;inset:0;z-index:100;display:none;
-    align-items:center;justify-content:center;padding:32px;
-    background:var(--bg);
-  }
+  .gate{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:32px;background:var(--bg);}
   body.locked .gate{display:flex;}
-  .gate:before{
-    content:"";position:absolute;inset:0;
-    background:radial-gradient(120% 90% at 50% -10%, rgba(162,104,44,0.07), transparent 60%);
-    pointer-events:none;
-  }
-  .gate-inner{
-    position:relative;width:100%;max-width:420px;text-align:center;
-    animation:rise .6s var(--ease) both;
-  }
-  .gate .seal{
-    width:44px;height:44px;margin:0 auto 28px;border-radius:50%;
-    border:1px solid var(--line-strong);display:grid;place-items:center;background:var(--card);
-  }
+  .gate:before{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 50% -10%, rgba(162,104,44,0.07), transparent 60%);pointer-events:none;}
+  .gate-inner{position:relative;width:100%;max-width:420px;text-align:center;animation:rise .6s var(--ease) both;}
+  .gate .seal{width:44px;height:44px;margin:0 auto 28px;border-radius:50%;border:1px solid var(--line-strong);display:grid;place-items:center;background:var(--card);}
   .gate .seal svg{width:17px;height:17px;}
-  .gate .brandline{
-    font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--bronze-deep);
-    font-weight:700;margin:0 0 14px;
-  }
-  .gate h1{font-size:34px;margin:0 0 12px;letter-spacing:-0.02em;}
+  .gate .brandline{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--bronze-deep);font-weight:700;margin:0 0 14px;}
+  .gate h1{font-family:var(--serif);font-weight:400;font-size:34px;margin:0 0 12px;letter-spacing:-0.02em;}
   .gate p.sub{color:var(--muted);font-size:15.5px;margin:0 0 32px;}
   .gate form{display:flex;flex-direction:column;gap:12px;}
-  .gate input[type=password]{
-    width:100%;font-family:var(--sans);font-size:18px;color:var(--ink);text-align:center;
-    letter-spacing:.14em;background:var(--card);border:1px solid var(--line-strong);
-    border-radius:12px;padding:16px;transition:all .25s var(--ease);
-  }
-  .gate input[type=password]:focus{
-    outline:none;border-color:var(--bronze);box-shadow:0 0 0 4px var(--bronze-tint);
-  }
-  .gate button{
-    appearance:none;cursor:pointer;font-family:var(--sans);font-size:15px;
-    background:var(--ink);color:#fff;border:1px solid var(--ink);
-    border-radius:12px;padding:16px;transition:all .25s var(--ease);
-  }
+  .gate input[type=password]{width:100%;font-family:var(--sans);font-size:18px;color:var(--ink);text-align:center;letter-spacing:.14em;background:var(--card);border:1px solid var(--line-strong);border-radius:12px;padding:16px;transition:all .25s var(--ease);}
+  .gate input[type=password]:focus{outline:none;border-color:var(--bronze);box-shadow:0 0 0 4px var(--bronze-tint);}
+  .gate button{appearance:none;cursor:pointer;font-family:var(--sans);font-size:15px;background:var(--ink);color:#fff;border:1px solid var(--ink);border-radius:12px;padding:16px;transition:all .25s var(--ease);}
   .gate button:hover{background:var(--bronze-deep);border-color:var(--bronze-deep);}
-  .gate .err{
-    min-height:20px;margin-top:14px;font-size:13.5px;color:#8C3B2E;opacity:0;transition:opacity .2s;
-  }
+  .gate .err{min-height:20px;margin-top:14px;font-size:13.5px;color:var(--red);opacity:0;transition:opacity .2s;}
   .gate .err.show{opacity:1;}
   .gate .foot{margin-top:36px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);}
   .gate.shake .gate-inner{animation:shake .38s var(--ease);}
-  @keyframes shake{
-    0%,100%{transform:translateX(0)}
-    20%{transform:translateX(-8px)}
-    40%{transform:translateX(7px)}
-    60%{transform:translateX(-4px)}
-    80%{transform:translateX(3px)}
+  @keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(7px)}60%{transform:translateX(-4px)}80%{transform:translateX(3px)}}
+
+  /* ---------- Chrome ---------- */
+  header.bar{position:fixed;top:0;left:0;right:0;height:64px;z-index:40;display:flex;align-items:center;gap:22px;padding:0 28px;background:rgba(252,251,248,0.88);backdrop-filter:saturate(1.2) blur(14px);border-bottom:1px solid var(--line);}
+  .mark{display:flex;align-items:baseline;gap:12px;white-space:nowrap;min-width:0;}
+  .mark .word{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);font-weight:700;}
+  .mark .sep{width:1px;height:14px;background:var(--line-strong);display:inline-block;transform:translateY(2px);}
+  .mark .sub{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);overflow:hidden;text-overflow:ellipsis;}
+  @media (max-width:1120px){.mark .sub{display:none;}}
+  .rail{flex:1;display:flex;align-items:center;gap:14px;min-width:0;}
+  .track{position:relative;height:2px;background:var(--line);flex:1;border-radius:2px;overflow:hidden;}
+  .track .fill{position:absolute;inset:0 auto 0 0;width:0;background:var(--bronze);transition:width .6s var(--ease);}
+  .clock{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums;}
+  .tools{display:flex;align-items:center;gap:8px;}
+  .tool{appearance:none;border:1px solid var(--line-strong);background:transparent;color:var(--ink-2);font-family:var(--sans);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:9px 13px;border-radius:999px;cursor:pointer;transition:all .25s var(--ease);white-space:nowrap;}
+  .tool:hover{border-color:var(--bronze);color:var(--bronze-deep);background:var(--bronze-tint);}
+  .tool.on{background:var(--ink);border-color:var(--ink);color:var(--bg);}
+
+  /* ---------- Stage ---------- */
+  main{position:fixed;top:64px;bottom:86px;left:0;right:0;overflow-y:auto;overflow-x:hidden;scroll-behavior:smooth;}
+  .wrap{max-width:1120px;margin:0 auto;padding:44px 40px 72px;}
+  @media (max-width:720px){.wrap{padding:32px 20px 60px;}}
+  section.step{display:none;}
+  section.step.active{display:block;}
+  section.step.active .rise{animation:rise .5s var(--ease) both;}
+  section.step.active .rise:nth-child(1){animation-delay:.02s}
+  section.step.active .rise:nth-child(2){animation-delay:.07s}
+  section.step.active .rise:nth-child(3){animation-delay:.12s}
+  section.step.active .rise:nth-child(4){animation-delay:.17s}
+  section.step.active .rise:nth-child(5){animation-delay:.22s}
+  @keyframes rise{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:none;}}
+  @media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important;}}
+
+  .eyebrow{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--bronze-deep);font-weight:700;margin:0 0 16px;display:flex;align-items:center;gap:12px;}
+  .eyebrow:before{content:"";width:22px;height:1px;background:var(--bronze);display:block;}
+  h1{font-family:var(--serif);font-weight:400;color:var(--ink);font-size:clamp(36px,4.2vw,56px);line-height:1.06;letter-spacing:-0.015em;margin:0 0 18px;}
+  h2{font-family:var(--serif);font-weight:400;color:var(--ink);font-size:clamp(28px,3vw,42px);line-height:1.1;letter-spacing:-0.012em;margin:0 0 14px;}
+  h3{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700;margin:0 0 14px;}
+  .lede{font-size:19px;line-height:1.5;color:var(--ink-2);max-width:64ch;margin:0 0 34px;}
+  .lede em{font-family:var(--serif);font-style:italic;color:var(--ink);}
+  hr.rule{border:0;height:1px;background:var(--line);margin:36px 0;}
+  .ask{font-family:var(--serif);font-style:italic;font-size:21px;color:var(--bronze-deep);margin:0 0 22px;}
+  .hint{font-size:13.5px;color:var(--muted);margin:6px 0 18px;}
+
+  .grid{display:grid;gap:16px;}
+  .g2{grid-template-columns:repeat(2,1fr);}
+  .g3{grid-template-columns:repeat(3,1fr);}
+  .g4{grid-template-columns:repeat(4,1fr);}
+  @media (max-width:900px){.g2,.g3,.g4{grid-template-columns:1fr;}}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;box-shadow:var(--shadow);}
+  .card.flat{box-shadow:none;background:transparent;}
+
+  /* Settled-from-Call-One block */
+  .settled{background:var(--bronze-tint);border:1px solid var(--line);border-left:3px solid var(--bronze);border-radius:0 12px 12px 0;padding:18px 22px;}
+  .settled .tag{display:inline-flex;align-items:center;gap:8px;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--bronze-deep);font-weight:700;margin-bottom:10px;}
+  .settled .tag svg{width:13px;height:13px;}
+  .settled h4{font-family:var(--serif);font-weight:400;font-size:20px;margin:0 0 6px;letter-spacing:-0.01em;}
+  .settled p{margin:0;color:var(--ink-2);font-size:15px;line-height:1.5;}
+  .settled ul{margin:8px 0 0;padding-left:18px;color:var(--ink-2);font-size:15px;}
+  .settled li{margin-bottom:5px;}
+
+  label.field{display:block;margin-bottom:18px;}
+  label.field > span, .flabel{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:8px;}
+  input[type=text], input[type=date], input[type=time], textarea{
+    width:100%;font-family:var(--sans);font-size:16px;color:var(--ink);background:var(--card);
+    border:1px solid var(--line);border-radius:10px;padding:12px 14px;line-height:1.5;resize:vertical;
+    transition:border-color .2s var(--ease), box-shadow .2s var(--ease), background .2s var(--ease);
   }
+  textarea{min-height:80px;}
+  textarea.short{min-height:56px;}
+  input:focus, textarea:focus{outline:none;border-color:var(--bronze);box-shadow:0 0 0 4px var(--bronze-tint);background:#fff;}
+  input::placeholder, textarea::placeholder{color:#A9A49A;}
+  .counter{font-size:11px;color:#B4AEA3;text-align:right;margin-top:4px;font-variant-numeric:tabular-nums;}
+
+  /* choices / segmented */
+  .choices{display:flex;flex-wrap:wrap;gap:9px;}
+  .choice{appearance:none;cursor:pointer;font-family:var(--sans);background:var(--card);border:1px solid var(--line-strong);color:var(--ink-2);padding:10px 18px;border-radius:999px;font-size:14px;transition:all .22s var(--ease);}
+  .choice:hover{border-color:var(--bronze);color:var(--bronze-deep);}
+  .choice[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:var(--bg);}
+  .choice.bronze[aria-pressed=true]{background:var(--bronze);border-color:var(--bronze);color:#fff;}
+  .seg{display:inline-flex;gap:6px;}
+  .seg .choice{padding:8px 14px;min-width:40px;text-align:center;}
+  .lvl .choice[data-value=Low][aria-pressed=true]{background:var(--green);border-color:var(--green);color:#fff;}
+  .lvl .choice[data-value=Medium][aria-pressed=true]{background:var(--amber);border-color:var(--amber);color:#fff;}
+  .lvl .choice[data-value=High][aria-pressed=true]{background:var(--red);border-color:var(--red);color:#fff;}
+
+  /* selectable big cards */
+  .pick{text-align:left;cursor:pointer;font-family:var(--sans);background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;transition:all .28s var(--ease);position:relative;}
+  .pick:hover{transform:translateY(-2px);border-color:var(--line-strong);}
+  .pick[aria-pressed=true]{border-color:var(--bronze);box-shadow:0 0 0 1px var(--bronze), var(--shadow);}
+  .pick .tick{position:absolute;top:18px;right:18px;width:20px;height:20px;border-radius:50%;border:1px solid var(--line-strong);display:grid;place-items:center;transition:all .3s var(--ease);}
+  .pick[aria-pressed=true] .tick{background:var(--bronze);border-color:var(--bronze);}
+  .pick .tick svg{width:11px;height:11px;opacity:0;transition:opacity .3s var(--ease);}
+  .pick[aria-pressed=true] .tick svg{opacity:1;}
+  .pick .kicker{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--bronze-deep);font-weight:700;margin-bottom:10px;display:block;}
+  .pick h4{font-family:var(--serif);font-size:22px;font-weight:400;margin:0 0 8px;letter-spacing:-0.01em;}
+  .pick p{margin:0;font-size:14px;color:var(--ink-2);line-height:1.5;}
+  .pick.locked{cursor:default;border-color:var(--bronze);background:var(--bronze-tint);}
+  .pick.locked:hover{transform:none;}
+
+  /* checkbox row */
+  .check{display:flex;align-items:flex-start;gap:12px;cursor:pointer;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;transition:all .22s var(--ease);font-size:15px;}
+  .check:hover{border-color:var(--line-strong);}
+  .check input{position:absolute;opacity:0;pointer-events:none;}
+  .box{width:19px;height:19px;border-radius:5px;border:1px solid var(--line-strong);display:grid;place-items:center;flex:none;transition:all .22s var(--ease);background:#fff;margin-top:1px;}
+  .box svg{width:11px;height:11px;opacity:0;transform:scale(.6);transition:all .22s var(--ease);}
+  .check input:checked ~ .box{background:var(--bronze);border-color:var(--bronze);}
+  .check input:checked ~ .box svg{opacity:1;transform:none;}
+  .check input:focus-visible ~ .box{box-shadow:0 0 0 4px var(--bronze-tint);}
+  .check .txt{color:var(--ink-2);}
+
+  /* disclosure */
+  details.disc{margin-top:6px;border-top:1px dashed var(--line);padding-top:12px;}
+  details.disc>summary{cursor:pointer;list-style:none;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--bronze-deep);font-weight:700;display:inline-flex;align-items:center;gap:8px;}
+  details.disc>summary::-webkit-details-marker{display:none;}
+  details.disc>summary:before{content:"+";font-size:15px;line-height:1;}
+  details.disc[open]>summary:before{content:"–";}
+  details.disc>summary:hover{color:var(--bronze);}
+  .disc-body{margin-top:14px;}
+
+  /* builder rows */
+  .brow{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:14px;box-shadow:var(--shadow);}
+  .brow.parked{background:var(--bg-deep);opacity:.85;}
+  .brow-head{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+  .brow-head .idx{font-family:var(--serif);color:var(--bronze);font-size:15px;min-width:22px;}
+  .brow-head .nm{flex:1;}
+  .brow-head input[type=text]{font-family:var(--serif);font-size:19px;padding:8px 12px;}
+  .rowbtns{display:flex;gap:6px;flex-wrap:wrap;}
+  .ibtn{appearance:none;cursor:pointer;background:var(--card);border:1px solid var(--line-strong);color:var(--ink-2);width:32px;height:32px;border-radius:8px;display:grid;place-items:center;font-size:14px;transition:all .2s var(--ease);}
+  .ibtn:hover{border-color:var(--bronze);color:var(--bronze-deep);background:var(--bronze-tint);}
+  .ibtn:disabled{opacity:.3;cursor:not-allowed;}
+  .ibtn svg{width:14px;height:14px;}
+  .pill-actions{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;}
+  .textbtn{appearance:none;cursor:pointer;background:transparent;border:1px solid var(--line-strong);color:var(--ink-2);font-family:var(--sans);font-size:12.5px;letter-spacing:.02em;padding:8px 14px;border-radius:999px;transition:all .2s var(--ease);}
+  .textbtn:hover{border-color:var(--bronze);color:var(--bronze-deep);background:var(--bronze-tint);}
+  .textbtn[aria-pressed=true]{background:var(--bronze);border-color:var(--bronze);color:#fff;}
+  .addbtn{appearance:none;cursor:pointer;background:var(--ink);color:#fff;border:1px solid var(--ink);font-family:var(--sans);font-size:13px;padding:11px 20px;border-radius:999px;transition:all .2s var(--ease);}
+  .addbtn:hover{background:var(--bronze-deep);border-color:var(--bronze-deep);}
+  .addbtn:disabled{opacity:.35;cursor:not-allowed;}
+
+  /* scoring matrix */
+  .scorecard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:14px;box-shadow:var(--shadow);}
+  .scorecard.on{border-color:var(--bronze);box-shadow:0 0 0 1px var(--bronze),var(--shadow);}
+  .sc-head{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:8px;}
+  .sc-head h4{font-family:var(--serif);font-weight:400;font-size:22px;margin:0;}
+  .sc-avg{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);}
+  .sc-avg b{font-family:var(--serif);font-size:20px;color:var(--bronze-deep);margin-left:6px;}
+  .crit{display:grid;grid-template-columns:1fr auto;gap:8px 14px;align-items:center;padding:7px 0;border-top:1px solid var(--line);}
+  .crit span{font-size:14px;color:var(--ink-2);}
+  .role-row{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;}
+
+  /* metric grid */
+  .mcard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;transition:all .22s var(--ease);}
+  .mcard.on{border-color:var(--bronze);box-shadow:0 0 0 1px var(--bronze);}
+  .mcard-head{display:flex;align-items:center;justify-content:space-between;gap:10px;}
+  .mcard-head .nm{font-weight:600;font-size:15px;}
+  .mcard-body{margin-top:12px;display:none;}
+  .mcard.on .mcard-body{display:block;}
+
+  /* open-item gate */
+  .gate-inline{background:#fff;border:1px solid var(--bronze);border-radius:14px;padding:20px 22px;margin-top:24px;box-shadow:var(--shadow);animation:rise .3s var(--ease) both;}
+  .gate-inline h4{font-family:var(--serif);font-weight:400;font-size:20px;margin:0 0 8px;}
+  .gate-inline ul{margin:8px 0 16px;padding-left:18px;color:var(--ink-2);font-size:14.5px;}
+  .gate-inline li{margin-bottom:4px;}
+  .gate-inline .row{display:flex;gap:10px;flex-wrap:wrap;}
+
+  /* completion + open badges */
+  .status{margin-top:30px;display:inline-flex;align-items:center;gap:11px;border:1px solid var(--line);border-radius:999px;padding:9px 18px 9px 11px;background:var(--card);font-size:13px;color:var(--muted);}
+  .status .dot{width:19px;height:19px;border-radius:50%;border:1px solid var(--line-strong);display:grid;place-items:center;transition:all .35s var(--ease);}
+  .status .dot svg{width:10px;height:10px;opacity:0;transition:opacity .3s var(--ease);}
+  .status.done{border-color:var(--bronze);color:var(--bronze-deep);}
+  .status.done .dot{background:var(--bronze);border-color:var(--bronze);}
+  .status.done .dot svg{opacity:1;}
+
+  .note-op{font-size:12px;color:var(--amber);letter-spacing:.04em;}
+
+  /* community path */
+  .pathmap{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px;}
+  .pathnode{flex:1;min-width:120px;background:var(--bronze-tint);border:1px solid var(--line);border-radius:10px;padding:12px;text-align:center;font-size:13px;color:var(--ink-2);position:relative;}
+  .pathnode b{display:block;font-family:var(--serif);font-size:15px;color:var(--ink);margin-bottom:2px;}
+  .pathnode .n{font-size:10px;color:var(--bronze-deep);font-weight:700;letter-spacing:.1em;}
+
+  /* reveal */
+  .tierbar{display:flex;gap:8px;margin:6px 0 26px;}
+  .bp{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+  @media (max-width:900px){.bp{grid-template-columns:1fr;}}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;opacity:0;transform:translateY(10px);}
+  .panel.in{animation:rise .5s var(--ease) forwards;}
+  .panel.wide{grid-column:1 / -1;}
+  .panel header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;gap:10px;}
+  .panel h3{margin:0;}
+  .panel .chk{width:22px;height:22px;border-radius:50%;background:var(--bronze-tint);display:grid;place-items:center;}
+  .panel .chk svg{width:12px;height:12px;opacity:0;transform:scale(.5);}
+  .panel.in .chk svg{animation:pop .45s var(--ease) .3s forwards;}
+  @keyframes pop{to{opacity:1;transform:none;}}
+  .val{font-family:var(--serif);font-size:20px;line-height:1.4;color:var(--ink);white-space:pre-wrap;}
+  .val.sm{font-size:16px;font-family:var(--sans);color:var(--ink-2);}
+  ul.blist{list-style:none;margin:0;padding:0;}
+  ul.blist li{padding:9px 0;border-bottom:1px dashed var(--line);display:flex;gap:11px;align-items:baseline;font-size:15.5px;color:var(--ink-2);}
+  ul.blist li:last-child{border-bottom:0;}
+  ul.blist li .idx{font-family:var(--serif);color:var(--bronze);font-size:13px;min-width:16px;}
+  .op-item{color:var(--amber);font-style:italic;}
+  .empty{color:#B4AEA3;font-style:italic;font-size:14.5px;}
+  .chip{display:inline-flex;align-items:center;gap:6px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;border:1px solid var(--line-strong);color:var(--muted);}
+  .chip.Low{background:var(--green);border-color:var(--green);color:#fff;}
+  .chip.Medium{background:var(--amber);border-color:var(--amber);color:#fff;}
+  .chip.High{background:var(--red);border-color:var(--red);color:#fff;}
+
+  /* ---------- Footer nav ---------- */
+  footer.nav{position:fixed;bottom:0;left:0;right:0;height:86px;z-index:40;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 28px;background:rgba(252,251,248,0.92);backdrop-filter:saturate(1.2) blur(14px);border-top:1px solid var(--line);}
+  .navbtn{appearance:none;cursor:pointer;font-family:var(--sans);font-size:14px;border:1px solid var(--line-strong);background:transparent;color:var(--ink);padding:13px 24px;border-radius:999px;transition:all .25s var(--ease);white-space:nowrap;display:inline-flex;align-items:center;gap:9px;}
+  .navbtn:hover{border-color:var(--bronze);color:var(--bronze-deep);}
+  .navbtn.primary{background:var(--ink);border-color:var(--ink);color:var(--bg);}
+  .navbtn.primary:hover{background:var(--bronze-deep);border-color:var(--bronze-deep);color:#fff;}
+  .navbtn:disabled{opacity:.3;cursor:not-allowed;}
+  .dots{display:flex;gap:5px;flex:1;justify-content:center;flex-wrap:wrap;}
+  .dot-btn{appearance:none;border:0;background:transparent;padding:6px 1px;cursor:pointer;}
+  .dot-btn i{display:block;width:18px;height:3px;border-radius:2px;background:var(--line-strong);transition:all .3s var(--ease);}
+  .dot-btn:hover i{background:var(--bronze);}
+  .dot-btn.active i{background:var(--ink);width:26px;}
+  .dot-btn.past i{background:var(--bronze-tint-2);}
+  .dot-btn.partial i{background:var(--amber);}
+  .dot-btn:focus-visible i{box-shadow:0 0 0 3px var(--bronze-tint);}
+
+  /* ---------- Facilitator notes ---------- */
+  .fnotes{position:fixed;right:22px;bottom:100px;width:352px;max-height:52vh;overflow-y:auto;z-index:50;background:#0A0A0A;color:#F2EFE9;border-radius:14px;padding:22px 24px;box-shadow:0 24px 60px -24px rgba(0,0,0,.6);transform:translateY(12px) scale(.98);opacity:0;pointer-events:none;transition:all .3s var(--ease);}
+  .fnotes.show{transform:none;opacity:1;pointer-events:auto;}
+  .fnotes h5{margin:0 0 12px;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#D6A863;font-weight:700;}
+  .fnotes p{margin:0 0 9px;font-size:14px;line-height:1.55;color:#E2DED5;}
+  .fnotes p:last-child{margin:0;}
+  .fnotes strong{color:#fff;font-weight:600;}
+  .fnotes .say{font-family:var(--serif);font-style:italic;color:#F1E7D6;}
+
+  .toast{position:fixed;left:50%;bottom:100px;transform:translate(-50%,10px);z-index:60;background:var(--ink);color:var(--bg);padding:11px 20px;border-radius:999px;font-size:13px;opacity:0;pointer-events:none;transition:all .3s var(--ease);}
+  .toast.show{opacity:1;transform:translate(-50%,0);}
 
   /* ---------- Print ---------- */
   @media print{
-    .gate{display:none !important;}
+    .gate,header.bar,footer.nav,.fnotes,.toast,.tools,.status,.pill-actions,.rowbtns,.gate-inline,.tierbar{display:none !important;}
     body{overflow:visible;background:#fff;}
-    header.bar, footer.nav, .fnotes, .toast, .tools, .output{display:none !important;}
     main{position:static;overflow:visible;}
-    .wrap{max-width:none;padding:0;}
-    section.step{display:block !important;page-break-after:always;padding:24px 0;}
+    .wrap{max-width:none;padding:0 16px;}
+    section.step{display:block !important;page-break-after:always;padding:16px 0;}
     section.step:last-child{page-break-after:auto;}
-    .rise{animation:none !important;opacity:1 !important;transform:none !important;}
-    .bp .panel{opacity:1 !important;transform:none !important;}
-    .bp .check svg{opacity:1 !important;transform:none !important;}
-    .card,.pick,.check,.split .side{box-shadow:none !important;}
-    input[type=text],textarea{border:0;border-bottom:1px solid #ccc;border-radius:0;padding:4px 0;}
-    .choice{display:none;}
-    .choice[aria-pressed=true]{display:inline-block;background:#eee !important;color:#000 !important;border:1px solid #999 !important;}
+    .rise,.panel{animation:none !important;opacity:1 !important;transform:none !important;}
+    .panel .chk svg{opacity:1 !important;transform:none !important;}
+    details.disc{border:0;} details.disc[open] .disc-body{display:block;}
+    details.disc>summary{display:none;}
+    .card,.brow,.scorecard,.mcard,.pick,.check,.settled,.panel{box-shadow:none !important;break-inside:avoid;}
+    input,textarea{border:0;border-bottom:1px solid #ccc;border-radius:0;padding:3px 0;}
+    .choice{display:none;} .choice[aria-pressed=true]{display:inline-block;background:#eee !important;color:#000 !important;border:1px solid #999 !important;}
+    .bp2{display:block !important;}
+    .print-foot{display:block !important;text-align:center;font-size:10px;color:#888;margin-top:8px;}
   }
+  .print-foot{display:none;}
 </style>
 </head>
 <body class="locked">
 
 <div class="gate" id="gate">
   <div class="gate-inner">
-    <div class="seal">
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <rect x="4.5" y="10.5" width="15" height="10" rx="2.5" stroke="#A2682C" stroke-width="1.4"/>
-        <path d="M8 10.5V7.6a4 4 0 0 1 8 0v2.9" stroke="#A2682C" stroke-width="1.4" stroke-linecap="round"/>
-      </svg>
-    </div>
+    <div class="seal"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2.5" stroke="#A2682C" stroke-width="1.4"/><path d="M8 10.5V7.6a4 4 0 0 1 8 0v2.9" stroke="#A2682C" stroke-width="1.4" stroke-linecap="round"/></svg></div>
     <p class="brandline">The Content Operating System</p>
     <h1>Private workspace</h1>
     <p class="sub">This session is unlisted. Enter the access key to open it.</p>
@@ -486,7 +333,7 @@
       <button type="submit">Open workspace</button>
     </form>
     <div class="err" id="gateErr">That key doesn’t match. Try again.</div>
-    <p class="foot">Call One · Diagnosis &amp; Positioning</p>
+    <p class="foot">Call Two · The Complete Growth Blueprint</p>
   </div>
 </div>
 
@@ -494,605 +341,22 @@
   <div class="mark">
     <span class="word">The Content Operating System</span>
     <span class="sep"></span>
-    <span class="sub">Call One · Diagnosis &amp; Positioning</span>
+    <span class="sub">Call Two · The Complete Growth Blueprint</span>
   </div>
   <div class="rail">
     <div class="track"><div class="fill" id="fill"></div></div>
     <div class="clock" id="clock">Arrival</div>
   </div>
   <div class="tools">
-    <button class="tool" id="notesBtn" aria-pressed="false">Facilitator notes</button>
+    <button class="tool" id="notesBtn" aria-pressed="false" title="Facilitator notes (Shift+F)">Facilitator notes</button>
     <button class="tool" id="printBtn">Print / Save PDF</button>
-    <button class="tool" id="resetBtn">Reset workspace</button>
+    <button class="tool" id="resetBtn">Reset</button>
     <button class="tool" id="lockBtn">Lock</button>
   </div>
 </header>
 
 <main id="stage">
-<div class="wrap">
-
-<!-- 1 -->
-<section class="step" data-time="Arrival" data-title="Cover">
-  <p class="eyebrow rise">Private consulting · Phase One · Call 1 of 3</p>
-  <div class="rise">
-    <h1>The Content<br>Operating System</h1>
-    <p class="lede">Ninety minutes. We pull out the story, the proof, the audience and the risk — and leave with the first draft of who you are on camera for the next 365 days.<br><br><em>Prepared for Noah Westbrook.</em></p>
-  </div>
-  <div class="cover-meta rise">
-    <label class="field"><span>Date</span><input type="text" data-key="date" placeholder="Today's date" /></label>
-    <label class="field"><span>The 365 — where are we?</span><input type="text" data-key="status365" placeholder="Not started · Day one pending · Day ___" /></label>
-    <div class="field">
-      <span style="display:block;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:9px;">Recording</span>
-      <label class="check"><input type="checkbox" data-check="consent" /><span class="box"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">Recorded — for building your system only</span></label>
-    </div>
-  </div>
-  <div class="output rise" data-required="status365"><span class="dot"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Consent and 365 status logged</div>
-  <div class="fnote" hidden>
-    <b>Block 1 · 0:00–0:05 · Frame the call</b>
-    <i>“Noah — good to be started. This is the first of your three foundational calls. My job today is to pull out everything we build your system from. By the end you’ll have a first draft of your creator identity and candidate pillars. Everything comes back to you in writing within 24 hours. I’d like to record this for your system only. Okay?”</i>
-    Then: “Before we start digging — has day one of the 365 happened yet?” Listen for nerves. Capture any verbatim lines.
-    You manage the clock. He never should.
-  </div>
-</section>
-
-<!-- 2 -->
-<section class="step" data-time="0:00 – 0:05" data-title="What we build">
-  <p class="eyebrow rise">What we build today</p>
-  <h2 class="rise">Four things leave this call.</h2>
-  <p class="lede rise">Today isn’t teaching and it isn’t strategy — strategy is Call Two. Today is diagnosis. I ask, you talk, and at minute sixty we switch modes and build together.</p>
-  <div class="grid g4 rise">
-    <div class="card"><span class="num">i</span><h4>Positioning draft</h4><p>A first-draft creator identity, written in your own words — not a persona.</p></div>
-    <div class="card"><span class="num">ii</span><h4>Content pillars</h4><p>Three to five candidate pillars your real week can actually feed.</p></div>
-    <div class="card"><span class="num">iii</span><h4>Story inventory</h4><p>The material you’re already sitting on, named and made usable.</p></div>
-    <div class="card"><span class="num">iv</span><h4>Risk map</h4><p>The four ways a 365 fails, rated honestly against your real life.</p></div>
-  </div>
-  <hr class="rule" />
-  <div class="timemap rise">
-    <div class="row"><div class="t">0:05 – 0:20</div><div class="d">Story &amp; motivation<small>Before insurance. Before content. The real version.</small></div></div>
-    <div class="row"><div class="t">0:20 – 0:35</div><div class="d">Credibility &amp; proof<small>What proves you’re good, and what a camera could witness.</small></div></div>
-    <div class="row"><div class="t">0:35 – 0:50</div><div class="d">Who this is for<small>The fork that shapes every pillar and every script.</small></div></div>
-    <div class="row"><div class="t">0:50 – 1:00</div><div class="d">The honest constraints<small>Fears, history, and where filming actually fits.</small></div></div>
-    <div class="row"><div class="t">1:00 – 1:15</div><div class="d">We build together<small>Identity draft and pillar candidates, live.</small></div></div>
-    <div class="row"><div class="t">1:15 – 1:30</div><div class="d">Risks, the year, and next steps<small>Then we book Call Two.</small></div></div>
-  </div>
-  <div class="fnote" hidden>
-    <b>Frame accepted → move</b>
-    If he opens a topic that belongs later: <i>“That’s gold, and it belongs to Call Two — I’m parking it so we don’t lose it.”</i> Log it. Never park without logging.
-    Transition line: “Good. Then let’s start where everything starts — before insurance, before content. I want the story.”
-  </div>
-</section>
-
-<!-- 3 -->
-<section class="step" data-time="0:05 – 0:20" data-title="Story">
-  <p class="eyebrow rise">Story &amp; motivation</p>
-  <h2 class="rise">Everything we build gets anchored to the real story.</h2>
-  <p class="lede rise">In your industry, trust is the product. So — the honest version, not the LinkedIn version. How did you actually end up here? And when did it stop being just a job?</p>
-  <div class="grid g3 rise">
-    <div class="card">
-      <span class="num">Story one</span>
-      <label class="field"><span>Name it in a few words</span><input type="text" data-key="story1name" placeholder="e.g. The kitchen-table claim" /></label>
-      <label class="field" style="margin:0"><span>What happened</span><textarea data-key="story1sum" placeholder="One or two lines"></textarea></label>
-    </div>
-    <div class="card">
-      <span class="num">Story two</span>
-      <label class="field"><span>Name it in a few words</span><input type="text" data-key="story2name" /></label>
-      <label class="field" style="margin:0"><span>What happened</span><textarea data-key="story2sum"></textarea></label>
-    </div>
-    <div class="card">
-      <span class="num">Story three</span>
-      <label class="field"><span>Name it in a few words</span><input type="text" data-key="story3name" /></label>
-      <label class="field" style="margin:0"><span>What happened</span><textarea data-key="story3sum"></textarea></label>
-    </div>
-  </div>
-  <div class="rise" style="margin-top:26px">
-    <label class="field"><span>What this year is really about — underneath the streak</span><textarea data-key="driver" class="short" placeholder="What quitting on day 200 would cost."></textarea></label>
-  </div>
-  <div class="output rise" data-required="story1name,story2name,story3name">
-    <span class="dot"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Three named origin stories captured
-  </div>
-  <div class="fnote" hidden>
-    <b>Block 2 · 0:05–0:20</b>
-    ★ How did you actually end up in life insurance — the real version?
-    ★ Was there a moment — a client, a claim, something in your own family — where this stopped being just a job?
-    ★ Take me to the day you decided to commit to 365 days on camera.
-    ★ What would quitting on day 200 cost you, beyond the streak?
-    Listen for loss/protection stories, family stakes, repeated phrases. Name each story in 3–5 words. Close with the headline check: “Here’s what I’m taking from that: ___. Accurate?”
-  </div>
-</section>
-
-<!-- 4 -->
-<section class="step" data-time="0:05 – 0:20" data-title="Voice bank">
-  <p class="eyebrow rise">Voice bank</p>
-  <h2 class="rise">Your exact words. Word for word.</h2>
-  <p class="lede rise">The positioning that survives 365 days gets built from language you already use. When you say something true, I’m stopping to write it down exactly.</p>
-  <div class="grid g2 rise">
-    <textarea class="verbatim" data-key="voice1" placeholder="“…”"></textarea>
-    <textarea class="verbatim" data-key="voice2" placeholder="“…”"></textarea>
-    <textarea class="verbatim" data-key="voice3" placeholder="“…”"></textarea>
-    <textarea class="verbatim" data-key="voice4" placeholder="“…”"></textarea>
-    <textarea class="verbatim" data-key="voice5" placeholder="“…”"></textarea>
-    <textarea class="verbatim" data-key="voice6" placeholder="“…”"></textarea>
-  </div>
-  <div class="rise" style="margin-top:24px">
-    <label class="field"><span>Finish the sentence: people think life insurance is ___. It’s actually ___.</span><input type="text" data-key="beliefLine" /></label>
-  </div>
-  <div class="output rise" data-required="voice1,voice2"><span class="dot"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Verbatim language banked</div>
-  <div class="fnote" hidden>
-    <b>Highest long-term value</b>
-    Verbatim capture only — no paraphrase. These lines feed the writing framework and the prompt libraries in Call Three. Aim for fifteen or more across the whole call; this screen is the visible sample.
-    Good probes: “What’s the most honest thing you could say about life insurance that nobody in the industry says out loud?” · “What hill will you die on, on camera?”
-  </div>
-</section>
-
-<!-- 5 -->
-<section class="step" data-time="0:20 – 0:35" data-title="Credibility">
-  <p class="eyebrow rise">Credibility &amp; proof</p>
-  <h2 class="rise">What proves you’re good.</h2>
-  <p class="lede rise">Numbers, tenure, claims paid, rankings — anything a skeptic couldn’t argue with. Then the single highest-trust asset you own: a claim you watched get paid.</p>
-  <div class="grid g3 rise">
-    <label class="field"><span>Proof point</span><textarea data-key="proof1" class="short" placeholder="Years in · policies written · families covered"></textarea></label>
-    <label class="field"><span>Proof point</span><textarea data-key="proof2" class="short" placeholder="Rankings · designations · production"></textarea></label>
-    <label class="field"><span>Proof point</span><textarea data-key="proof3" class="short" placeholder="Anything third-party we can point at"></textarea></label>
-  </div>
-  <div class="grid g2 rise">
-    <label class="field"><span>A claim you’ve seen paid — what happened for that family</span><textarea data-key="claimStory" class="tall"></textarea></label>
-    <label class="field"><span>How clients find you today</span><textarea data-key="inbound" class="tall" placeholder="Referrals, networking, inbound — and what one new client is worth."></textarea></label>
-  </div>
-  <div class="output rise" data-required="proof1,claimStory"><span class="dot"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Proof inventory built</div>
-  <div class="fnote" hidden>
-    <b>Block 3 · 0:20–0:35</b>
-    Framing: “You’re in a rare position — your actual workday is the content. So I need two lists: what proves you’re good, and what a camera could physically watch you do.”
-    ★ Walk me through the business: years in, products, typical client, how clients find you today. ★ What numbers are you proud of? ★ Tell me about a claim you’ve seen paid.
-    The claim-paid story is the highest-trust asset in this category. Stay an extra beat if it lands.
-  </div>
-</section>
-
-<!-- 6 -->
-<section class="step" data-time="0:20 – 0:35" data-title="Documentable scenes">
-  <p class="eyebrow rise">Documentable scenes</p>
-  <h2 class="rise">What could a camera physically watch you do?</h2>
-  <p class="lede rise">Your real week is the content. In a trust industry you don’t need to perform — documented real work is the advantage. So: what’s already there?</p>
-  <div class="checks rise">
-    <label class="check"><input type="checkbox" data-check="sc1" /><span class="box"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">Client appointments</span></label>
-    <label class="check"><input type="checkbox" data-check="sc2" /><span class="box"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">Calls and follow-ups</span></label>
-    <label class="check"><input type="checkbox" data-check="sc3" /><span class="box"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">Paperwork and applications</span></label>
-    <label class="check"><input type="checkbox" data-check="sc4" /><span class="box"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">Claim conversations</span></label>
-    <label class="check"><input type="checkbox" data-check="sc5" /><span class="box"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">Training and study</span></label>
-    <label class="check"><input type="checkbox" data-check="sc6" /><span class="box"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">Driving between appointments</span></label>
-    <label class="check"><input type="checkbox" data-check="sc7" /><span class="box"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">The no’s — and what they teach</span></label>
-    <label class="check"><input type="checkbox" data-check="sc8" /><span class="box"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">The end of a hard week</span></label>
-  </div>
-  <div class="grid g2 rise" style="margin-top:26px">
-    <label class="field"><span>What else is in your real week</span><textarea data-key="scenesOther" placeholder="The moments nobody outside the industry has ever seen."></textarea></label>
-    <div>
-      <label class="field" style="margin-bottom:12px"><span>What can we show on camera?</span></label>
-      <div class="choices" data-group="compliance" style="margin-bottom:14px">
-        <button class="choice bronze" data-value="Rules known">Rules known</button>
-        <button class="choice bronze" data-value="Needs confirming">Needs confirming</button>
-      </div>
-      <label class="field" style="margin:0"><span>Notes</span><textarea data-key="complianceNote" class="short" placeholder="Carrier, compliance or client-privacy rules — known, or to confirm before Call Two."></textarea></label>
-    </div>
-  </div>
-  <div class="output rise" data-choice-required="compliance"><span class="dot"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Documentable scenes and camera rules logged</div>
-  <div class="fnote" hidden>
-    <b>Compliance uncertainty is a flag, not a blocker</b>
-    ★ “Are there compliance, carrier, or client-privacy rules about what you can show or say on camera? Do you know them, or do we need to find out?” If unknown → homework item four.
-    Transition: “That’s the substance. Now the other half of positioning — who all of this is for.”
-  </div>
-</section>
-
-<!-- 7 -->
-<section class="step" data-time="0:35 – 0:50" data-title="Audience fork">
-  <p class="eyebrow rise">The fork</p>
-  <h2 class="rise">When someone reaches out because of a video — who do you want that person to be?</h2>
-  <p class="lede rise">This decision shapes every pillar and every script, so we take it seriously. Both can pay. Which one is this year for — and if both show up, who do you serve first?</p>
-  <div class="pickset rise" data-group="audience">
-    <button class="pick" data-value="Families">
-      <span class="tick"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      <span class="kicker">Direction one</span>
-      <h4>Families</h4>
-      <p>People who need protection and don’t know what honest coverage looks like. The content sells trust; the pipeline is clients.</p>
-    </button>
-    <button class="pick" data-value="Agents">
-      <span class="tick"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      <span class="kicker">Direction two</span>
-      <h4>Agents</h4>
-      <p>Other agents who want the craft. The content sells the method; the pipeline is recruiting, teaching and reputation.</p>
-    </button>
-    <button class="pick" data-value="Unresolved — decide by Call Two">
-      <span class="tick"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      <span class="kicker">Open</span>
-      <h4>Not yet</h4>
-      <p>We name it honestly and set the decision for Call Two, rather than forcing it in the room today.</p>
-    </button>
-  </div>
-  <div class="rise" style="margin-top:28px">
-    <label class="field"><span>What we’re seeing</span><textarea data-key="forkNote" class="short" placeholder="Which way he leans, and what the stories actually point at."></textarea></label>
-  </div>
-  <div class="output rise" data-choice-required="audience"><span class="dot"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Direction chosen — or flagged for Call Two</div>
-  <div class="fnote" hidden>
-    <b>Block 4 · 0:35–0:50</b>
-    If he genuinely can’t choose, flag it — don’t force it. Decision deadline: Call Two.
-    Contradictions are findings. If he says families but every story is agent-craft, name it neutrally: “I’m hearing two directions — let’s look at both for a second.”
-  </div>
-</section>
-
-<!-- 8 -->
-<section class="step" data-time="0:35 – 0:50" data-title="Audience portrait">
-  <p class="eyebrow rise">Audience portrait</p>
-  <h2 class="rise">One real person watches one video and feels it was made for them.</h2>
-  <p class="lede rise">Describe your favourite client you’ve ever had — and why them. Then: what do they get wrong about life insurance before they meet you?</p>
-  <div class="grid g3 rise">
-    <label class="field"><span>Who they are</span><textarea data-key="viewer" class="tall" placeholder="Situation, stage of life, what they're carrying."></textarea></label>
-    <label class="field"><span>What they’re afraid of — in their words</span><textarea data-key="pains" class="tall"></textarea></label>
-    <label class="field"><span>What they get wrong</span><textarea data-key="misconceptions" class="tall"></textarea></label>
-  </div>
-  <div class="rise" style="margin-top:8px">
-    <label class="field"><span>Who should <em style="font-family:var(--serif)">not</em> be in the audience</span><input type="text" data-key="notAudience" /></label>
-  </div>
-  <div class="output rise" data-required="viewer,pains"><span class="dot"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Audience definition drafted</div>
-  <div class="fnote" hidden>
-    <b>Capture pains in their language, not yours</b>
-    ★ Describe your favourite client ever. Why them? ★ What does your ideal viewer get wrong before they meet you? ★ Who should watch one video and feel it was made specifically for them — think of one real person.
-    Listen for the emotional state of the buyer: fear, avoidance, protection, guilt, love.
-  </div>
-</section>
-
-<!-- 9 -->
-<section class="step" data-time="0:35 – 0:50" data-title="Five questions">
-  <p class="eyebrow rise">The questions</p>
-  <h2 class="rise">What five questions do you get asked most?</h2>
-  <p class="lede rise">Clients, friends, family — whoever asks. Every one of these is a video that already has an audience waiting for it.</p>
-  <div class="grid rise" style="gap:14px;max-width:820px">
-    <label class="field" style="margin:0"><span>One</span><input type="text" data-key="q1" /></label>
-    <label class="field" style="margin:0"><span>Two</span><input type="text" data-key="q2" /></label>
-    <label class="field" style="margin:0"><span>Three</span><input type="text" data-key="q3" /></label>
-    <label class="field" style="margin:0"><span>Four</span><input type="text" data-key="q4" /></label>
-    <label class="field" style="margin:0"><span>Five</span><input type="text" data-key="q5" /></label>
-  </div>
-  <p class="hint rise" style="margin-top:22px">Homework takes this list from five to ten.</p>
-  <div class="output rise" data-required="q1,q2,q3"><span class="dot"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Question list started</div>
-  <div class="fnote" hidden>
-    <b>Keep it moving</b>
-    Don’t chase all five if the room is rich elsewhere — depth over completeness. Leftovers become homework item three.
-    Transition: “Clear. Now I want the honest picture of you and content — history, fears, and what your days actually allow.”
-  </div>
-</section>
-
-<!-- 10 -->
-<section class="step" data-time="0:50 – 1:00" data-title="Content reality">
-  <p class="eyebrow rise">Content reality</p>
-  <h2 class="rise">No judgment in this section.</h2>
-  <p class="lede rise">The system only works if it fits your actual life — not an ideal week. So I need the real constraints: what you’ve tried, what scares you, and where filming honestly fits.</p>
-  <div class="grid g2 rise">
-    <label class="field"><span>Have you posted before? What happened</span><textarea data-key="pastContent" class="tall"></textarea></label>
-    <label class="field"><span>The video you’re most afraid to make</span><textarea data-key="biggestFear" class="tall"></textarea></label>
-  </div>
-  <div class="grid g2 rise">
-    <div>
-      <label class="field" style="margin-bottom:12px"><span>Weakest of the four, honestly</span></label>
-      <div class="choices" data-group="weakest">
-        <button class="choice" data-value="Writing">Writing</button>
-        <button class="choice" data-value="Camera">Being on camera</button>
-        <button class="choice" data-value="Editing">Editing</button>
-        <button class="choice" data-value="Consistency">Consistency</button>
-      </div>
-      <label class="field" style="margin-top:22px"><span>What your worst week does to content</span><textarea data-key="worstWeek" class="short"></textarea></label>
-    </div>
-    <label class="field"><span>The daily filming window — realistic, not aspirational</span><textarea data-key="filmWindow" class="tall" placeholder="Walk me through a normal working day, hour by hour. Where does filming honestly fit?"></textarea></label>
-  </div>
-  <div class="output rise" data-required="filmWindow"><span class="dot"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Constraints and filming window stated</div>
-  <div class="fnote" hidden>
-    <b>Block 5 · 0:50–1:00 — this block supplies the risk register</b>
-    Listen for: perfectionism vs avoidance · whose judgment he fears · editing as the likely bottleneck · past quit-patterns and what preceded them.
-    Be comfortable with silence. Three seconds of quiet after a hard question produces the best answers of the call.
-  </div>
-</section>
-
-<!-- 11 -->
-<section class="step" data-time="1:00" data-title="Gear shift">
-  <div class="statement rise">
-    <p class="eyebrow">Minute sixty</p>
-    <p class="big">That’s everything I need to <span class="accent">extract</span>.<br>Now we <span class="accent">build</span>.</p>
-    <p class="lede" style="margin:0">For the next fifteen minutes we work together. I’m going to play back what I heard, and we draft your positioning — out loud, in your words, while you watch it happen.</p>
-  </div>
-  <div class="fnote" hidden>
-    <b>The gate</b>
-    Synthesis begins at 60:00 no matter what remains unasked. Leftover questions become homework or report content. The synthesis block is the call’s product — it is never sacrificed to extraction overrun.
-    Talk ratio flips here: you carry minutes 60–82. Before speaking, write the three headlines — identity, audience, risk.
-  </div>
-</section>
-
-<!-- 12 -->
-<section class="step" data-time="1:00 – 1:15" data-title="Playback">
-  <p class="eyebrow rise">Live playback</p>
-  <h2 class="rise">Here’s what I heard. Did I get it right?</h2>
-  <p class="ask rise">Correct me before we build on it.</p>
-  <div class="rise">
-    <label class="field"><span>In one sentence</span><textarea data-key="headline" class="short" style="font-family:var(--serif);font-size:24px;line-height:1.35;min-height:88px"></textarea></label>
-  </div>
-  <div class="grid g3 rise">
-    <label class="field"><span>Underneath it — one</span><textarea data-key="support1"></textarea></label>
-    <label class="field"><span>Underneath it — two</span><textarea data-key="support2"></textarea></label>
-    <label class="field"><span>Underneath it — three</span><textarea data-key="support3"></textarea></label>
-  </div>
-  <div class="checks rise" style="grid-template-columns:1fr;max-width:420px">
-    <label class="check"><input type="checkbox" data-check="accurate" /><span class="box"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">Noah confirms: accurate</span></label>
-  </div>
-  <div class="output rise" data-required="headline"><span class="dot"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>The record is corrected before we build</div>
-  <div class="fnote" hidden>
-    <b>Step 1 · Top-down playback · 2 minutes</b>
-    “Top-down, here’s what I heard. One sentence: ___. Three things underneath it: ___, ___, ___. Did I get it right? What’s off?”
-    Summary first, supports second. Always top-down. Correct the record before building on it.
-  </div>
-</section>
-
-<!-- 13 -->
-<section class="step" data-time="1:00 – 1:15" data-title="Identity">
-  <p class="eyebrow rise">Creator identity · draft one</p>
-  <h2 class="rise">Which one is truest?</h2>
-  <p class="lede rise">The shape: <em>the [role] who [documented action] for [audience], so they [outcome].</em> Built from your language, not mine. Read each one aloud — which could you say every single day for a year without flinching?</p>
-  <div class="grid g3 rise" data-group="identity">
-    <div class="card">
-      <span class="num">Variant one</span>
-      <textarea data-key="variant1" class="tall" style="font-family:var(--serif);font-size:19px;line-height:1.45"></textarea>
-      <div class="choices" style="margin-top:14px"><button class="choice bronze" data-group="identity" data-value="variant1" style="width:100%">This one</button></div>
-    </div>
-    <div class="card">
-      <span class="num">Variant two</span>
-      <textarea data-key="variant2" class="tall" style="font-family:var(--serif);font-size:19px;line-height:1.45"></textarea>
-      <div class="choices" style="margin-top:14px"><button class="choice bronze" data-group="identity" data-value="variant2" style="width:100%">This one</button></div>
-    </div>
-    <div class="card">
-      <span class="num">Variant three</span>
-      <textarea data-key="variant3" class="tall" style="font-family:var(--serif);font-size:19px;line-height:1.45"></textarea>
-      <div class="choices" style="margin-top:14px"><button class="choice bronze" data-group="identity" data-value="variant3" style="width:100%">This one</button></div>
-    </div>
-  </div>
-  <div class="rise" style="margin-top:30px">
-    <h3>Selected — identity, version one</h3>
-    <div class="card" style="border-color:var(--bronze)">
-      <div class="val" data-mirror="identity" style="font-family:var(--serif);font-size:24px;line-height:1.4"></div>
-    </div>
-    <p class="hint" style="margin-top:14px">This is a draft on purpose. You react to it in writing, and Call Two locks it in.</p>
-  </div>
-  <div class="output rise" data-choice-required="identity"><span class="dot"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Positioning statement, version one</div>
-  <div class="fnote" hidden>
-    <b>Step 2 · Identity draft · 5 minutes</b>
-    Build from his verbatim lines. Read each variant aloud. Watch his voice change on the true one — the physical reaction is the data.
-    Identity test: specific enough to exclude someone · true enough to say daily for a year · anchored in documented work, not a persona. Rejected variants are data — keep them.
-  </div>
-</section>
-
-<!-- 14 -->
-<section class="step" data-time="1:00 – 1:15" data-title="Pillars">
-  <p class="eyebrow rise">Content pillars · candidates</p>
-  <h2 class="rise">What you become known for.</h2>
-  <p class="lede rise">Each one has to pass four tests: your real week feeds it, it answers a stated fear, it builds trust rather than attention, and it doesn’t collapse into the others.</p>
-  <div class="grid g2 rise">
-    <div class="card"><span class="num">Pillar one</span>
-      <label class="field"><span>Name it</span><input type="text" data-key="pillar1" /></label>
-      <label class="field" style="margin:0"><span>Why it earns a place</span><textarea data-key="pillar1note" class="short"></textarea></label>
-    </div>
-    <div class="card"><span class="num">Pillar two</span>
-      <label class="field"><span>Name it</span><input type="text" data-key="pillar2" /></label>
-      <label class="field" style="margin:0"><span>Why it earns a place</span><textarea data-key="pillar2note" class="short"></textarea></label>
-    </div>
-    <div class="card"><span class="num">Pillar three</span>
-      <label class="field"><span>Name it</span><input type="text" data-key="pillar3" /></label>
-      <label class="field" style="margin:0"><span>Why it earns a place</span><textarea data-key="pillar3note" class="short"></textarea></label>
-    </div>
-    <div class="card"><span class="num">Pillar four</span>
-      <label class="field"><span>Name it</span><input type="text" data-key="pillar4" /></label>
-      <label class="field" style="margin:0"><span>Why it earns a place</span><textarea data-key="pillar4note" class="short"></textarea></label>
-    </div>
-    <div class="card"><span class="num">Pillar five</span>
-      <label class="field"><span>Name it</span><input type="text" data-key="pillar5" /></label>
-      <label class="field" style="margin:0"><span>Why it earns a place</span><textarea data-key="pillar5note" class="short"></textarea></label>
-    </div>
-    <div class="card flat" style="display:flex;flex-direction:column;justify-content:center">
-      <h3>The four tests</h3>
-      <ul style="margin:0;padding-left:18px;color:var(--ink-2);line-height:1.9">
-        <li>Recurring supply — your real week feeds it</li>
-        <li>Answers a fear they actually named</li>
-        <li>Builds trust, not just attention</li>
-        <li>Distinct from every other pillar</li>
-      </ul>
-    </div>
-  </div>
-  <div class="output rise" data-required="pillar1,pillar2,pillar3"><span class="dot"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Three to five pillar candidates named</div>
-  <div class="fnote" hidden>
-    <b>Step 3 · Pillar candidates · 6 minutes</b>
-    Name each in 2–4 words. Test every candidate aloud against the four tests, in front of him.
-    Watch for the pillars he lights up on versus the ones he accepts politely. Polite acceptance is a no.
-  </div>
-</section>
-
-<!-- 15 -->
-<section class="step" data-time="1:00 – 1:15" data-title="Pillar sort">
-  <p class="eyebrow rise">Pillar sort</p>
-  <h2 class="rise">Which of these do you already have ten videos for?</h2>
-  <p class="ask rise">And which one feels like homework?</p>
-  <div class="rise" id="sortRows"></div>
-  <p class="hint rise" style="margin-top:22px">Anything parked isn’t discarded — it goes into the report and gets re-tested in Call Two.</p>
-  <div class="fnote" hidden>
-    <b>Step 4 · Confirm as v1 · 2 minutes</b>
-    “These are drafts, on purpose. Your homework includes reacting to them in writing, and Call Two locks them into the full blueprint.”
-    Transition: “That’s the foundation. Two things left: the risks we’re designing against, and where this goes next.”
-  </div>
-</section>
-
-<!-- 16 -->
-<section class="step" data-time="1:15 – 1:22" data-title="Risk map">
-  <p class="eyebrow rise">Risk map</p>
-  <h2 class="rise">Every 365-day run faces the same four failure points.</h2>
-  <p class="lede rise">Here’s where I see each one, for you specifically — using what you told me in the last hour. Naming them calmly is how we design against them.</p>
-
-  <div class="rise">
-    <div class="riskrow">
-      <div class="name">Inconsistency<small>The streak breaks in a bad week.</small></div>
-      <label class="field" style="margin:0"><span>What we heard</span><textarea data-key="riskIncEv" class="short"></textarea></label>
-      <div><h3 style="margin-bottom:9px">Rating</h3><div class="lvl choices" data-group="riskInc">
-        <button class="choice" data-value="Low">Low</button><button class="choice" data-value="Medium">Medium</button><button class="choice" data-value="High">High</button></div></div>
-    </div>
-    <div class="riskrow">
-      <div class="name">Weak positioning<small>Nobody can say what you’re for.</small></div>
-      <label class="field" style="margin:0"><span>What we heard</span><textarea data-key="riskPosEv" class="short"></textarea></label>
-      <div><h3 style="margin-bottom:9px">Rating</h3><div class="lvl choices" data-group="riskPos">
-        <button class="choice" data-value="Low">Low</button><button class="choice" data-value="Medium">Medium</button><button class="choice" data-value="High">High</button></div></div>
-    </div>
-    <div class="riskrow">
-      <div class="name">Burnout<small>The system doesn’t fit the real week.</small></div>
-      <label class="field" style="margin:0"><span>What we heard</span><textarea data-key="riskBurnEv" class="short"></textarea></label>
-      <div><h3 style="margin-bottom:9px">Rating</h3><div class="lvl choices" data-group="riskBurn">
-        <button class="choice" data-value="Low">Low</button><button class="choice" data-value="Medium">Medium</button><button class="choice" data-value="High">High</button></div></div>
-    </div>
-    <div class="riskrow">
-      <div class="name">Unclear conversion<small>An audience that never becomes clients.</small></div>
-      <label class="field" style="margin:0"><span>What we heard</span><textarea data-key="riskConvEv" class="short"></textarea></label>
-      <div><h3 style="margin-bottom:9px">Rating</h3><div class="lvl choices" data-group="riskConv">
-        <button class="choice" data-value="Low">Low</button><button class="choice" data-value="Medium">Medium</button><button class="choice" data-value="High">High</button></div></div>
-    </div>
-  </div>
-  <div class="output rise" data-choice-required="riskInc,riskPos,riskBurn,riskConv"><span class="dot"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>All four risks rated with evidence</div>
-  <div class="fnote" hidden>
-    <b>Block 7 · 1:15–1:22</b>
-    One sentence per risk grounded in his own words, then one sentence on where the system answers it: inconsistency → rhythm and protocols (Call Three) · weak positioning → today’s draft, locked Call Two · burnout → a system built for his real filming window · unclear conversion → pipeline design, Calls Two and Three.
-    Note which risk he flinches at. Weight that one in the written report.
-  </div>
-</section>
-
-<!-- 17 -->
-<section class="step" data-time="1:15 – 1:22" data-title="The year">
-  <p class="eyebrow rise">The shape of the year</p>
-  <h2 class="rise">A streak is output. A platform is an asset.</h2>
-  <div class="split rise">
-    <div class="side dim">
-      <h4>The streak</h4>
-      <ul>
-        <li>Daily posting keeps it alive</li>
-        <li>Effort measured in days survived</li>
-        <li>Ends on day 365 with a habit</li>
-      </ul>
-    </div>
-    <div class="vs">versus</div>
-    <div class="side strong">
-      <h4>The platform</h4>
-      <ul>
-        <li>A recognizable identity</li>
-        <li>Pillars people return for</li>
-        <li>A path from viewer to client</li>
-      </ul>
-    </div>
-  </div>
-  <p class="lede rise" style="margin-top:40px;max-width:70ch">Your 365 days are the raw material. The system we’re building is what turns the material into the platform — that’s the difference between ending the year with a habit and ending it with an asset.</p>
-  <div class="fnote" hidden>
-    <b>Deliver this slowly. It governs the year.</b>
-    This is the frame he should repeat back in his own words before the call ends. If he describes the year as building a platform rather than keeping a streak, the frame landed.
-    Transition: “Good. Let’s close this out properly.”
-  </div>
-</section>
-
-<!-- 18 -->
-<section class="step" data-time="1:22 – 1:30" data-title="Homework">
-  <p class="eyebrow rise">Before Call Two</p>
-  <h2 class="rise">Four things. None of them heavy.</h2>
-  <div class="checks rise" style="grid-template-columns:1fr;max-width:860px">
-    <label class="check"><input type="checkbox" data-check="hw1" /><span class="box"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt"><strong>React to the positioning draft in writing</strong> when the report arrives — what’s right, what’s off, what’s missing.</span></label>
-    <label class="check"><input type="checkbox" data-check="hw2" /><span class="box"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt"><strong>List ten real stories</strong> you could tell on camera. Flag any that need names or details changed.</span></label>
-    <label class="check"><input type="checkbox" data-check="hw3" /><span class="box"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt"><strong>Finish the question list</strong> — the ten questions people actually ask you about insurance.</span></label>
-    <label class="check"><input type="checkbox" data-check="hw4" /><span class="box"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt"><strong>Confirm your daily filming window</strong> — and the compliance rules, if we flagged them today.</span></label>
-  </div>
-  <div class="grid g2 rise" style="margin-top:26px;max-width:860px">
-    <label class="field" style="margin:0"><span>Anything we’re adding</span><textarea data-key="hwNote" class="short"></textarea></label>
-    <div class="card">
-      <span class="num">The promise</span>
-      <h4>Full written report within 24 hours.</h4>
-      <p>Everything from today, organized: the positioning draft, the pillars, the story inventory, the risk map, and the homework restated. Nothing lives in my notebook.</p>
-    </div>
-  </div>
-  <div class="fnote" hidden>
-    <b>Block 8 · Closeout order</b>
-    Recap from the three headlines → what was achieved → what it means → homework → report promise → schedule Call Two → close.
-    “Today produced your positioning draft, pillar candidates, a story inventory most creators never build, and an honest risk map.”
-  </div>
-</section>
-
-<!-- 19 -->
-<section class="step" data-time="1:22 – 1:30" data-title="Call Two">
-  <p class="eyebrow rise">Where this goes next</p>
-  <h2 class="rise">Call Two: the Complete Growth Blueprint.</h2>
-  <div class="grid g3 rise">
-    <div class="card"><span class="num">Today</span><h4>Diagnosis &amp; positioning</h4><p>The raw material, extracted and organized. Identity draft, pillars, story inventory, risk map.</p></div>
-    <div class="card" style="border-color:var(--bronze)"><span class="num">Next</span><h4>Complete Growth Blueprint</h4><p>The full strategy: platform plan, the rollout structure for the 365 days, and how these pillars become actual content.</p></div>
-    <div class="card"><span class="num">Then</span><h4>Execution Plan</h4><p>The writing framework, filming and editing protocols, and AI tools built in your voice.</p></div>
-  </div>
-  <hr class="rule" />
-  <div class="grid g3 rise">
-    <label class="field"><span>Call Two — date</span><input type="text" data-key="call2date" placeholder="Sun–Fri · 48 hours' notice" /></label>
-    <label class="field"><span>Time</span><input type="text" data-key="call2time" placeholder="8 AM – 5 PM Pacific" /></label>
-    <label class="field"><span>Notes</span><input type="text" data-key="call2note" placeholder="Booked, or options due tomorrow" /></label>
-  </div>
-  <div class="output rise" data-required="call2date"><span class="dot"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Call Two scheduled or in motion</div>
-  <div class="fnote" hidden>
-    <b>Book it before you hang up</b>
-    “Let’s put Call Two on the calendar before we hang up — 48 hours’ notice, business hours, Sunday through Friday. What works?” If he can’t commit live: “Send me two options by tomorrow and I’ll confirm same day.”
-  </div>
-</section>
-
-<!-- 20 -->
-<section class="step" data-time="Blueprint" data-title="Blueprint">
-  <p class="eyebrow rise">What we built today</p>
-  <h2 class="rise">Call One blueprint.</h2>
-  <p class="lede rise">You came in with a commitment. You’re leaving with the start of a system.</p>
-  <div class="bp" id="bp">
-    <div class="panel wide" data-panel>
-      <header><h3>Creator identity · version one</h3><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.6" stroke="#9A6B34" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></header>
-      <div class="val" data-mirror="identity"></div>
-    </div>
-    <div class="panel" data-panel>
-      <header><h3>Audience</h3><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.6" stroke="#9A6B34" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></header>
-      <div class="val" data-mirror="audienceChoice" style="margin-bottom:10px"></div>
-      <div class="val small" data-mirror="viewer"></div>
-    </div>
-    <div class="panel" data-panel>
-      <header><h3>Story inventory</h3><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.6" stroke="#9A6B34" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></header>
-      <ul class="list" data-list="stories"></ul>
-    </div>
-    <div class="panel" data-panel>
-      <header><h3>Trust assets</h3><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.6" stroke="#9A6B34" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></header>
-      <ul class="list" data-list="proof"></ul>
-    </div>
-    <div class="panel" data-panel>
-      <header><h3>Content pillars</h3><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.6" stroke="#9A6B34" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></header>
-      <ul class="list" data-list="pillars"></ul>
-    </div>
-    <div class="panel wide" data-panel>
-      <header><h3>Risk map</h3><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.6" stroke="#9A6B34" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></header>
-      <ul class="list" data-list="risks"></ul>
-    </div>
-    <div class="panel" data-panel>
-      <header><h3>Homework</h3><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.6" stroke="#9A6B34" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></header>
-      <ul class="list" data-list="homework"></ul>
-    </div>
-    <div class="panel" data-panel>
-      <header><h3>Call Two</h3><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.6" stroke="#9A6B34" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></header>
-      <div class="val" data-mirror="call2"></div>
-      <div class="val small" style="margin-top:10px">Written report within 24 hours.</div>
-    </div>
-  </div>
-  <div style="margin-top:40px;display:flex;gap:12px;flex-wrap:wrap" class="rise">
-    <button class="navbtn primary" id="printBtn2">Print / Save PDF</button>
-    <button class="navbtn" id="replayBtn">Replay reveal</button>
-  </div>
-  <div class="fnote" hidden>
-    <b>Close · 30 seconds. Then stop.</b>
-    <i>“Good call, Noah. You came in with a commitment; you’re leaving with the start of a system. Watch for the report, do the homework, and Call Two is where the blueprint gets built. Talk soon.”</i>
-    No trailing small talk — a clean stop protects the momentum. Then: 30 protected minutes for the post-call pass, report drafted same day.
-  </div>
-</section>
-
-</div>
+  <div class="wrap" id="stageWrap"></div>
 </main>
 
 <footer class="nav">
@@ -1109,406 +373,1157 @@
 <div class="toast" id="toast"></div>
 
 <script>
-/* Access gate — unlisted page, single shared key. */
+/* Access gate — unlisted page, single shared key. Preserved from Call One. */
 (function(){
   "use strict";
   var PASS = "Noah299";
   var ACCESS = "cos_noah_access_v1";
-  var body  = document.body;
-  var gate  = document.getElementById("gate");
-  var form  = document.getElementById("gateForm");
-  var input = document.getElementById("gateInput");
-  var err   = document.getElementById("gateErr");
-
-  function unlock(){
-    body.classList.remove("locked");
-    try { localStorage.setItem(ACCESS, "granted"); } catch(e){}
-    window.dispatchEvent(new Event("resize"));
-  }
-  function lock(){
-    try { localStorage.removeItem(ACCESS); } catch(e){}
-    body.classList.add("locked");
-    input.value = "";
-    setTimeout(function(){ input.focus(); }, 60);
-  }
-
-  var granted = false;
-  try { granted = localStorage.getItem(ACCESS) === "granted"; } catch(e){}
-  if (granted) body.classList.remove("locked");
-  else setTimeout(function(){ input.focus(); }, 120);
-
-  form.addEventListener("submit", function(e){
+  var body=document.body, gate=document.getElementById("gate"),
+      form=document.getElementById("gateForm"), input=document.getElementById("gateInput"),
+      err=document.getElementById("gateErr");
+  function unlock(){ body.classList.remove("locked"); try{localStorage.setItem(ACCESS,"granted");}catch(e){} window.dispatchEvent(new Event("resize")); }
+  function lock(){ try{localStorage.removeItem(ACCESS);}catch(e){} body.classList.add("locked"); input.value=""; setTimeout(function(){input.focus();},60); }
+  var granted=false; try{granted=localStorage.getItem(ACCESS)==="granted";}catch(e){}
+  if(granted) body.classList.remove("locked"); else setTimeout(function(){input.focus();},120);
+  form.addEventListener("submit",function(e){
     e.preventDefault();
-    if (input.value.trim() === PASS){ err.classList.remove("show"); unlock(); return; }
-    err.classList.add("show");
-    gate.classList.add("shake");
-    setTimeout(function(){ gate.classList.remove("shake"); }, 420);
-    input.select();
+    if(input.value.trim()===PASS){ err.classList.remove("show"); unlock(); return; }
+    err.classList.add("show"); gate.classList.add("shake");
+    setTimeout(function(){gate.classList.remove("shake");},420); input.select();
   });
-  input.addEventListener("input", function(){ err.classList.remove("show"); });
-
-  var lockBtn = document.getElementById("lockBtn");
-  if (lockBtn) lockBtn.addEventListener("click", function(){
-    if (window.confirm("Lock this workspace? Your typed notes stay saved on this device.")) lock();
+  input.addEventListener("input",function(){err.classList.remove("show");});
+  var lockBtn=document.getElementById("lockBtn");
+  if(lockBtn) lockBtn.addEventListener("click",function(){
+    if(window.confirm("Lock this workspace? Your blueprint stays saved on this device.")) lock();
   });
 })();
 </script>
 
 <script>
+/* ============================================================================
+   CALL TWO — THE COMPLETE GROWTH BLUEPRINT · collaborative workspace engine
+   CALL_TWO_WORKSPACE_VERSION = "2026-call-two-v1"
+   ========================================================================== */
 (function(){
   "use strict";
-  var KEY = "lane_cos_call1_noah_v1";
-  var store = {};
-  try { store = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch(e){ store = {}; }
+  var VERSION = "2026-call-two-v1";
+  var KEY = "lane_cos_call2_noah_v1";     // Call Two namespace (separate from Call One)
+  var CALL_ONE_KEY = "lane_cos_call1_noah_v1"; // read-only, never written
 
-  function save(){
-    try { localStorage.setItem(KEY, JSON.stringify(store)); } catch(e){}
-  }
-  function get(k){ return (store[k] || "").toString().trim(); }
+  /* ---- SVG snippets ---- */
+  var CK='<svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  var CKB='<svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.6" stroke="#A2682C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  var LOCK='<svg viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="2" stroke="#A2682C" stroke-width="1.6"/><path d="M8 11V8a4 4 0 0 1 8 0v3" stroke="#A2682C" stroke-width="1.6" stroke-linecap="round"/></svg>';
+  var UP='<svg viewBox="0 0 16 16" fill="none"><path d="M8 3.5 8 12.5M8 3.5 4 7.5M8 3.5 12 7.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  var DN='<svg viewBox="0 0 16 16" fill="none"><path d="M8 12.5 8 3.5M8 12.5 4 8.5M8 12.5 12 8.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  var DUP='<svg viewBox="0 0 16 16" fill="none"><rect x="5.5" y="5.5" width="8" height="8" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M10.5 5.5V4a1.5 1.5 0 0 0-1.5-1.5H4A1.5 1.5 0 0 0 2.5 4v5A1.5 1.5 0 0 0 4 10.5h1.5" stroke="currentColor" stroke-width="1.3"/></svg>';
+  var DEL='<svg viewBox="0 0 16 16" fill="none"><path d="M4 4.5h8M6.5 4.5V3.5a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1M5 4.5l.5 8a1 1 0 0 0 1 .9h3a1 1 0 0 0 1-.9l.5-8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>';
+  var MRG='<svg viewBox="0 0 16 16" fill="none"><path d="M4 3v3.5c0 1.5 1 2.5 2.5 2.5H12M12 9l-2.5-2.5M12 9l-2.5 2.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
-  var steps = Array.prototype.slice.call(document.querySelectorAll("section.step"));
-  var dots  = document.getElementById("dots");
-  var fill  = document.getElementById("fill");
-  var clock = document.getElementById("clock");
-  var toast = document.getElementById("toast");
-  var idx = 0;
+  /* ---- hardcoded, settled Call One foundation (Noah-specific) ----
+     Source: master prompt Non-Negotiable Strategic Foundation + Preloaded Call One
+     Foundation, and Call Two Operating Blueprint V2 (Block 4 pillar directions,
+     Block 6 relationship path, risk register). No granular numbers are invented. */
+  var C1 = {
+    diagnosis: "Noah’s brand is the transparent documentation of one agent building himself — and eventually an agency — the honest way. Life insurance is the setting. The climb is the product. Transparency is the moat.",
+    identity: "The agent who documents the honest climb — cold calls, real client work, and the discipline of building an agency the right way — so other agents can trust the process and follow it.",
+    audiencePrimary: "Life-insurance agents and aspiring agents",
+    audienceSecondary: "Adjacent salespeople",
+    agencyPath: "Community → reputation → mentorship / recruitment → agency. Viewer → follower → trusted community member → conversation → mentorship or recruiting interest → qualified future agency relationship.",
+    pillars: [
+      { name:"The honest climb", purpose:"Cold-calling and the day-to-day learning curve, shown without polish.", supply:"Every prospecting block and call in Noah’s real week.", proof:"Cold-calling and production track record.", trust:"Agents see the real grind, not a highlight reel — that honesty is the moat.", stage:"Awareness" },
+      { name:"The 24/7 case study", purpose:"Noah as the live experiment: one agent building in public across a full year.", supply:"The ongoing 365-day run itself.", proof:"Documented progress and production over time.", trust:"Aspiring agents watch a real person do the thing they’re afraid to start.", stage:"Consideration" },
+      { name:"Code of the craft", purpose:"Integrity, honor, discipline, and faith as the operating standard of the work.", supply:"Decisions and principles that come up in real client and business moments.", proof:"Character shown in how the work is actually done.", trust:"The right agents self-select toward Noah’s standard.", stage:"Consideration" },
+      { name:"Client outcomes as teaching", purpose:"Real client stories used as teaching evidence and proof of character — not consumer lead-gen.", supply:"Approved, compliant client-outcome stories from the real book.", proof:"Actual outcomes delivered for real families.", trust:"Proof that the honest way produces results worth following.", stage:"Decision" },
+      { name:"Building the future agency", purpose:"Life structure, environment, discipline, and the visible construction of the agency.", supply:"Systems, routines, and agency-building steps as they happen.", proof:"The agency taking shape in public.", trust:"Signals the destination: this is where the community leads.", stage:"Decision" }
+    ],
+    proof:[
+      "Cold-calling and prospecting track record",
+      "Production / policies-written track record",
+      "Real client outcomes delivered for families",
+      "The 24/7 case study — a full year documented in public"
+    ],
+    risks:[
+      { key:"inconsistency", name:"Inconsistency", note:"The streak breaks in a bad week." },
+      { key:"positioning",   name:"Weak positioning", note:"Agents can’t tell what Noah is for." },
+      { key:"burnout",       name:"Burnout", note:"The system outruns his real capacity." },
+      { key:"conversion",    name:"Unclear conversion", note:"An audience that never becomes agents or recruits." }
+    ],
+    open:[
+      "Platform choice (decide today via the scoring framework)",
+      "Transparency level for real performance numbers",
+      "Sustainable publishing cadence",
+      "Exact pillar order and any merges",
+      "Compliance clearance on calls, client stories, and production claims"
+    ]
+  };
 
-  /* ---------- toast ---------- */
-  var toastTimer;
-  function say(msg){
-    toast.textContent = msg;
-    toast.classList.add("show");
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(function(){ toast.classList.remove("show"); }, 1800);
-  }
-
-  /* ---------- restore + bind fields ---------- */
-  Array.prototype.forEach.call(document.querySelectorAll("[data-key]"), function(el){
-    var k = el.getAttribute("data-key");
-    if (store[k]) el.value = store[k];
-    el.addEventListener("input", function(){
-      store[k] = el.value; save(); refreshOutputs(); refreshIdentity(); refreshSort();
-    });
-  });
-
-  Array.prototype.forEach.call(document.querySelectorAll("[data-check]"), function(el){
-    var k = el.getAttribute("data-check");
-    if (store[k] === true) el.checked = true;
-    el.addEventListener("change", function(){
-      store[k] = el.checked; save(); refreshOutputs();
-    });
-  });
-
-  /* ---------- choices ---------- */
-  function paintGroup(group){
-    var val = store["choice:" + group];
-    Array.prototype.forEach.call(document.querySelectorAll('[data-group="'+group+'"]'), function(container){
-      var targets = container.hasAttribute("data-value") ? [container]
-        : Array.prototype.slice.call(container.querySelectorAll("[data-value]"));
-      targets.forEach(function(b){
-        if (b.getAttribute("data-group") && b.getAttribute("data-group") !== group) return;
-        var on = b.getAttribute("data-value") === val;
-        b.setAttribute("aria-pressed", on ? "true" : "false");
-        var card = b.closest ? b.closest(".card") : null;
-        if (card) card.classList.toggle("picked", on);
-      });
-    });
-  }
-
-  var groups = {};
-  Array.prototype.forEach.call(document.querySelectorAll("[data-group]"), function(container){
-    var group = container.getAttribute("data-group");
-    groups[group] = true;
-    var buttons = container.matches("button") ? [container]
-      : Array.prototype.slice.call(container.querySelectorAll("button[data-value]"));
-    buttons.forEach(function(b){
-      if (b.getAttribute("data-group") && b.getAttribute("data-group") !== group) return;
-      if (b.dataset.bound === "1") return;
-      b.dataset.bound = "1";
-      b.setAttribute("aria-pressed","false");
-      b.addEventListener("click", function(){
-        var g = b.getAttribute("data-group") || group;
-        var cur = store["choice:" + g];
-        store["choice:" + g] = (cur === b.getAttribute("data-value")) ? "" : b.getAttribute("data-value");
-        save(); paintGroup(g); refreshOutputs(); refreshIdentity(); refreshSort();
-      });
-    });
-  });
-  Object.keys(groups).forEach(paintGroup);
-
-  /* ---------- pillar sort (dynamic) ---------- */
-  var sortRows = document.getElementById("sortRows");
-  function buildSort(){
-    sortRows.innerHTML = "";
-    for (var i = 1; i <= 5; i++){
-      var name = get("pillar" + i);
-      if (!name) continue;
-      var row = document.createElement("div");
-      row.className = "sortrow";
-      var left = document.createElement("div");
-      left.innerHTML = '<div class="pname"></div><div class="pnote"></div>';
-      left.querySelector(".pname").textContent = name;
-      left.querySelector(".pnote").textContent = get("pillar" + i + "note");
-      var right = document.createElement("div");
-      right.className = "choices";
-      right.setAttribute("data-group", "sort" + i);
-      right.innerHTML =
-        '<button class="choice bronze" data-value="Keep" style="flex:1">Ten videos deep</button>' +
-        '<button class="choice" data-value="Park" style="flex:1">Feels like homework</button>';
-      row.appendChild(left); row.appendChild(right);
-      sortRows.appendChild(row);
-      (function(g, container){
-        Array.prototype.forEach.call(container.querySelectorAll("button"), function(b){
-          b.addEventListener("click", function(){
-            var cur = store["choice:" + g];
-            store["choice:" + g] = (cur === b.getAttribute("data-value")) ? "" : b.getAttribute("data-value");
-            save(); paintGroup(g);
-          });
-        });
-      })("sort" + i, right);
-      paintGroup("sort" + i);
-    }
-    if (!sortRows.children.length){
-      sortRows.innerHTML = '<p class="empty">Name the pillars on the previous screen and they appear here.</p>';
-    }
-  }
-  function refreshSort(){ if (steps[idx] && steps[idx].getAttribute("data-title") === "Pillar sort") buildSort(); }
-
-  /* ---------- identity mirror ---------- */
-  function identityText(){
-    var sel = store["choice:identity"];
-    if (!sel) return "";
-    return get(sel);
-  }
-  function refreshIdentity(){
-    Array.prototype.forEach.call(document.querySelectorAll('[data-mirror="identity"]'), function(el){
-      var t = identityText();
-      if (t){ el.textContent = t; el.classList.remove("empty"); }
-      else { el.textContent = "Draft the variants, then choose the one that's truest."; el.classList.add("empty"); }
-    });
-  }
-
-  /* ---------- output badges ---------- */
-  function refreshOutputs(){
-    Array.prototype.forEach.call(document.querySelectorAll(".output"), function(o){
-      var ok = true;
-      var req = o.getAttribute("data-required");
-      if (req) req.split(",").forEach(function(k){ if (!get(k)) ok = false; });
-      var cr = o.getAttribute("data-choice-required");
-      if (cr) cr.split(",").forEach(function(g){ if (!store["choice:" + g]) ok = false; });
-      o.classList.toggle("done", ok);
-    });
-  }
-
-  /* ---------- blueprint ---------- */
-  function setMirror(name, text){
-    Array.prototype.forEach.call(document.querySelectorAll('[data-mirror="'+name+'"]'), function(el){
-      if (text){ el.textContent = text; el.classList.remove("empty"); }
-      else { el.textContent = "Not captured"; el.classList.add("empty"); }
-    });
-  }
-  function fillList(name, items){
-    var ul = document.querySelector('[data-list="'+name+'"]');
-    if (!ul) return;
-    ul.innerHTML = "";
-    if (!items.length){
-      var li = document.createElement("li");
-      li.innerHTML = '<span class="empty">Nothing captured yet.</span>';
-      ul.appendChild(li); return;
-    }
-    items.forEach(function(it, i){
-      var li = document.createElement("li");
-      var idxEl = document.createElement("span");
-      idxEl.className = "idx"; idxEl.textContent = String(i+1).padStart(2,"0");
-      var body = document.createElement("span");
-      if (it.html) body.innerHTML = it.html; else body.textContent = it.text;
-      li.appendChild(idxEl); li.appendChild(body);
-      ul.appendChild(li);
-    });
-  }
-  var RISKS = [
-    ["riskInc","Inconsistency"],["riskPos","Weak positioning"],
-    ["riskBurn","Burnout"],["riskConv","Unclear conversion"]
+  var PLATFORMS = ["TikTok","YouTube","Instagram","LinkedIn","X","Other"];
+  var CRITERIA = [
+    ["capacity","Noah’s real capacity"],
+    ["reach","Agents-first audience reach"],
+    ["fit","Honest-documentation fit"],
+    ["discover","Discoverability"],
+    ["depth","Depth and authority"],
+    ["repeat","Repeatability"],
+    ["repurpose","Repurposing leverage"],
+    ["sustain","365-day sustainability"]
   ];
-  var HW = [
-    ["hw1","React to the positioning draft in writing"],
-    ["hw2","List ten real stories for camera"],
-    ["hw3","Finish the ten-question list"],
-    ["hw4","Confirm filming window and compliance"]
+  var COMMUNITY_STAGES = ["Viewer","Follower","Trusted community member","Conversation","Mentorship / recruiting interest","Qualified future agency relationship"];
+  var COMPLIANCE_CATS = [
+    ["calls","Recording calls"],["stories","Client stories"],["identifying","Names & identifying details"],
+    ["screenshots","Screenshots"],["carrier","Carrier information"],["earnings","Earnings & production claims"],
+    ["claims","Claims-paid stories"],["consent","Consent requirements"]
   ];
-  function escapeHtml(s){
-    return String(s).replace(/[&<>"']/g, function(c){
-      return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];
-    });
+  var METRIC_CATS = [
+    ["reach","Reach"],["retention","Retention"],["repeat","Repeat viewers"],["saves","Saves"],["shares","Shares"],
+    ["comments","Comments"],["dms","Direct messages"],["agentconv","Agent conversations"],
+    ["community","Community participation"],["mentor","Mentorship interest"],["recruit","Recruiting interest"],
+    ["qualified","Qualified agency relationships"],["consistency","Consistency"],["proofinv","Proof-story inventory"],
+    ["format","Format validation"],["platformhealth","Platform health"]
+  ];
+  var CALL3_CATS = [
+    ["writing","Writing framework"],["scripting","Scripting templates"],["hooks","Hook frameworks"],
+    ["filming","Filming protocols"],["editing","Editing protocols"],["batching","Batching workflow"],
+    ["prompts","AI prompt libraries"],["aiprod","AI production workflow"],["repurpose","Repurposing workflow"],
+    ["analytics","Analytics review routine"],["sprint","First 30-day sprint"]
+  ];
+  var HW_SUGGEST = [
+    "Test the new cadence for 14 days",
+    "Capture 3 new proof stories in the approved messaging",
+    "Review the phased rollout against the real calendar",
+    "Note any capacity constraints for Call Three"
+  ];
+  var ROLLOUT_DEFAULTS = [
+    { name:"Foundation / Launch",           duration:"Days 1–30" },
+    { name:"Signal Gathering",              duration:"Days 31–75" },
+    { name:"Identity & Format Validation",  duration:"Days 76–150" },
+    { name:"Authority Building",            duration:"Days 151–240" },
+    { name:"Community Compounding",         duration:"Days 241–320" },
+    { name:"Agency Readiness",              duration:"Days 321–365" }
+  ];
+
+  /* ---------------- state ---------------- */
+  var state = load();
+  function fresh(){
+    return {
+      version:VERSION, lastSaved:null, currentSection:0, status365:"",
+      foundation:{ identity:"", promise:"", throughline:"", secondaryAudience:"",
+        stages:[{name:"Awareness",believe:"",feel:"",act:""},{name:"Consideration",believe:"",feel:"",act:""},{name:"Decision",believe:"",feel:"",act:""}] },
+      platforms:{ scores:{}, rationale:{}, primary:"", secondary:"", tertiary:"", shortlong:"", movement:"" },
+      ecosystem:{ pillars:C1.pillars.map(function(p,i){ return {id:"p"+i, name:p.name, status:"keep", purpose:p.purpose, supply:p.supply, proof:p.proof, trust:p.trust, stage:p.stage, format:"" }; }),
+        formats:[{name:"",desc:""},{name:"",desc:""}] },
+      rollout:{ phases:ROLLOUT_DEFAULTS.map(function(p,i){ return {id:"ph"+i, name:p.name, duration:p.duration, objective:"", behavior:"", signal:"", advancement:"", platformEmphasis:"", audienceOutcome:"", risk:"", nextChange:""}; }) },
+      publishing:{ minViable:"", standard:"", stretch:"", shortFreq:"", longFreq:"", docRhythm:"", badWeek:"", nonNeg:"", phaseChanges:"" },
+      community:{ stages: COMMUNITY_STAGES.map(function(n){ return {name:n, trustSignal:"", action:"", qualification:"", experience:"", mechanism:"", risk:""}; }) },
+      messaging:{ promise:"", belief:"", standsFor:"", refuses:"", proofTypes:[], guardrails:"" },
+      metrics:{ items:{}, northStar:"", reviewFreq:"" },
+      transparency:{ level:"", shown:"", frequency:"", mustPrivate:"", useful:"", performative:"" },
+      compliance:{ cats:{} },
+      risks:C1.risks.map(function(r){ return {key:r.key, name:r.name, rating:"", evidence:"", mitigation:"", warning:"", callThree:"", owner:""}; }),
+      callThree:{ cats:{} },
+      homework:[], scheduling:{ date:"", time:"", status:"", notes:"" },
+      openItems:{}, revealTier:1
+    };
   }
-  function buildBlueprint(){
-    refreshIdentity();
+  function load(){
+    var s=null; try{ s=JSON.parse(localStorage.getItem(KEY)||"null"); }catch(e){}
+    if(!s || s.version!==VERSION){ var f=fresh(); if(s){ try{ f=merge(fresh(),s); f.version=VERSION; }catch(e){ f=fresh(); } } return f; }
+    return s;
+  }
+  function merge(base,over){ // shallow-safe merge for forward compat
+    Object.keys(over||{}).forEach(function(k){ if(over[k]!==undefined) base[k]=over[k]; });
+    return base;
+  }
+  var saveT;
+  function save(){ state.lastSaved=new Date().toISOString();
+    try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){}
+  }
+  function queueSave(){ clearTimeout(saveT); saveT=setTimeout(function(){ save(); flashSaved(); }, 500); }
 
-    var aud = store["choice:audience"] || "";
-    setMirror("audienceChoice", aud);
-    setMirror("viewer", get("viewer"));
-
-    var c2 = [get("call2date"), get("call2time")].filter(Boolean).join(" · ");
-    setMirror("call2", c2 || (get("call2note") ? get("call2note") : ""));
-
-    var stories = [];
-    [1,2,3].forEach(function(i){
-      var n = get("story" + i + "name");
-      if (n) stories.push({ html: "<strong>" + escapeHtml(n) + "</strong>" + (get("story"+i+"sum") ? " — " + escapeHtml(get("story"+i+"sum")) : "") });
+  /* ---------------- tiny DOM helpers ---------------- */
+  function h(tag, attrs, kids){
+    var e=document.createElement(tag);
+    if(attrs) Object.keys(attrs).forEach(function(k){
+      if(k==="class") e.className=attrs[k];
+      else if(k==="html") e.innerHTML=attrs[k];
+      else if(k==="text") e.textContent=attrs[k];
+      else if(k.slice(0,2)==="on") e.addEventListener(k.slice(2).toLowerCase(), attrs[k]);
+      else if(attrs[k]!==null && attrs[k]!==undefined) e.setAttribute(k, attrs[k]);
     });
-    fillList("stories", stories);
+    (kids||[]).forEach(function(c){ if(c==null) return; e.appendChild(typeof c==="string"?document.createTextNode(c):c); });
+    return e;
+  }
+  function esc(s){ return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];}); }
 
-    var proof = [];
-    [1,2,3].forEach(function(i){ if (get("proof"+i)) proof.push({ text: get("proof"+i) }); });
-    if (get("claimStory")) proof.push({ html: "<strong>Claim paid</strong> — " + escapeHtml(get("claimStory")) });
-    fillList("proof", proof);
-
-    var pillars = [];
-    for (var i = 1; i <= 5; i++){
-      var n = get("pillar" + i);
-      if (!n) continue;
-      var s = store["choice:sort" + i];
-      var tag = s === "Keep" ? ' <span class="chip">Ready</span>' : (s === "Park" ? ' <span class="chip">Parked</span>' : "");
-      pillars.push({ html: "<strong>" + escapeHtml(n) + "</strong>" + tag + (get("pillar"+i+"note") ? "<br>" + escapeHtml(get("pillar"+i+"note")) : "") });
+  /* bound text/textarea */
+  function fieldEl(label, getV, setV, opts){
+    opts=opts||{};
+    var wrap=h("label",{class:"field"});
+    if(label) wrap.appendChild(h("span",{text:label}));
+    var input;
+    if(opts.area){ input=h("textarea",{class:opts.cls||"", placeholder:opts.ph||"", "aria-label":opts.aria||label||"field"}); }
+    else { input=h("input",{type:opts.type||"text", placeholder:opts.ph||"", "aria-label":opts.aria||label||"field"}); }
+    input.value=getV()||"";
+    input.addEventListener("input",function(){ setV(input.value); queueSave(); if(opts.onChange) opts.onChange(); refreshStatus(); });
+    wrap.appendChild(input);
+    if(opts.max){
+      var c=h("div",{class:"counter"}); function upd(){ c.textContent=(input.value.length)+" / "+opts.max; }
+      input.setAttribute("maxlength",opts.max); input.addEventListener("input",upd); upd();
+      wrap.appendChild(c);
     }
-    fillList("pillars", pillars);
-
-    var risks = RISKS.map(function(r){
-      var lvl = store["choice:" + r[0]] || "";
-      var chip = lvl ? ' <span class="chip '+lvl+'">'+lvl+'</span>' : ' <span class="chip">Unrated</span>';
-      var ev = get(r[0] + "Ev");
-      return { html: "<strong>" + r[1] + "</strong>" + chip + (ev ? "<br>" + escapeHtml(ev) : "") };
+    return wrap;
+  }
+  /* segmented single choice */
+  function segEl(values, getV, setV, opts){
+    opts=opts||{};
+    var box=h("div",{class:"choices "+(opts.cls||"")});
+    values.forEach(function(v){
+      var lbl = (typeof v==="object")? v[1]:v; var val=(typeof v==="object")? v[0]:v;
+      var b=h("button",{class:"choice"+(opts.bronze?" bronze":""), type:"button", "data-value":val, "aria-pressed":"false", text:lbl});
+      b.addEventListener("click",function(){
+        var cur=getV(); setV(cur===val?"":val); paint(); queueSave(); if(opts.onChange) opts.onChange(); refreshStatus();
+      });
+      box.appendChild(b);
     });
-    fillList("risks", risks);
+    function paint(){ var cur=getV(); Array.prototype.forEach.call(box.children,function(b){ b.setAttribute("aria-pressed", b.getAttribute("data-value")===cur?"true":"false"); }); }
+    paint(); box._paint=paint;
+    return box;
+  }
 
-    fillList("homework", HW.map(function(h){
-      var done = store[h[0]] === true;
-      return { html: (done ? "✓ " : "○ ") + escapeHtml(h[1]) };
+  /* ---------------- section registry ---------------- */
+  var SECTIONS = [
+    { key:"arrival",   title:"Arrival",       time:"0:00 – 0:05", label:"Arrival & Call One", render:rArrival,  live:vArrival },
+    { key:"foundation",title:"Foundation",    time:"0:05 – 0:15", label:"Foundation Lock",     render:rFoundation, live:vFoundation },
+    { key:"platform",  title:"Platform",      time:"0:15 – 0:30", label:"Platform Decision",   render:rPlatform, live:vPlatform },
+    { key:"ecosystem", title:"Ecosystem",     time:"0:30 – 0:50", label:"Content Ecosystem",   render:rEcosystem, live:vEcosystem },
+    { key:"rollout",   title:"365 Rollout",   time:"0:50 – 1:10", label:"365-Day Rollout",     render:rRollout, live:vRollout },
+    { key:"publishing",title:"Publishing",    time:"0:50 – 1:10", label:"Publishing Cadence",  render:rPublishing, live:vPublishing },
+    { key:"community", title:"Community",     time:"1:10 – 1:20", label:"Community Path",       render:rCommunity, live:vCommunity },
+    { key:"messaging", title:"Messaging",     time:"1:10 – 1:20", label:"Messaging & Trust",   render:rMessaging, live:vMessaging },
+    { key:"metrics",   title:"Scoreboard",    time:"1:20 – 1:25", label:"Success Metrics",     render:rMetrics, live:vMetrics },
+    { key:"transparency",title:"Transparency",time:"1:20 – 1:25", label:"Transparency",        render:rTransparency, live:vTransparency },
+    { key:"compliance",title:"Compliance",    time:"1:20 – 1:25", label:"Compliance",          render:rCompliance, live:vCompliance },
+    { key:"risk",      title:"Risk Register", time:"1:20 – 1:25", label:"Risk Register",       render:rRisk, live:vRisk },
+    { key:"callthree", title:"Call Three",    time:"1:25 – 1:28", label:"Call Three Handoff",  render:rCallThree, live:vCallThree },
+    { key:"homework",  title:"Homework",      time:"1:25 – 1:28", label:"Homework & Schedule", render:rHomework, live:vHomework },
+    { key:"reveal",    title:"Blueprint",     time:"1:28 – 1:30", label:"Final Blueprint",     render:rReveal, live:function(){return {ok:true,missing:[]};} }
+  ];
+
+  var NOTES = {
+    arrival:{o:"Re-establish the architecture and confirm Call One is settled input.",say:"“Noah — good to be back. This is Call Two: the Complete Growth Blueprint. Call One gave us the diagnosis and first-draft identity. Today we turn that into the full strategic architecture for the year. Quick check — where are we on the 365, and have any new posts gone up since last time?”",crit:"Do not reopen extraction. Confirm the settled foundation and move.",park:"",out:"365 status logged; Call One artifacts confirmed still accurate."},
+    foundation:{o:"Refine identity wording and lock the agents-first hierarchy, promise, and through-line.",say:"“Call One settled the thesis: your brand is the transparent documentation of one agent building himself — and eventually an agency — the honest way. Today we sharpen the exact wording and hierarchy.”",crit:"Identity language must match Noah’s actual voice. Primary audience stays agents / aspiring agents. Do NOT reopen a Families-versus-Agents fork or consumer targeting.",park:"",out:"Refined identity, central promise, through-line, audience hierarchy locked."},
+    platform:{o:"Choose platform hierarchy and roles through the eight-criterion framework.",say:"“We’re not chasing platforms — we’re choosing the smallest number whose strengths match your real capacity and the agents-first audience.”",crit:"Use the eight criteria exactly. Do not preselect a winner. Capture rationale for each choice.",park:"Exact posting templates → Call Three.",out:"Primary (and any secondary/tertiary) platform, roles, shortform/longform logic, content movement."},
+    ecosystem:{o:"Turn the settled pillar directions into a living, repeatable ecosystem.",say:"“Call One gave us the pillar directions. Today we refine, order, and map them to formats your real week can feed every week.”",crit:"Use only pillar language from Call One. Keep / Merge / Park — parked pillars are preserved, not deleted.",park:"Scripts, hooks, thumbnails → Call Three.",out:"3–5 retained pillars ordered, each with a core format; recurring formats defined."},
+    rollout:{o:"Build the phased 365-day architecture — the largest protected block.",say:"“The 365 days are raw material. Each phase gets a clear objective, what the content does, what success looks like, and what must be true before we advance.”",crit:"4–7 phases, sequential, each with measurable advancement criteria. Protect this block from time pressure.",park:"",out:"4–7 phases, each with objective, behavior, success signal, advancement criterion."},
+    publishing:{o:"Set a cadence that survives 365 days without burnout.",say:"“Let’s set the floor and the standard — and the bad-week fallback that protects the streak.”",crit:"Cadence must be sustainable for his real week. Strategy only — no batching or editing workflow.",park:"Batching / editing / repurposing workflow → Call Three.",out:"Minimum, standard, shortform/longform frequency, bad-week fallback, non-negotiable minimum."},
+    community:{o:"Lock the agents-first relationship path and the signals at each stage.",say:"“This is the exact sequence: viewer → follower → trusted member → conversation → recruiting interest → qualified agency relationship. Consumer policy sales are proof only.”",crit:"Agents-first language only. No consumer-policy funnel.",park:"",out:"Trust signal, desired action, and qualification signal for each of the six stages."},
+    messaging:{o:"Lock the promise, beliefs, proof types, and language guardrails.",say:"“What do you stand for, what do you refuse, and which proof carries the message?”",crit:"Client stories function as teaching evidence and proof of character — never consumer lead-gen.",park:"",out:"Central promise, core belief, stands-for, refuses, proof types, language guardrails."},
+    metrics:{o:"Choose the handful of signals that prove the platform and recruitment path are healthy.",say:"“We pick the few numbers and signals that actually tell us it’s working — and name the North Star.”",crit:"At least three core metrics. Separate useful signals from vanity ones. No analytics workflow here.",park:"Exact analytics routine → Call Three.",out:"≥3 core metrics with healthy/warning signals, a North Star, and a review rhythm."},
+    transparency:{o:"Decide how much real performance data gets shown.",say:"“What numbers help the mission, and what stays private? Where does transparency become performance?”",crit:"Do not preselect a level. Capture what’s useful vs. performative/unsafe.",park:"",out:"One transparency level and its boundaries."},
+    compliance:{o:"Capture operational compliance status for every content category.",say:"“What can we show cleanly, what’s restricted, and what do we need to confirm — with an owner and a date?”",crit:"Operational status, not legal advice. Nothing defaults to Confirmed.",park:"",out:"A status for every category; owner and deadline on anything unresolved."},
+    risk:{o:"Update the four Call One risks against the new architecture.",say:"“Same four failure points — inconsistency, weak positioning, burnout, unclear conversion. Where does each stand now, and how does the system answer it?”",crit:"Do not rename the four risks. Map each mitigation to a locked Call Two system.",park:"",out:"Updated rating, mitigation, warning signal, and Call Three requirement per risk."},
+    callthree:{o:"Capture what Call Three must build — requirements only.",say:"“We’re not designing the workflows today. We’re writing the brief Call Three executes.”",crit:"Requirements only. If it needs a template or workflow, it belongs to Call Three.",park:"All execution design → Call Three.",out:"Objective, constraint, and source input for each execution category."},
+    homework:{o:"Assign concrete homework and book Call Three.",say:"“Before Call Three: test the cadence, capture proof stories in the approved messaging, and pressure-test the rollout against your real calendar. Let’s book Call Three now.”",crit:"At least three owned, time-bound items. Book Call Three or set an options deadline.",park:"",out:"≥3 homework items with owner and deadline; Call Three scheduled or options pending."},
+    reveal:{o:"Assemble every locked decision into one authoritative blueprint.",say:"“Here’s the complete blueprint — your operating system for the year. Watch for the full written report within 24 hours.”",crit:"Trigger Print / Save PDF after the reveal. Close with ownership.",park:"",out:"Assembled blueprint ready to mirror into the 24-hour report."}
+  };
+
+  /* ---------- shared partials ---------- */
+  function eyebrow(t){ return h("p",{class:"eyebrow rise",text:t}); }
+  function settledCard(title, body, list){
+    var c=h("div",{class:"settled rise"});
+    c.appendChild(h("span",{class:"tag",html:LOCK+" Settled from Call One"}));
+    if(title) c.appendChild(h("h4",{text:title}));
+    if(body) c.appendChild(h("p",{text:body}));
+    if(list){ var ul=h("ul"); list.forEach(function(x){ ul.appendChild(h("li",{text:x})); }); c.appendChild(ul); }
+    return c;
+  }
+  function disclosure(label, buildBody){
+    var d=h("details",{class:"disc"}); d.appendChild(h("summary",{text:label}));
+    var b=h("div",{class:"disc-body"}); buildBody(b); d.appendChild(b); return d;
+  }
+  function statusBadge(sectionKey, text){
+    var b=h("div",{class:"status", "data-status":sectionKey});
+    b.appendChild(h("span",{class:"dot",html:CK}));
+    b.appendChild(document.createTextNode(text||"Locked for this section"));
+    return b;
+  }
+
+  /* =========================================================================
+     SECTION RENDERERS
+     ======================================================================= */
+
+  function rArrival(root){
+    root.appendChild(eyebrow("Call Two · The Complete Growth Blueprint"));
+    root.appendChild(h("div",{class:"rise"},[
+      h("h1",{text:"Welcome back, Noah."}),
+      h("p",{class:"lede",html:"Call One gave us the foundation. Today we build the complete architecture — the systems that make the 365 days compound into a platform other agents follow, trust, and eventually <em>join</em>."})
+    ]));
+    root.appendChild(h("div",{class:"grid g2 rise"},[
+      settledCard("The diagnosis", C1.diagnosis),
+      settledCard("Where this leads", C1.agencyPath)
+    ]));
+    var wrap=h("div",{class:"rise", style:"margin-top:24px;max-width:520px"});
+    wrap.appendChild(fieldEl("The 365 — where are we today?", function(){return state.status365;}, function(v){state.status365=v;}, {ph:"Not started · Day one pending · Day ___ · new posts since Call One", max:80}));
+    root.appendChild(wrap);
+    root.appendChild(statusBadge("arrival","365 status logged — Call One confirmed settled"));
+  }
+  function vArrival(){ var m=[]; if(!state.status365.trim()) m.push("365 status"); return {ok:!m.length, missing:m}; }
+
+  function rFoundation(root){
+    root.appendChild(eyebrow("Foundation lock"));
+    root.appendChild(h("h2",{class:"rise",text:"The foundation we’re building on."}));
+    root.appendChild(h("p",{class:"lede rise",text:"These are settled conclusions from Call One. We refine the wording and lock the hierarchy every later decision must serve."}));
+    root.appendChild(h("div",{class:"grid g2 rise"},[
+      settledCard("Creator identity — draft", C1.identity),
+      settledCard("Audience — agents first", C1.audiencePrimary + " (primary). " + C1.audienceSecondary + " (secondary). No consumer lead-generation as the platform’s purpose.")
+    ]));
+    var f=state.foundation;
+    var box=h("div",{class:"rise", style:"margin-top:22px"});
+    box.appendChild(fieldEl("Refined creator identity — in Noah’s words", function(){return f.identity;}, function(v){f.identity=v;}, {area:true, ph:"Sharpen the settled identity. What single phrase would you make truer?", max:300}));
+    box.appendChild(h("div",{class:"grid g2"},[
+      fieldEl("Central promise", function(){return f.promise;}, function(v){f.promise=v;}, {ph:"The one promise the platform makes.", max:120}),
+      fieldEl("Strategic through-line", function(){return f.throughline;}, function(v){f.throughline=v;}, {ph:"e.g. The climb is the product.", max:120})
+    ]));
+    root.appendChild(box);
+
+    root.appendChild(h("h3",{class:"rise",style:"margin-top:26px",text:"Audience hierarchy"}));
+    var pk=h("div",{class:"grid g2 rise"});
+    pk.appendChild(h("div",{class:"pick locked"},[ h("span",{class:"kicker",text:"Primary · locked"}), h("h4",{text:"Agents & aspiring agents"}), h("p",{text:"The people the platform is built for."}) ]));
+    var sec=h("div",{class:"pick"});
+    sec.appendChild(h("span",{class:"kicker",text:"Secondary"}));
+    sec.appendChild(h("h4",{text:"Adjacent salespeople"}));
+    sec.appendChild(fieldEl("", function(){return f.secondaryAudience;}, function(v){f.secondaryAudience=v;}, {area:true, cls:"short", ph:"How the secondary audience fits — optional refinement.", max:150}));
+    pk.appendChild(sec);
+    root.appendChild(pk);
+
+    root.appendChild(h("h3",{class:"rise",style:"margin-top:26px",text:"What each stage must believe, feel, and do"}));
+    var stagesWrap=h("div",{class:"rise"});
+    f.stages.forEach(function(st,i){
+      var row=h("div",{class:"brow"});
+      row.appendChild(h("div",{class:"brow-head"},[ h("span",{class:"idx",text:st.name}) ]));
+      row.appendChild(h("div",{class:"grid g3"},[
+        fieldEl("Believe", function(){return st.believe;}, function(v){st.believe=v;}, {area:true,cls:"short",max:150}),
+        fieldEl("Feel", function(){return st.feel;}, function(v){st.feel=v;}, {area:true,cls:"short",max:150}),
+        fieldEl("Do", function(){return st.act;}, function(v){st.act=v;}, {area:true,cls:"short",max:150})
+      ]));
+      stagesWrap.appendChild(row);
+    });
+    root.appendChild(stagesWrap);
+    root.appendChild(statusBadge("foundation","Foundation locked"));
+  }
+  function vFoundation(){ var f=state.foundation, m=[];
+    if(!f.identity.trim()) m.push("Refined creator identity");
+    if(!f.promise.trim()) m.push("Central promise");
+    if(!f.throughline.trim()) m.push("Strategic through-line");
+    var anyStage=f.stages.some(function(s){return s.believe.trim()&&s.feel.trim()&&s.act.trim();});
+    if(!anyStage) m.push("At least one audience stage (believe / feel / do)");
+    return {ok:!m.length, missing:m};
+  }
+
+  function rPlatform(root){
+    root.appendChild(eyebrow("Platform decision system"));
+    root.appendChild(h("h2",{class:"rise",text:"Where this platform lives."}));
+    root.appendChild(h("p",{class:"lede rise",text:"We score each platform against Noah’s real capacity and the agents-first audience. Nothing is pre-chosen — the scores decide."}));
+    var p=state.platforms;
+    var wrap=h("div",{class:"rise"});
+    PLATFORMS.forEach(function(pl){
+      if(!p.scores[pl]) p.scores[pl]={};
+      var card=h("div",{class:"scorecard","data-plat":pl});
+      var avgEl=h("span",{class:"sc-avg"});
+      function recomputeAvg(){
+        var vals=CRITERIA.map(function(c){return +p.scores[pl][c[0]]||0;}).filter(function(x){return x>0;});
+        var avg=vals.length? (vals.reduce(function(a,b){return a+b;},0)/vals.length):0;
+        avgEl.innerHTML = vals.length? ("Average<b>"+avg.toFixed(1)+"</b>") : "Average<b>—</b>";
+        card.classList.toggle("on", vals.length===CRITERIA.length);
+      }
+      card.appendChild(h("div",{class:"sc-head"},[ h("h4",{text:pl}), avgEl ]));
+      CRITERIA.forEach(function(c){
+        var row=h("div",{class:"crit"});
+        row.appendChild(h("span",{text:c[1]}));
+        var seg=segEl(["1","2","3","4","5"], function(){return String(p.scores[pl][c[0]]||"");}, function(v){p.scores[pl][c[0]]=v; recomputeAvg();}, {cls:"seg"});
+        row.appendChild(seg);
+        card.appendChild(row);
+      });
+      card.appendChild(disclosure("Why does this platform earn its role?", function(b){
+        b.appendChild(fieldEl("", function(){return p.rationale[pl]||"";}, function(v){p.rationale[pl]=v;}, {area:true,cls:"short",ph:"Rationale for "+pl+" — capture for the report.",max:200}));
+      }));
+      recomputeAvg();
+      wrap.appendChild(card);
+    });
+    root.appendChild(wrap);
+
+    root.appendChild(h("h3",{class:"rise",style:"margin-top:26px",text:"Hierarchy & roles"}));
+    var hr=h("div",{class:"rise"});
+    ["primary","secondary","tertiary"].forEach(function(pos){
+      var label = pos==="primary"?"Primary":pos==="secondary"?"Secondary (optional)":"Tertiary (optional)";
+      var row=h("div",{class:"card",style:"margin-bottom:12px"});
+      row.appendChild(h("div",{class:"flabel",text:label}));
+      var seg=segEl(PLATFORMS, function(){return p[pos];}, function(v){
+        if(v){ ["primary","secondary","tertiary"].forEach(function(o){ if(o!==pos && p[o]===v) p[o]=""; }); }
+        p[pos]=v; renderCurrent(); queueSave(); refreshStatus();
+      }, {bronze:true});
+      row.appendChild(seg);
+      hr.appendChild(row);
+    });
+    root.appendChild(hr);
+
+    root.appendChild(h("div",{class:"grid g2 rise",style:"margin-top:6px"},[
+      fieldEl("Shortform / longform logic", function(){return p.shortlong;}, function(v){p.shortlong=v;}, {area:true,ph:"Which platform carries shortform, which carries depth.",max:200}),
+      fieldEl("How content moves between platforms", function(){return p.movement;}, function(v){p.movement=v;}, {area:true,ph:"The movement rule — capture the summary.",max:200})
+    ]));
+    root.appendChild(statusBadge("platform","Platform architecture locked"));
+  }
+  function vPlatform(){ var p=state.platforms, m=[];
+    if(!p.primary) m.push("Primary platform");
+    else { var missing=CRITERIA.filter(function(c){return !(p.scores[p.primary]&&p.scores[p.primary][c[0]]);}); if(missing.length) m.push("All eight scores for "+p.primary); if(!(p.rationale[p.primary]||"").trim()) m.push("Rationale for "+p.primary); }
+    if(!p.shortlong.trim()) m.push("Shortform / longform logic");
+    if(!p.movement.trim()) m.push("Content movement summary");
+    return {ok:!m.length, missing:m};
+  }
+
+  function rEcosystem(root){
+    root.appendChild(eyebrow("Content ecosystem builder"));
+    root.appendChild(h("h2",{class:"rise",text:"The content that will carry the year."}));
+    root.appendChild(h("p",{class:"lede rise",text:"These pillar directions came from Call One. We refine, order, and map each to a repeatable format. Keep, merge, or park — parked pillars stay visible, never deleted."}));
+    var eco=state.ecosystem;
+    var kept=h("div",{class:"rise", id:"pillarsKeep"});
+    var parked=h("div",{class:"rise", id:"pillarsPark", style:"margin-top:18px"});
+
+    function pillarRow(p, i, isParked){
+      var row=h("div",{class:"brow"+(isParked?" parked":"")});
+      var head=h("div",{class:"brow-head"});
+      head.appendChild(h("span",{class:"idx",text:(isParked?"—":(i+1))}));
+      var nm=h("div",{class:"nm"}); nm.appendChild(fieldEl("", function(){return p.name;}, function(v){p.name=v;}, {ph:"Pillar name",max:60})); head.appendChild(nm);
+      var btns=h("div",{class:"rowbtns"});
+      if(!isParked){
+        var up=h("button",{class:"ibtn",title:"Move up","aria-label":"Move pillar up",html:UP}); up.disabled=(i===0);
+        up.addEventListener("click",function(){ movePillar(p.id,-1); });
+        var dn=h("button",{class:"ibtn",title:"Move down","aria-label":"Move pillar down",html:DN}); dn.disabled=(i===keptList().length-1);
+        dn.addEventListener("click",function(){ movePillar(p.id,1); });
+        btns.appendChild(up); btns.appendChild(dn);
+      }
+      head.appendChild(btns);
+      row.appendChild(head);
+
+      row.appendChild(h("div",{class:"grid g2"},[
+        fieldEl("Why this pillar earns a place", function(){return p.purpose;}, function(v){p.purpose=v;}, {area:true,cls:"short",max:150}),
+        fieldEl("What in the real week feeds it", function(){return p.supply;}, function(v){p.supply=v;}, {area:true,cls:"short",max:150})
+      ]));
+      row.appendChild(h("div",{class:"grid g3"},[
+        fieldEl("Core format", function(){return p.format;}, function(v){p.format=v;}, {ph:"e.g. Daily call recap",max:60}),
+        (function(){ var w=h("label",{class:"field"}); w.appendChild(h("span",{text:"Audience stage"})); w.appendChild(segEl(["Awareness","Consideration","Decision"], function(){return p.stage;}, function(v){p.stage=v;}, {bronze:true})); return w; })(),
+        fieldEl("Why the right people trust it", function(){return p.trust;}, function(v){p.trust=v;}, {area:true,cls:"short",max:150})
+      ]));
+      row.appendChild(disclosure("What real evidence feeds this pillar?", function(b){
+        b.appendChild(fieldEl("", function(){return p.proof;}, function(v){p.proof=v;}, {area:true,cls:"short",ph:"Proof source — capture for the report.",max:150}));
+      }));
+
+      var act=h("div",{class:"pill-actions"});
+      if(!isParked){
+        var keepB=h("button",{class:"textbtn","aria-pressed":"true",text:"Keep"});
+        var parkB=h("button",{class:"textbtn",text:"Park"});
+        parkB.addEventListener("click",function(){ p.status="park"; renderEco(); queueSave(); refreshStatus(); });
+        var mergeB=h("button",{class:"textbtn",html:MRG+" Merge"});
+        mergeB.addEventListener("click",function(){ mergePillar(p.id); });
+        act.appendChild(keepB); act.appendChild(parkB); act.appendChild(mergeB);
+      } else {
+        var restoreB=h("button",{class:"textbtn",text:"Restore to active"});
+        restoreB.addEventListener("click",function(){ p.status="keep"; renderEco(); queueSave(); refreshStatus(); });
+        act.appendChild(restoreB);
+      }
+      row.appendChild(act);
+      return row;
+    }
+    function keptList(){ return eco.pillars.filter(function(p){return p.status!=="park";}); }
+    function movePillar(id,dir){
+      var arr=eco.pillars;
+      var kept=keptList(); var kIdx=kept.findIndex(function(p){return p.id===id;});
+      var target=kept[kIdx+dir]; if(!target) return;
+      var a=arr.indexOf(kept[kIdx]), b=arr.indexOf(target);
+      arr[a]=target; arr[b]=kept[kIdx];
+      renderEco(); queueSave();
+    }
+    function mergePillar(id){
+      var kept=keptList().filter(function(p){return p.id!==id;});
+      if(!kept.length){ alert("Nothing to merge into — need at least one other active pillar."); return; }
+      var src=eco.pillars.find(function(p){return p.id===id;});
+      var names=kept.map(function(p,i){return (i+1)+". "+(p.name||"(unnamed)");}).join("\n");
+      var ans=prompt("Merge “"+(src.name||"this pillar")+"” into which active pillar?\n\n"+names+"\n\nType the number:");
+      var n=parseInt(ans,10);
+      if(!n || n<1 || n>kept.length) return;
+      var dest=kept[n-1];
+      if(!confirm("Merge “"+(src.name||"pillar")+"” into “"+(dest.name||"pillar")+"”? Its notes will be appended and the source pillar parked.")) return;
+      dest.purpose=[dest.purpose,src.purpose].filter(Boolean).join(" · ");
+      dest.supply=[dest.supply,src.supply].filter(Boolean).join(" · ");
+      dest.trust=[dest.trust,src.trust].filter(Boolean).join(" · ");
+      dest.proof=[dest.proof,src.proof].filter(Boolean).join(" · ");
+      src.status="park";
+      renderEco(); queueSave(); refreshStatus();
+    }
+    function renderEco(){
+      kept.innerHTML=""; parked.innerHTML="";
+      kept.appendChild(h("h3",{text:"Active pillars — ordered"}));
+      var list=keptList();
+      list.forEach(function(p,i){ kept.appendChild(pillarRow(p,i,false)); });
+      var pk=eco.pillars.filter(function(p){return p.status==="park";});
+      if(pk.length){ parked.appendChild(h("h3",{text:"Parked — preserved for later"})); pk.forEach(function(p){ parked.appendChild(pillarRow(p,0,true)); }); }
+    }
+    renderEco();
+    root.appendChild(kept); root.appendChild(parked);
+
+    root.appendChild(h("h3",{class:"rise",style:"margin-top:24px",text:"Recurring formats & series"}));
+    var fmts=h("div",{class:"rise", id:"fmts"});
+    function renderFmts(){
+      fmts.innerHTML="";
+      eco.formats.forEach(function(fm,i){
+        var row=h("div",{class:"brow"});
+        var head=h("div",{class:"brow-head"});
+        head.appendChild(h("span",{class:"idx",text:(i+1)}));
+        var nm=h("div",{class:"nm"}); nm.appendChild(fieldEl("", function(){return fm.name;}, function(v){fm.name=v;}, {ph:"Format / series name",max:60})); head.appendChild(nm);
+        if(eco.formats.length>2){ var del=h("button",{class:"ibtn",title:"Remove",html:DEL}); del.addEventListener("click",function(){ eco.formats.splice(i,1); renderFmts(); queueSave(); refreshStatus(); }); head.appendChild(del); }
+        row.appendChild(head);
+        row.appendChild(fieldEl("What it is", function(){return fm.desc;}, function(v){fm.desc=v;}, {area:true,cls:"short",max:150}));
+        fmts.appendChild(row);
+      });
+      var add=h("button",{class:"addbtn",text:"+ Add format / series"});
+      add.addEventListener("click",function(){ eco.formats.push({name:"",desc:""}); renderFmts(); queueSave(); });
+      fmts.appendChild(add);
+    }
+    renderFmts();
+    root.appendChild(fmts);
+    root.appendChild(statusBadge("ecosystem","Ecosystem locked"));
+  }
+  function vEcosystem(){ var eco=state.ecosystem, m=[];
+    var kept=eco.pillars.filter(function(p){return p.status!=="park";});
+    var named=kept.filter(function(p){return p.name.trim();});
+    if(named.length<3) m.push("At least 3 active pillars named");
+    if(named.length>5) m.push("Trim active pillars to 5 or fewer (park the rest)");
+    var noFormat=named.filter(function(p){return !p.format.trim();});
+    if(named.length>=3 && noFormat.length) m.push("A core format for each active pillar");
+    var noPurpose=named.filter(function(p){return !p.purpose.trim()||!p.trust.trim();});
+    if(named.length>=3 && noPurpose.length) m.push("Purpose + trust function for each active pillar");
+    return {ok:!m.length, missing:m};
+  }
+
+  function rRollout(root){
+    root.appendChild(eyebrow("365-day phased rollout"));
+    root.appendChild(h("h2",{class:"rise",text:"How the 365 days actually compound."}));
+    root.appendChild(h("p",{class:"lede rise",text:"This is the architecture of the year. Each phase has an objective, what the content does, and what must be true before we move forward. Four to seven phases."}));
+    var r=state.rollout;
+    var list=h("div",{class:"rise", id:"phaseList"});
+    function renderPhases(){
+      list.innerHTML="";
+      r.phases.forEach(function(ph,i){
+        var row=h("div",{class:"brow"});
+        var head=h("div",{class:"brow-head"});
+        head.appendChild(h("span",{class:"idx",text:(i+1)}));
+        var nm=h("div",{class:"nm"}); nm.appendChild(fieldEl("", function(){return ph.name;}, function(v){ph.name=v;}, {ph:"Phase name",max:40})); head.appendChild(nm);
+        var btns=h("div",{class:"rowbtns"});
+        var up=h("button",{class:"ibtn",title:"Move up",html:UP}); up.disabled=(i===0); up.addEventListener("click",function(){ if(i>0){ var t=r.phases[i-1]; r.phases[i-1]=ph; r.phases[i]=t; renderPhases(); queueSave(); } });
+        var dn=h("button",{class:"ibtn",title:"Move down",html:DN}); dn.disabled=(i===r.phases.length-1); dn.addEventListener("click",function(){ if(i<r.phases.length-1){ var t=r.phases[i+1]; r.phases[i+1]=ph; r.phases[i]=t; renderPhases(); queueSave(); } });
+        var dup=h("button",{class:"ibtn",title:"Duplicate",html:DUP}); dup.disabled=(r.phases.length>=7); dup.addEventListener("click",function(){ if(r.phases.length<7){ var copy=JSON.parse(JSON.stringify(ph)); copy.id="ph"+Date.now(); copy.name=ph.name+" (copy)"; r.phases.splice(i+1,0,copy); renderPhases(); queueSave(); refreshStatus(); } });
+        var del=h("button",{class:"ibtn",title:"Remove",html:DEL}); del.disabled=(r.phases.length<=4); del.addEventListener("click",function(){ if(r.phases.length>4 && confirm("Remove phase “"+(ph.name||"")+"”?")){ r.phases.splice(i,1); renderPhases(); queueSave(); refreshStatus(); } });
+        btns.appendChild(up); btns.appendChild(dn); btns.appendChild(dup); btns.appendChild(del);
+        head.appendChild(btns);
+        row.appendChild(head);
+
+        row.appendChild(h("div",{class:"grid g2"},[
+          fieldEl("Duration", function(){return ph.duration;}, function(v){ph.duration=v;}, {ph:"e.g. Days 1–30",max:30}),
+          fieldEl("Strategic objective", function(){return ph.objective;}, function(v){ph.objective=v;}, {area:true,cls:"short",max:200})
+        ]));
+        row.appendChild(h("div",{class:"grid g3"},[
+          fieldEl("What the content does", function(){return ph.behavior;}, function(v){ph.behavior=v;}, {area:true,cls:"short",max:200}),
+          fieldEl("Success signal", function(){return ph.signal;}, function(v){ph.signal=v;}, {area:true,cls:"short",max:150}),
+          fieldEl("What must be true before we advance?", function(){return ph.advancement;}, function(v){ph.advancement=v;}, {area:true,cls:"short",max:200})
+        ]));
+        row.appendChild(disclosure("Add detail — platform emphasis, audience outcome, risk, what changes next", function(b){
+          b.appendChild(h("div",{class:"grid g2"},[
+            fieldEl("Platform emphasis", function(){return ph.platformEmphasis;}, function(v){ph.platformEmphasis=v;}, {area:true,cls:"short",max:150}),
+            fieldEl("What the audience experiences", function(){return ph.audienceOutcome;}, function(v){ph.audienceOutcome=v;}, {area:true,cls:"short",max:200})
+          ]));
+          b.appendChild(h("div",{class:"grid g2"},[
+            fieldEl("Risk or constraint", function(){return ph.risk;}, function(v){ph.risk=v;}, {area:true,cls:"short",max:150}),
+            fieldEl("What changes in the next phase", function(){return ph.nextChange;}, function(v){ph.nextChange=v;}, {area:true,cls:"short",max:150})
+          ]));
+        }));
+        list.appendChild(row);
+      });
+      var add=h("button",{class:"addbtn",text:"+ Add phase"}); add.disabled=(r.phases.length>=7);
+      add.addEventListener("click",function(){ if(r.phases.length<7){ r.phases.push({id:"ph"+Date.now(),name:"",duration:"",objective:"",behavior:"",signal:"",advancement:"",platformEmphasis:"",audienceOutcome:"",risk:"",nextChange:""}); renderPhases(); queueSave(); refreshStatus(); } });
+      list.appendChild(add);
+      var note=h("p",{class:"hint",text:"Minimum 4 phases, maximum 7. These start as recommendations — rename, reorder, merge, and edit freely."});
+      list.appendChild(note);
+    }
+    renderPhases();
+    root.appendChild(list);
+    root.appendChild(statusBadge("rollout","Year architecture locked"));
+  }
+  function vRollout(){ var r=state.rollout, m=[];
+    if(r.phases.length<4) m.push("At least 4 phases");
+    var incomplete=r.phases.filter(function(p){ return !(p.name.trim()&&p.duration.trim()&&p.objective.trim()&&p.behavior.trim()&&p.signal.trim()&&p.advancement.trim()); });
+    if(incomplete.length) m.push(incomplete.length+" phase(s) missing a live field (name, duration, objective, behavior, signal, advancement)");
+    return {ok:!m.length, missing:m};
+  }
+
+  function rPublishing(root){
+    root.appendChild(eyebrow("Publishing architecture"));
+    root.appendChild(h("h2",{class:"rise",text:"A cadence that survives the year."}));
+    root.appendChild(h("p",{class:"lede rise",text:"Strategy only — the floor, the standard, and the bad-week fallback that protects the streak. The exact batching and editing workflow belongs to Call Three."}));
+    var pb=state.publishing;
+    root.appendChild(h("div",{class:"grid g3 rise"},[
+      fieldEl("Minimum viable cadence", function(){return pb.minViable;}, function(v){pb.minViable=v;}, {ph:"e.g. 3 shortform / week",max:60}),
+      fieldEl("Standard cadence", function(){return pb.standard;}, function(v){pb.standard=v;}, {ph:"The normal week",max:60}),
+      fieldEl("Stretch cadence (optional)", function(){return pb.stretch;}, function(v){pb.stretch=v;}, {ph:"On a good week",max:60})
+    ]));
+    root.appendChild(h("div",{class:"grid g2 rise"},[
+      fieldEl("Shortform frequency", function(){return pb.shortFreq;}, function(v){pb.shortFreq=v;}, {ph:"e.g. 5 / week",max:40}),
+      fieldEl("Longform frequency", function(){return pb.longFreq;}, function(v){pb.longFreq=v;}, {ph:"e.g. 1 / week",max:40})
+    ]));
+    root.appendChild(h("div",{class:"grid g2 rise"},[
+      fieldEl("Bad-week fallback", function(){return pb.badWeek;}, function(v){pb.badWeek=v;}, {area:true,cls:"short",ph:"What happens to content in the worst week.",max:150}),
+      fieldEl("Non-negotiable minimum", function(){return pb.nonNeg;}, function(v){pb.nonNeg=v;}, {area:true,cls:"short",ph:"The line that never drops.",max:120})
+    ]));
+    root.appendChild(disclosure("Add detail — documentation rhythm & phase-specific changes", function(b){
+      b.appendChild(h("div",{class:"grid g2"},[
+        fieldEl("Documentation rhythm", function(){return pb.docRhythm;}, function(v){pb.docRhythm=v;}, {area:true,cls:"short",max:150}),
+        fieldEl("Phase-specific cadence changes", function(){return pb.phaseChanges;}, function(v){pb.phaseChanges=v;}, {area:true,cls:"short",max:200})
+      ]));
     }));
+    root.appendChild(statusBadge("publishing","Cadence locked"));
+  }
+  function vPublishing(){ var pb=state.publishing, m=[];
+    if(!pb.minViable.trim()) m.push("Minimum viable cadence");
+    if(!pb.standard.trim()) m.push("Standard cadence");
+    if(!pb.shortFreq.trim()) m.push("Shortform frequency");
+    if(!pb.longFreq.trim()) m.push("Longform frequency");
+    if(!pb.badWeek.trim()) m.push("Bad-week fallback");
+    if(!pb.nonNeg.trim()) m.push("Non-negotiable minimum");
+    return {ok:!m.length, missing:m};
   }
 
-  function revealBlueprint(){
-    var panels = Array.prototype.slice.call(document.querySelectorAll("#bp [data-panel]"));
-    panels.forEach(function(p){ p.classList.remove("in"); });
-    void document.getElementById("bp").offsetWidth;
-    panels.forEach(function(p, i){
-      setTimeout(function(){ p.classList.add("in"); }, 140 * i);
+  function rCommunity(root){
+    root.appendChild(eyebrow("Community & recruitment path"));
+    root.appendChild(h("h2",{class:"rise",text:"How viewers become part of the agency path."}));
+    root.appendChild(h("p",{class:"lede rise",text:"This is the exact relationship sequence we’re building. Consumer policy sales are proof only — never the funnel."}));
+    var pm=h("div",{class:"pathmap rise"});
+    COMMUNITY_STAGES.forEach(function(s,i){ pm.appendChild(h("div",{class:"pathnode"},[ h("span",{class:"n",text:"0"+(i+1)}), h("b",{text:s}) ])); });
+    root.appendChild(pm);
+    var c=state.community;
+    var wrap=h("div",{class:"rise"});
+    c.stages.forEach(function(st,i){
+      var row=h("div",{class:"brow"});
+      row.appendChild(h("div",{class:"brow-head"},[ h("span",{class:"idx",text:"0"+(i+1)}), h("span",{class:"nm",style:"font-family:var(--serif);font-size:19px",text:st.name}) ]));
+      row.appendChild(h("div",{class:"grid g3"},[
+        fieldEl("Trust signal at this stage", function(){return st.trustSignal;}, function(v){st.trustSignal=v;}, {area:true,cls:"short",max:120}),
+        fieldEl("Desired action", function(){return st.action;}, function(v){st.action=v;}, {area:true,cls:"short",max:120}),
+        fieldEl("How do we know they’re serious?", function(){return st.qualification;}, function(v){st.qualification=v;}, {area:true,cls:"short",max:120})
+      ]));
+      row.appendChild(disclosure("Add detail — experience, mechanism, friction", function(b){
+        b.appendChild(h("div",{class:"grid g3"},[
+          fieldEl("What they experience", function(){return st.experience;}, function(v){st.experience=v;}, {area:true,cls:"short",max:150}),
+          fieldEl("Relationship mechanism", function(){return st.mechanism;}, function(v){st.mechanism=v;}, {area:true,cls:"short",max:100}),
+          fieldEl("Risk or friction", function(){return st.risk;}, function(v){st.risk=v;}, {area:true,cls:"short",max:100})
+        ]));
+      }));
+      wrap.appendChild(row);
     });
+    root.appendChild(wrap);
+    root.appendChild(statusBadge("community","Relationship path locked"));
+  }
+  function vCommunity(){ var c=state.community, m=[];
+    var incomplete=c.stages.filter(function(s){return !(s.trustSignal.trim()&&s.action.trim()&&s.qualification.trim());});
+    if(incomplete.length) m.push(incomplete.length+" stage(s) missing trust signal, action, or qualification");
+    return {ok:!m.length, missing:m};
   }
 
-  /* ---------- facilitator notes ---------- */
-  var fnotes = document.getElementById("fnotes");
-  var fnotesBody = document.getElementById("fnotesBody");
-  var notesBtn = document.getElementById("notesBtn");
-  var notesOn = false;
-
-  function paintNotes(){
-    var src = steps[idx].querySelector(".fnote");
-    fnotesBody.innerHTML = "";
-    if (!src){ fnotesBody.innerHTML = "<p>No notes for this section.</p>"; return; }
-    Array.prototype.forEach.call(src.childNodes, function(node){});
-    var raw = src.innerHTML;
-    raw.split(/<br\s*\/?>|\n/).forEach(function(chunk){
-      var t = chunk.trim();
-      if (!t) return;
-      var p = document.createElement("p");
-      p.innerHTML = t.replace(/<b>/g,"<strong>").replace(/<\/b>/g,"</strong>")
-                     .replace(/<i>/g,'<span class="say">').replace(/<\/i>/g,"</span>");
-      fnotesBody.appendChild(p);
+  function rMessaging(root){
+    root.appendChild(eyebrow("Messaging & trust framework"));
+    root.appendChild(h("h2",{class:"rise",text:"What the platform stands for."}));
+    root.appendChild(h("p",{class:"lede rise",text:"The promise, the belief, the line Noah won’t cross, and the proof that carries all of it. Client stories are teaching evidence — proof of character, not lead-gen."}));
+    var mg=state.messaging;
+    root.appendChild(h("div",{class:"grid g2 rise"},[
+      fieldEl("Central platform promise", function(){return mg.promise;}, function(v){mg.promise=v;}, {ph:"The promise every video keeps.",max:120}),
+      fieldEl("Core belief", function(){return mg.belief;}, function(v){mg.belief=v;}, {area:true,cls:"short",max:150})
+    ]));
+    root.appendChild(h("div",{class:"grid g2 rise"},[
+      fieldEl("What Noah stands for", function(){return mg.standsFor;}, function(v){mg.standsFor=v;}, {area:true,cls:"short",max:150}),
+      fieldEl("What Noah refuses", function(){return mg.refuses;}, function(v){mg.refuses=v;}, {area:true,cls:"short",max:150})
+    ]));
+    root.appendChild(h("h3",{class:"rise",style:"margin-top:20px",text:"Primary proof types"}));
+    var chips=h("div",{class:"grid g2 rise"});
+    C1.proof.forEach(function(pt){
+      var on=mg.proofTypes.indexOf(pt)>-1;
+      var lab=h("label",{class:"check"});
+      var cb=h("input",{type:"checkbox","aria-label":pt}); cb.checked=on;
+      cb.addEventListener("change",function(){ var idx=mg.proofTypes.indexOf(pt); if(cb.checked&&idx<0) mg.proofTypes.push(pt); else if(!cb.checked&&idx>-1) mg.proofTypes.splice(idx,1); queueSave(); refreshStatus(); });
+      lab.appendChild(cb); lab.appendChild(h("span",{class:"box",html:CK})); lab.appendChild(h("span",{class:"txt",text:pt}));
+      chips.appendChild(lab);
     });
+    root.appendChild(chips);
+    root.appendChild(h("div",{class:"rise",style:"margin-top:18px"},[
+      fieldEl("Language guardrails — what to avoid", function(){return mg.guardrails;}, function(v){mg.guardrails=v;}, {area:true,ph:"Tone, words, and moves that are off the table.",max:200})
+    ]));
+    root.appendChild(statusBadge("messaging","Messaging framework locked"));
   }
-  function toggleNotes(force){
-    notesOn = (typeof force === "boolean") ? force : !notesOn;
-    fnotes.classList.toggle("show", notesOn);
-    notesBtn.setAttribute("aria-pressed", notesOn ? "true" : "false");
-    notesBtn.classList.toggle("on", notesOn);
-    if (notesOn) paintNotes();
+  function vMessaging(){ var mg=state.messaging, m=[];
+    if(!mg.promise.trim()) m.push("Central platform promise");
+    if(!mg.belief.trim()) m.push("Core belief");
+    if(!mg.standsFor.trim()) m.push("What Noah stands for");
+    if(!mg.refuses.trim()) m.push("What Noah refuses");
+    if(mg.proofTypes.length<1) m.push("At least one primary proof type");
+    if(!mg.guardrails.trim()) m.push("Language guardrails");
+    return {ok:!m.length, missing:m};
   }
-  notesBtn.addEventListener("click", function(){ toggleNotes(); });
 
-  /* ---------- navigation ---------- */
-  steps.forEach(function(s, i){
-    var b = document.createElement("button");
-    b.className = "dot-btn";
-    b.setAttribute("aria-label", (i+1) + ". " + s.getAttribute("data-title"));
-    b.title = (i+1) + " · " + s.getAttribute("data-title");
-    b.innerHTML = "<i></i>";
-    b.addEventListener("click", function(){ go(i); });
+  function rMetrics(root){
+    root.appendChild(eyebrow("Scoreboard & success metrics"));
+    root.appendChild(h("h2",{class:"rise",text:"How we know it’s working."}));
+    root.appendChild(h("p",{class:"lede rise",text:"We choose the handful of numbers and signals that actually tell us the platform and recruitment path are healthy — then name the North Star. Pick at least three."}));
+    var mt=state.metrics;
+    var grid=h("div",{class:"grid g2 rise"});
+    METRIC_CATS.forEach(function(mc){
+      var key=mc[0]; if(!mt.items[key]) mt.items[key]={included:false,importance:"",healthy:"",warning:""};
+      var it=mt.items[key];
+      var card=h("div",{class:"mcard"+(it.included?" on":"")});
+      var head=h("div",{class:"mcard-head"});
+      head.appendChild(h("span",{class:"nm",text:mc[1]}));
+      var body=h("div",{class:"mcard-body"});
+      var tgl=h("button",{class:"textbtn","aria-pressed":it.included?"true":"false",text:it.included?"Included":"Include"});
+      tgl.addEventListener("click",function(){ it.included=!it.included; card.classList.toggle("on",it.included); tgl.setAttribute("aria-pressed",it.included?"true":"false"); tgl.textContent=it.included?"Included":"Include"; body.style.display=it.included?"block":"none"; queueSave(); refreshStatus(); });
+      head.appendChild(tgl);
+      card.appendChild(head);
+      body.appendChild(h("div",{class:"flabel",text:"Importance"}));
+      body.appendChild(segEl(["1","2","3","4","5"], function(){return it.importance;}, function(v){it.importance=v;}, {cls:"seg"}));
+      body.appendChild(h("div",{style:"margin-top:12px"},[
+        fieldEl("Healthy signal", function(){return it.healthy;}, function(v){it.healthy=v;}, {area:true,cls:"short",max:120}),
+        fieldEl("Warning signal", function(){return it.warning;}, function(v){it.warning=v;}, {area:true,cls:"short",max:120})
+      ]));
+      card.appendChild(body);
+      grid.appendChild(card);
+    });
+    root.appendChild(grid);
+    root.appendChild(h("div",{class:"grid g2 rise",style:"margin-top:20px"},[
+      fieldEl("North Star metric (or set)", function(){return mt.northStar;}, function(v){mt.northStar=v;}, {ph:"The one signal that matters most.",max:120}),
+      (function(){ var w=h("label",{class:"field"}); w.appendChild(h("span",{text:"Review frequency"})); w.appendChild(segEl(["Weekly","Monthly","Quarterly"], function(){return mt.reviewFreq;}, function(v){mt.reviewFreq=v;}, {bronze:true})); return w; })()
+    ]));
+    root.appendChild(statusBadge("metrics","Scoreboard locked"));
+  }
+  function vMetrics(){ var mt=state.metrics, m=[];
+    var inc=Object.keys(mt.items).filter(function(k){return mt.items[k].included;});
+    var complete=inc.filter(function(k){return mt.items[k].healthy.trim()&&mt.items[k].warning.trim();});
+    if(inc.length<3) m.push("At least 3 core metrics included");
+    else if(complete.length<3) m.push("Healthy + warning signal on at least 3 metrics");
+    if(!mt.northStar.trim()) m.push("North Star metric");
+    if(!mt.reviewFreq) m.push("Review frequency");
+    return {ok:!m.length, missing:m};
+  }
+
+  function rTransparency(root){
+    root.appendChild(eyebrow("Transparency decision"));
+    root.appendChild(h("h2",{class:"rise",text:"How much of the real numbers do we show?"}));
+    root.appendChild(h("p",{class:"lede rise",text:"Nothing is preselected. We choose the level, then draw the line between useful transparency and performance."}));
+    var t=state.transparency;
+    var pk=h("div",{class:"grid g4 rise"});
+    [["Private","Nothing shown publicly"],["Selective","Chosen numbers, on purpose"],["Periodic","Regular honest check-ins"],["Fully Public","The whole scoreboard, live"]].forEach(function(o){
+      var card=h("button",{class:"pick",type:"button","aria-pressed":t.level===o[0]?"true":"false"});
+      card.appendChild(h("span",{class:"tick",html:CK}));
+      card.appendChild(h("h4",{text:o[0]}));
+      card.appendChild(h("p",{text:o[1]}));
+      card.addEventListener("click",function(){ t.level=(t.level===o[0]?"":o[0]); Array.prototype.forEach.call(pk.children,function(c){var v=c.querySelector("h4").textContent;c.setAttribute("aria-pressed",t.level===v?"true":"false");}); queueSave(); refreshStatus(); });
+      pk.appendChild(card);
+    });
+    root.appendChild(pk);
+    root.appendChild(h("div",{class:"grid g2 rise",style:"margin-top:20px"},[
+      fieldEl("What numbers may be shown", function(){return t.shown;}, function(v){t.shown=v;}, {area:true,cls:"short",max:200}),
+      fieldEl("How often", function(){return t.frequency;}, function(v){t.frequency=v;}, {ph:"e.g. Monthly recap",max:60})
+    ]));
+    root.appendChild(h("div",{class:"grid g3 rise"},[
+      fieldEl("What stays private", function(){return t.mustPrivate;}, function(v){t.mustPrivate=v;}, {area:true,cls:"short",max:150}),
+      fieldEl("What useful transparency looks like", function(){return t.useful;}, function(v){t.useful=v;}, {area:true,cls:"short",max:150}),
+      fieldEl("What becomes performative or unsafe", function(){return t.performative;}, function(v){t.performative=v;}, {area:true,cls:"short",max:150})
+    ]));
+    root.appendChild(statusBadge("transparency","Transparency level locked"));
+  }
+  function vTransparency(){ var t=state.transparency, m=[];
+    if(!t.level) m.push("A transparency level");
+    if(!t.shown.trim()) m.push("What numbers may be shown");
+    if(!t.mustPrivate.trim()) m.push("What stays private");
+    return {ok:!m.length, missing:m};
+  }
+
+  function rCompliance(root){
+    root.appendChild(eyebrow("Compliance clearance"));
+    root.appendChild(h("h2",{class:"rise",text:"What we can show — cleanly."}));
+    root.appendChild(h("p",{class:"lede rise",text:"A status for every category. Nothing defaults to confirmed. Anything unresolved gets an owner and a date."}));
+    root.appendChild(h("p",{class:"hint rise",text:"Operational status — not legal advice."}));
+    var cp=state.compliance;
+    var wrap=h("div",{class:"rise"});
+    COMPLIANCE_CATS.forEach(function(mc){
+      var key=mc[0]; if(!cp.cats[key]) cp.cats[key]={status:"Unresolved",note:"",owner:"",deadline:""};
+      var it=cp.cats[key];
+      var row=h("div",{class:"brow"});
+      row.appendChild(h("div",{class:"brow-head"},[ h("span",{class:"nm",style:"font-family:var(--serif);font-size:19px",text:mc[1]}) ]));
+      row.appendChild(segEl(["Confirmed","Partially Confirmed","Restricted","Unresolved"], function(){return it.status;}, function(v){it.status=v||"Unresolved";}, {bronze:true}));
+      row.appendChild(h("div",{class:"grid g3",style:"margin-top:12px"},[
+        fieldEl("Note", function(){return it.note;}, function(v){it.note=v;}, {area:true,cls:"short",max:200}),
+        fieldEl("Owner", function(){return it.owner;}, function(v){it.owner=v;}, {ph:"Who resolves it",max:40}),
+        fieldEl("Deadline / next action", function(){return it.deadline;}, function(v){it.deadline=v;}, {ph:"Date or next step",max:60})
+      ]));
+      wrap.appendChild(row);
+    });
+    root.appendChild(wrap);
+    root.appendChild(statusBadge("compliance","Compliance status captured"));
+  }
+  function vCompliance(){ var cp=state.compliance, m=[];
+    COMPLIANCE_CATS.forEach(function(mc){ var it=cp.cats[mc[0]]||{status:"Unresolved"};
+      if(!it.status) m.push("Status for "+mc[1]);
+      else if((it.status==="Unresolved"||it.status==="Restricted")&&!(it.owner&&it.owner.trim()&&it.deadline&&it.deadline.trim())) m.push("Owner + deadline for "+mc[1]);
+    });
+    return {ok:!m.length, missing:m.slice(0,4)};
+  }
+
+  function rRisk(root){
+    root.appendChild(eyebrow("Updated risk register"));
+    root.appendChild(h("h2",{class:"rise",text:"The four failure points, re-checked."}));
+    root.appendChild(h("p",{class:"lede rise",text:"Same four risks from Call One. Where does each stand now, and how does the architecture we just built answer it?"}));
+    var wrap=h("div",{class:"rise"});
+    state.risks.forEach(function(rk){
+      var meta=C1.risks.filter(function(x){return x.key===rk.key;})[0]||{note:""};
+      var row=h("div",{class:"brow"});
+      var head=h("div",{class:"brow-head"});
+      head.appendChild(h("span",{class:"nm"},[ h("span",{style:"font-family:var(--serif);font-size:20px",text:rk.name}), h("small",{style:"display:block;color:var(--muted);font-size:13px;margin-top:2px",text:meta.note}) ]));
+      var lvl=h("div",{class:"lvl"}); lvl.appendChild(segEl(["Low","Medium","High"], function(){return rk.rating;}, function(v){rk.rating=v;}, {}));
+      head.appendChild(lvl);
+      row.appendChild(head);
+      row.appendChild(h("div",{class:"grid g2"},[
+        fieldEl("Current evidence", function(){return rk.evidence;}, function(v){rk.evidence=v;}, {area:true,cls:"short",max:150}),
+        fieldEl("Mitigation — tied to a locked system", function(){return rk.mitigation;}, function(v){rk.mitigation=v;}, {area:true,cls:"short",max:200})
+      ]));
+      row.appendChild(h("div",{class:"grid g3"},[
+        fieldEl("Warning signal", function(){return rk.warning;}, function(v){rk.warning=v;}, {area:true,cls:"short",max:120}),
+        fieldEl("What Call Three must build for it", function(){return rk.callThree;}, function(v){rk.callThree=v;}, {area:true,cls:"short",max:150}),
+        fieldEl("Owner", function(){return rk.owner;}, function(v){rk.owner=v;}, {ph:"Who watches it",max:40})
+      ]));
+      wrap.appendChild(row);
+    });
+    root.appendChild(wrap);
+    root.appendChild(statusBadge("risk","Risk register updated"));
+  }
+  function vRisk(){ var m=[];
+    var incomplete=state.risks.filter(function(r){return !(r.rating&&r.evidence.trim()&&r.mitigation.trim()&&r.warning.trim()&&r.callThree.trim());});
+    if(incomplete.length) m.push(incomplete.length+" risk(s) missing rating, evidence, mitigation, warning, or Call Three requirement");
+    return {ok:!m.length, missing:m};
+  }
+
+  function rCallThree(root){
+    root.appendChild(eyebrow("Call Three handoff builder"));
+    root.appendChild(h("h2",{class:"rise",text:"The brief Call Three executes."}));
+    root.appendChild(h("p",{class:"lede rise",text:"We capture requirements only — objective, constraint, and the input each one needs. We don’t design the workflows today; that’s Call Three."}));
+    var c3=state.callThree;
+    var wrap=h("div",{class:"rise"});
+    CALL3_CATS.forEach(function(cc){
+      var key=cc[0]; if(!c3.cats[key]) c3.cats[key]={objective:"",constraint:"",source:""};
+      var it=c3.cats[key];
+      var row=h("div",{class:"brow"});
+      row.appendChild(h("div",{class:"brow-head"},[ h("span",{class:"nm",style:"font-family:var(--serif);font-size:19px",text:cc[1]}) ]));
+      row.appendChild(h("div",{class:"grid g3"},[
+        fieldEl("Objective", function(){return it.objective;}, function(v){it.objective=v;}, {area:true,cls:"short",max:200}),
+        fieldEl("Key constraint", function(){return it.constraint;}, function(v){it.constraint=v;}, {area:true,cls:"short",max:150}),
+        fieldEl("Source input needed", function(){return it.source;}, function(v){it.source=v;}, {area:true,cls:"short",max:150})
+      ]));
+      wrap.appendChild(row);
+    });
+    root.appendChild(wrap);
+    root.appendChild(statusBadge("callthree","Handoff brief captured"));
+  }
+  function vCallThree(){ var c3=state.callThree, m=[];
+    var incomplete=CALL3_CATS.filter(function(cc){ var it=c3.cats[cc[0]]||{}; return !(it.objective&&it.objective.trim()); });
+    if(incomplete.length) m.push(incomplete.length+" execution categor(ies) missing an objective");
+    return {ok:!m.length, missing:m};
+  }
+
+  function rHomework(root){
+    root.appendChild(eyebrow("Homework & scheduling"));
+    root.appendChild(h("h2",{class:"rise",text:"Before Call Three."}));
+    root.appendChild(h("p",{class:"lede rise",text:"Concrete, owned, time-bound. Add from the recommended list or write your own — at least three."}));
+    var sug=h("div",{class:"choices rise",style:"margin-bottom:18px"});
+    HW_SUGGEST.forEach(function(s){
+      var b=h("button",{class:"textbtn",text:"+ "+s});
+      b.addEventListener("click",function(){ state.homework.push({item:s,owner:"Noah",deadline:"",done:false}); renderHw(); queueSave(); refreshStatus(); });
+      sug.appendChild(b);
+    });
+    root.appendChild(sug);
+    var list=h("div",{class:"rise",id:"hwList"});
+    function renderHw(){
+      list.innerHTML="";
+      state.homework.forEach(function(it,i){
+        var row=h("div",{class:"brow"});
+        var head=h("div",{class:"brow-head"});
+        var cb=h("input",{type:"checkbox","aria-label":"Complete"}); cb.checked=!!it.done;
+        cb.addEventListener("change",function(){ it.done=cb.checked; queueSave(); });
+        var cbw=h("label",{class:"check",style:"border:0;background:transparent;padding:0"}); cbw.appendChild(cb); cbw.appendChild(h("span",{class:"box",html:CK}));
+        head.appendChild(cbw);
+        var nm=h("div",{class:"nm"}); nm.appendChild(fieldEl("", function(){return it.item;}, function(v){it.item=v;}, {ph:"Homework item",max:100})); head.appendChild(nm);
+        var del=h("button",{class:"ibtn",title:"Remove",html:DEL}); del.addEventListener("click",function(){ state.homework.splice(i,1); renderHw(); queueSave(); refreshStatus(); });
+        head.appendChild(del);
+        row.appendChild(head);
+        row.appendChild(h("div",{class:"grid g2"},[
+          (function(){ var w=h("label",{class:"field"}); w.appendChild(h("span",{text:"Owner"})); w.appendChild(segEl(["Noah","Owen"], function(){return it.owner;}, function(v){it.owner=v;}, {bronze:true})); return w; })(),
+          fieldEl("Deadline / timing", function(){return it.deadline;}, function(v){it.deadline=v;}, {ph:"Date or dependency",max:60})
+        ]));
+        list.appendChild(row);
+      });
+      var add=h("button",{class:"addbtn",text:"+ Add custom item"});
+      add.addEventListener("click",function(){ state.homework.push({item:"",owner:"Noah",deadline:"",done:false}); renderHw(); queueSave(); refreshStatus(); });
+      list.appendChild(add);
+    }
+    renderHw();
+    root.appendChild(list);
+
+    root.appendChild(h("hr",{class:"rule rise"}));
+    root.appendChild(h("h3",{class:"rise",text:"Call Three — the Execution Plan"}));
+    var sc=state.scheduling;
+    root.appendChild(h("div",{class:"grid g4 rise"},[
+      fieldEl("Date", function(){return sc.date;}, function(v){sc.date=v;}, {type:"date"}),
+      fieldEl("Time", function(){return sc.time;}, function(v){sc.time=v;}, {type:"time"}),
+      (function(){ var w=h("label",{class:"field"}); w.appendChild(h("span",{text:"Status"})); w.appendChild(segEl(["Booked","Options pending"], function(){return sc.status;}, function(v){sc.status=v;}, {bronze:true})); return w; })(),
+      fieldEl("Prep notes", function(){return sc.notes;}, function(v){sc.notes=v;}, {ph:"What to prepare",max:120})
+    ]));
+    root.appendChild(h("p",{class:"hint rise",text:"48 hours’ notice · Sunday–Friday · 8 AM – 5 PM Pacific. If not booked live, set the options deadline."}));
+    root.appendChild(statusBadge("homework","Homework assigned · Call Three in motion"));
+  }
+  function vHomework(){ var m=[];
+    var real=state.homework.filter(function(x){return x.item.trim()&&x.deadline.trim();});
+    if(real.length<3) m.push("At least 3 homework items with a deadline");
+    var sc=state.scheduling;
+    if(!sc.status) m.push("Call Three status (booked or options pending)");
+    else if(sc.status==="Booked" && !(sc.date&&sc.time)) m.push("Call Three date and time");
+    return {ok:!m.length, missing:m};
+  }
+
+  /* ---------------- final reveal ---------------- */
+  function rReveal(root){
+    root.appendChild(eyebrow("Final blueprint"));
+    root.appendChild(h("h2",{class:"rise",text:"Your complete growth blueprint."}));
+    root.appendChild(h("p",{class:"lede rise",text:"Every locked decision, assembled. Watch for the full written report within 24 hours."}));
+    var bar=h("div",{class:"tierbar rise"});
+    var t1=h("button",{class:"choice bronze","aria-pressed":"true",text:"Executive blueprint"});
+    var t2=h("button",{class:"choice",text:"Full detail"});
+    bar.appendChild(t1); bar.appendChild(t2);
+    root.appendChild(bar);
+    var tier1=h("div",{class:"bp",id:"tier1"});
+    var tier2=h("div",{class:"bp bp2",id:"tier2",style:"margin-top:18px;display:none"});
+    root.appendChild(tier1); root.appendChild(tier2);
+    t1.addEventListener("click",function(){ t1.setAttribute("aria-pressed","true"); t2.setAttribute("aria-pressed","false"); t2.classList.remove("bronze"); t1.classList.add("bronze"); tier2.style.display="none"; buildReveal(tier1,tier2); stagger(tier1); });
+    t2.addEventListener("click",function(){ t2.setAttribute("aria-pressed","true"); t1.setAttribute("aria-pressed","false"); t1.classList.remove("bronze"); t2.classList.add("bronze"); tier2.style.display="grid"; buildReveal(tier1,tier2); stagger(tier2); });
+
+    var actions=h("div",{class:"rise",style:"margin-top:36px;display:flex;gap:12px;flex-wrap:wrap"});
+    var pr=h("button",{class:"navbtn primary",text:"Print / Save PDF"}); pr.addEventListener("click",doPrint);
+    var rp=h("button",{class:"navbtn",text:"Replay reveal"}); rp.addEventListener("click",function(){ buildReveal(tier1,tier2); stagger(tier1.style.display==="none"?tier2:tier1); });
+    actions.appendChild(pr); actions.appendChild(rp);
+    root.appendChild(actions);
+    root.appendChild(h("div",{class:"print-foot",text:"Confidential — prepared exclusively for Noah Westbrook · The Content Operating System · Call Two"}));
+
+    buildReveal(tier1,tier2);
+    setTimeout(function(){ stagger(tier1); },30);
+  }
+  function val(v){ return (v&&String(v).trim())? String(v): null; }
+  function panel(title,wide){ var p=h("div",{class:"panel"+(wide?" wide":"")}); p.appendChild(h("header",{},[h("h3",{text:title}),h("span",{class:"chk",html:CKB})])); return p; }
+  function openItem(){ return h("span",{class:"op-item",text:"Open item"}); }
+  function put(p,content){ if(content==null){ p.appendChild(openItem()); } else if(typeof content==="string"){ p.appendChild(h("div",{class:"val",text:content})); } else { p.appendChild(content); } return p; }
+  function bl(items){ var ul=h("ul",{class:"blist"}); if(!items.length){ ul.appendChild(h("li",{},[h("span",{class:"empty",text:"Open item"})])); } items.forEach(function(it,i){ var li=h("li"); li.appendChild(h("span",{class:"idx",text:("0"+(i+1)).slice(-2)})); var b=h("span"); if(it.html) b.innerHTML=it.html; else b.textContent=it.text; li.appendChild(b); ul.appendChild(li); }); return ul; }
+
+  function buildReveal(tier1,tier2){
+    tier1.innerHTML=""; tier2.innerHTML="";
+    var f=state.foundation, p=state.platforms, eco=state.ecosystem, r=state.rollout, mg=state.messaging, mt=state.metrics;
+
+    /* ---- Tier 1 ---- */
+    tier1.appendChild(put(panel("Final creator identity",true), val(f.identity)||C1.identity));
+    var aud=panel("Agents-first audience"); put(aud, C1.audiencePrimary+" — primary."); aud.appendChild(h("div",{class:"val sm",style:"margin-top:8px",text:(val(f.secondaryAudience)||C1.audienceSecondary)+" — secondary."})); tier1.appendChild(aud);
+    tier1.appendChild(put(panel("Central promise"), val(f.promise)||val(mg.promise)));
+    var ph=panel("Platform hierarchy");
+    var hier=[]; if(val(p.primary)) hier.push({html:"<strong>Primary</strong> — "+esc(p.primary)}); if(val(p.secondary)) hier.push({html:"<strong>Secondary</strong> — "+esc(p.secondary)}); if(val(p.tertiary)) hier.push({html:"<strong>Tertiary</strong> — "+esc(p.tertiary)});
+    ph.appendChild(bl(hier)); tier1.appendChild(ph);
+    var pil=panel("Final pillars",true);
+    var pl=eco.pillars.filter(function(x){return x.status!=="park"&&x.name.trim();}).map(function(x){ return {html:"<strong>"+esc(x.name)+"</strong>"+(x.format?' <span class="chip">'+esc(x.format)+"</span>":"")+(x.purpose?"<br>"+esc(x.purpose):"")}; });
+    pil.appendChild(bl(pl)); tier1.appendChild(pil);
+    var ro=panel("365-day rollout",true);
+    var rp2=r.phases.filter(function(x){return x.name.trim();}).map(function(x){ return {html:"<strong>"+esc(x.name)+"</strong>"+(x.duration?' <span class="chip">'+esc(x.duration)+"</span>":"")+(x.objective?"<br>"+esc(x.objective):"")}; });
+    ro.appendChild(bl(rp2)); tier1.appendChild(ro);
+    var cad=panel("Publishing cadence");
+    var pb=state.publishing; var cadItems=[]; if(val(pb.standard)) cadItems.push({html:"<strong>Standard</strong> — "+esc(pb.standard)}); if(val(pb.minViable)) cadItems.push({html:"<strong>Minimum</strong> — "+esc(pb.minViable)}); if(val(pb.nonNeg)) cadItems.push({html:"<strong>Non-negotiable</strong> — "+esc(pb.nonNeg)});
+    cad.appendChild(bl(cadItems)); tier1.appendChild(cad);
+    var cm=panel("Community-to-agency path",true);
+    cm.appendChild(h("div",{class:"val sm",text:"Viewer → Follower → Trusted community member → Conversation → Mentorship / recruiting interest → Qualified future agency relationship"}));
+    tier1.appendChild(cm);
+    tier1.appendChild(put(panel("North Star metric"), val(mt.northStar)));
+    var rm=panel("Risk mitigations",true);
+    rm.appendChild(bl(state.risks.map(function(x){ var chip=x.rating?' <span class="chip '+x.rating+'">'+x.rating+"</span>":' <span class="chip">Open item</span>'; return {html:"<strong>"+esc(x.name)+"</strong>"+chip+(x.mitigation?"<br>"+esc(x.mitigation):"")}; }))); tier1.appendChild(rm);
+    var c3date=panel("Call Three"); var sc=state.scheduling; var c3=[val(sc.date),val(sc.time)].filter(Boolean).join(" · "); put(c3date, c3? c3: (val(sc.status)||null)); c3date.appendChild(h("div",{class:"val sm",style:"margin-top:8px",text:"Written report within 24 hours."})); tier1.appendChild(c3date);
+
+    /* ---- Tier 2 ---- */
+    var fm=panel("Formats & series",true); fm.appendChild(bl(eco.formats.filter(function(x){return x.name.trim();}).map(function(x){return {html:"<strong>"+esc(x.name)+"</strong>"+(x.desc?" — "+esc(x.desc):"")};}))); tier2.appendChild(fm);
+    var map=panel("Pillar → format map",true); map.appendChild(bl(eco.pillars.filter(function(x){return x.status!=="park"&&x.name.trim();}).map(function(x){return {html:"<strong>"+esc(x.name)+"</strong> → "+(x.format?esc(x.format):'<span class="op-item">Open item</span>')};}))); tier2.appendChild(map);
+    var tr=panel("Transparency"); var t=state.transparency; put(tr, val(t.level)); if(val(t.shown)) tr.appendChild(h("div",{class:"val sm",style:"margin-top:8px",text:t.shown})); tier2.appendChild(tr);
+    var cpl=panel("Compliance"); cpl.appendChild(bl(COMPLIANCE_CATS.map(function(mc){ var it=state.compliance.cats[mc[0]]||{status:"Unresolved"}; return {html:"<strong>"+mc[1]+"</strong> — "+esc(it.status||"Unresolved")}; }))); tier2.appendChild(cpl);
+    var met=panel("Metrics detail",true); var inc=Object.keys(mt.items).filter(function(k){return mt.items[k].included;}); met.appendChild(bl(inc.map(function(k){ var nm=(METRIC_CATS.filter(function(c){return c[0]===k;})[0]||[k,k])[1]; var it=mt.items[k]; return {html:"<strong>"+nm+"</strong>"+(it.importance?' <span class="chip">'+it.importance+"/5</span>":"")+(it.healthy?"<br>Healthy: "+esc(it.healthy):"")}; }))); if(val(mt.reviewFreq)) met.appendChild(h("div",{class:"val sm",style:"margin-top:10px",text:"Reviewed "+mt.reviewFreq.toLowerCase()+"."})); tier2.appendChild(met);
+    var msg=panel("Messaging & trust",true); var mi=[]; if(val(mg.belief)) mi.push({html:"<strong>Believes</strong> — "+esc(mg.belief)}); if(val(mg.standsFor)) mi.push({html:"<strong>Stands for</strong> — "+esc(mg.standsFor)}); if(val(mg.refuses)) mi.push({html:"<strong>Refuses</strong> — "+esc(mg.refuses)}); if(mg.proofTypes.length) mi.push({html:"<strong>Proof</strong> — "+mg.proofTypes.map(esc).join(", ")}); if(val(mg.guardrails)) mi.push({html:"<strong>Guardrails</strong> — "+esc(mg.guardrails)}); msg.appendChild(bl(mi)); tier2.appendChild(msg);
+    var rn=panel("Full risk notes",true); rn.appendChild(bl(state.risks.map(function(x){ return {html:"<strong>"+esc(x.name)+"</strong>"+(x.evidence?"<br>Evidence: "+esc(x.evidence):"")+(x.warning?"<br>Warning: "+esc(x.warning):"")+(x.callThree?"<br>Call Three: "+esc(x.callThree):"")}; }))); tier2.appendChild(rn);
+    var c3r=panel("Call Three requirements",true); c3r.appendChild(bl(CALL3_CATS.map(function(cc){ var it=state.callThree.cats[cc[0]]||{}; return {html:"<strong>"+cc[1]+"</strong> — "+(it.objective?esc(it.objective):'<span class="op-item">Open item</span>')}; }))); tier2.appendChild(c3r);
+    var hw=panel("Homework",true); hw.appendChild(bl(state.homework.filter(function(x){return x.item.trim();}).map(function(x){ return {html:(x.done?"✓ ":"○ ")+esc(x.item)+(x.deadline?' <span class="chip">'+esc(x.deadline)+"</span>":"")+(x.owner?" · "+esc(x.owner):"")}; }))); tier2.appendChild(hw);
+    var openList=collectOpenItems();
+    var oi=panel("Open items",true); if(openList.length){ oi.appendChild(bl(openList.map(function(o){return {html:"<strong>"+esc(o.section)+"</strong> — "+esc(o.question)};}))); } else { oi.appendChild(h("div",{class:"val sm",text:"Nothing outstanding — every live decision is locked."})); } tier2.appendChild(oi);
+  }
+  function stagger(container){
+    var panels=Array.prototype.slice.call(container.querySelectorAll(".panel"));
+    panels.forEach(function(p){p.classList.remove("in");});
+    void container.offsetWidth;
+    panels.forEach(function(p,i){ setTimeout(function(){p.classList.add("in");}, 110*i); });
+  }
+  function collectOpenItems(){
+    var list=[];
+    SECTIONS.forEach(function(s){
+      if(s.key==="reveal") return;
+      var v=s.live(); if(!v.ok){ v.missing.forEach(function(mm){ list.push({section:s.label, question:mm}); }); }
+    });
+    return list;
+  }
+
+  /* =========================================================================
+     ENGINE: build shell, navigation, validation gate, notes, tools
+     ======================================================================= */
+  var stageWrap=document.getElementById("stageWrap");
+  var sectionEls=[];
+  SECTIONS.forEach(function(s,i){
+    var sec=h("section",{class:"step","data-key":s.key,"data-title":s.label,"data-time":s.time});
+    s.render(sec);
+    stageWrap.appendChild(sec);
+    sectionEls.push(sec);
+  });
+
+  var idx = (typeof state.currentSection==="number" && state.currentSection>=0 && state.currentSection<SECTIONS.length)? state.currentSection : 0;
+  var dots=document.getElementById("dots");
+  var fill=document.getElementById("fill");
+  var clock=document.getElementById("clock");
+
+  SECTIONS.forEach(function(s,i){
+    var b=h("button",{class:"dot-btn","aria-label":(i+1)+". "+s.label,title:(i+1)+" · "+s.label},[h("i")]);
+    b.addEventListener("click",function(){ go(i); });
     dots.appendChild(b);
   });
 
-  function go(n){
-    if (n < 0 || n >= steps.length) return;
-    steps[idx].classList.remove("active");
-    idx = n;
-    steps[idx].classList.add("active");
-    Array.prototype.forEach.call(dots.children, function(d, i){
-      d.classList.toggle("active", i === idx);
-      d.classList.toggle("past", i < idx);
-    });
-    fill.style.width = ((idx) / (steps.length - 1) * 100) + "%";
-    clock.textContent = steps[idx].getAttribute("data-time");
-    document.getElementById("back").disabled = idx === 0;
-    document.getElementById("next").disabled = idx === steps.length - 1;
-    document.getElementById("stage").scrollTop = 0;
-
-    if (steps[idx].getAttribute("data-title") === "Pillar sort") buildSort();
-    if (steps[idx].getAttribute("data-title") === "Identity") refreshIdentity();
-    if (steps[idx].getAttribute("data-title") === "Blueprint"){ buildBlueprint(); revealBlueprint(); }
-    refreshOutputs();
-    if (notesOn) paintNotes();
-    try { sessionStorage.setItem(KEY + ":step", String(idx)); } catch(e){}
+  function renderCurrent(){
+    var s=SECTIONS[idx]; var sec=sectionEls[idx];
+    sec.innerHTML=""; s.render(sec); refreshStatus();
   }
 
-  document.getElementById("next").addEventListener("click", function(){ go(idx + 1); });
-  document.getElementById("back").addEventListener("click", function(){ go(idx - 1); });
+  function refreshStatus(){
+    SECTIONS.forEach(function(s,i){
+      var v=s.live(); var dot=dots.children[i];
+      dot.classList.toggle("active", i===idx);
+      dot.classList.toggle("past", i<idx && v.ok);
+      dot.classList.toggle("partial", i<idx && !v.ok);
+    });
+    var cur=SECTIONS[idx]; var badge=sectionEls[idx].querySelector('[data-status]');
+    if(badge){ var v=cur.live(); badge.classList.toggle("done", v.ok); }
+  }
 
-  document.addEventListener("keydown", function(e){
-    var t = e.target;
-    var typing = t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable);
-    if (typing) return;
-    if (e.key === "ArrowRight" || e.key === "PageDown"){ e.preventDefault(); go(idx + 1); }
-    if (e.key === "ArrowLeft" || e.key === "PageUp"){ e.preventDefault(); go(idx - 1); }
-    if (e.key === "f" || e.key === "F"){ toggleNotes(); }
-    if (e.key === "Home"){ go(0); }
-    if (e.key === "End"){ go(steps.length - 1); }
+  function go(n){
+    if(n<0||n>=SECTIONS.length) return;
+    var g=sectionEls[idx].querySelector(".gate-inline"); if(g) g.remove();
+    sectionEls[idx].classList.remove("active");
+    idx=n; state.currentSection=idx; queueSave();
+    var sec=sectionEls[idx];
+    if(SECTIONS[idx].key==="reveal"){ sec.innerHTML=""; SECTIONS[idx].render(sec); }
+    sec.classList.add("active");
+    fill.style.width=(idx/(SECTIONS.length-1)*100)+"%";
+    clock.textContent=(idx+1)+" / "+SECTIONS.length+" · "+SECTIONS[idx].label;
+    document.getElementById("back").disabled=(idx===0);
+    document.getElementById("next").disabled=(idx===SECTIONS.length-1);
+    document.getElementById("stage").scrollTop=0;
+    refreshStatus();
+    if(notesOn) paintNotes();
+  }
+
+  function attemptNext(){
+    if(idx>=SECTIONS.length-1) return;
+    var s=SECTIONS[idx]; var v=s.live();
+    var existing=sectionEls[idx].querySelector(".gate-inline");
+    if(v.ok || existing){ if(existing) existing.remove(); go(idx+1); return; }
+    var g=h("div",{class:"gate-inline"});
+    g.appendChild(h("h4",{text:"A few items are still open here."}));
+    var ul=h("ul"); v.missing.forEach(function(m){ ul.appendChild(h("li",{text:m})); }); g.appendChild(ul);
+    var row=h("div",{class:"row"});
+    var ret=h("button",{class:"navbtn",text:"Return to open items"});
+    ret.addEventListener("click",function(){ g.remove(); });
+    var cont=h("button",{class:"navbtn primary",text:"Continue and mark open"});
+    cont.addEventListener("click",function(){ g.remove(); go(idx+1); });
+    row.appendChild(ret); row.appendChild(cont); g.appendChild(row);
+    sectionEls[idx].appendChild(g);
+    g.scrollIntoView({behavior:"smooth",block:"center"});
+  }
+
+  document.getElementById("next").addEventListener("click",attemptNext);
+  document.getElementById("back").addEventListener("click",function(){ go(idx-1); });
+
+  document.addEventListener("keydown",function(e){
+    var t=e.target, typing=t&&(t.tagName==="INPUT"||t.tagName==="TEXTAREA"||t.isContentEditable);
+    if(e.shiftKey && (e.key==="F"||e.key==="f")){ e.preventDefault(); toggleNotes(); return; }
+    if(typing) return;
+    if(e.key==="ArrowRight"||e.key==="PageDown"){ e.preventDefault(); attemptNext(); }
+    if(e.key==="ArrowLeft"||e.key==="PageUp"){ e.preventDefault(); go(idx-1); }
+    if(e.key==="Home"){ go(0); }
+    if(e.key==="End"){ go(SECTIONS.length-1); }
   });
 
-  /* ---------- tools ---------- */
-  function doPrint(){ toggleNotes(false); setTimeout(function(){ window.print(); }, 120); }
-  document.getElementById("printBtn").addEventListener("click", doPrint);
-  document.getElementById("printBtn2").addEventListener("click", doPrint);
-  document.getElementById("replayBtn").addEventListener("click", function(){ buildBlueprint(); revealBlueprint(); });
+  /* ---- facilitator notes ---- */
+  var fnotes=document.getElementById("fnotes"), fnotesBody=document.getElementById("fnotesBody"),
+      notesBtn=document.getElementById("notesBtn"), notesOn=false;
+  function paintNotes(){
+    var n=NOTES[SECTIONS[idx].key]; fnotesBody.innerHTML="";
+    if(!n){ fnotesBody.appendChild(h("p",{text:"No notes for this section."})); return; }
+    function add(lbl,txt){ if(!txt) return; var p=h("p"); p.innerHTML="<strong>"+lbl+":</strong> "+esc(txt); fnotesBody.appendChild(p); }
+    add("Objective",n.o);
+    if(n.say){ var p=h("p"); p.innerHTML='<strong>Say:</strong> <span class="say">'+esc(n.say)+"</span>"; fnotesBody.appendChild(p); }
+    add("Decision criteria",n.crit);
+    add("Park",n.park);
+    add("Output",n.out);
+  }
+  function toggleNotes(force){
+    notesOn=(typeof force==="boolean")?force:!notesOn;
+    fnotes.classList.toggle("show",notesOn);
+    notesBtn.setAttribute("aria-pressed",notesOn?"true":"false");
+    notesBtn.classList.toggle("on",notesOn);
+    if(notesOn) paintNotes();
+  }
+  notesBtn.addEventListener("click",function(){ toggleNotes(); });
 
-  document.getElementById("resetBtn").addEventListener("click", function(){
-    if (!window.confirm("Clear everything typed in this workspace? This cannot be undone.")) return;
-    if (!window.confirm("Confirm once more — the full session record will be erased.")) return;
-    store = {};
-    try { localStorage.removeItem(KEY); } catch(e){}
-    Array.prototype.forEach.call(document.querySelectorAll("[data-key]"), function(el){ el.value = ""; });
-    Array.prototype.forEach.call(document.querySelectorAll("[data-check]"), function(el){ el.checked = false; });
-    Object.keys(groups).forEach(paintGroup);
-    for (var i = 1; i <= 5; i++) paintGroup("sort" + i);
-    refreshOutputs(); refreshIdentity(); buildSort();
-    say("Workspace cleared");
-    go(0);
+  /* ---- print ---- */
+  function doPrint(){ toggleNotes(false); if(idx!==SECTIONS.length-1){ var sec=sectionEls[SECTIONS.length-1]; sec.innerHTML=""; SECTIONS[SECTIONS.length-1].render(sec); } setTimeout(function(){ window.print(); },140); }
+  document.getElementById("printBtn").addEventListener("click",doPrint);
+
+  /* ---- reset (Call Two only) ---- */
+  document.getElementById("resetBtn").addEventListener("click",function(){
+    if(!window.confirm("Reset the Call Two blueprint? This clears everything typed today and restores the Call One foundation. Your access stays active; Call One data is untouched.")) return;
+    if(!window.confirm("Confirm once more — the Call Two workspace will be cleared.")) return;
+    try{ localStorage.removeItem(KEY); }catch(e){}
+    state=fresh();
+    stageWrap.innerHTML=""; sectionEls=[];
+    SECTIONS.forEach(function(s){ var sec=h("section",{class:"step","data-key":s.key,"data-title":s.label,"data-time":s.time}); s.render(sec); stageWrap.appendChild(sec); sectionEls.push(sec); });
+    idx=0; save(); go(0); flash("Blueprint reset");
   });
 
-  /* ---------- autosave heartbeat ---------- */
-  var lastSaved = JSON.stringify(store);
-  setInterval(function(){
-    var now = JSON.stringify(store);
-    if (now !== lastSaved){ lastSaved = now; say("Saved"); }
-  }, 6000);
+  /* ---- toast ---- */
+  var toast=document.getElementById("toast"), toastT;
+  function flash(msg){ toast.textContent=msg; toast.classList.add("show"); clearTimeout(toastT); toastT=setTimeout(function(){toast.classList.remove("show");},1700); }
+  var lastFlash=0;
+  function flashSaved(){ var now=Date.now(); if(now-lastFlash>4000){ lastFlash=now; flash("Saved"); } }
 
-  /* ---------- boot ---------- */
-  var startAt = 0;
-  try { startAt = parseInt(sessionStorage.getItem(KEY + ":step") || "0", 10) || 0; } catch(e){}
-  if (startAt < 0 || startAt >= steps.length) startAt = 0;
-  steps[0].classList.add("active");
-  refreshIdentity();
-  refreshOutputs();
-  go(startAt);
+  /* ---- boot ---- */
+  sectionEls[0].classList.add("active");
+  go(idx);
+  save();
 })();
 </script>
 </body>
