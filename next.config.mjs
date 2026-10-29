@@ -3,7 +3,8 @@ const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   compiler: {
-    removeConsole: process.env.NODE_ENV === 'production',
+    // Keep console.error in production so server failures show in Vercel logs.
+    removeConsole: process.env.NODE_ENV === 'production' ? { exclude: ['error'] } : false,
   },
   images: {
     formats: ['image/avif', 'image/webp'],
@@ -18,6 +19,10 @@ const nextConfig = {
     return [
       {
         source: '/noahs-consult',
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
+      },
+      {
+        source: '/abide-agreement',
         headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
       },
       {

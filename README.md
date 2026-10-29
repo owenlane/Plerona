@@ -158,6 +158,33 @@ If either provider is left unconfigured, that step is skipped and the rest still
 
 ---
 
+## Client agreement — `/abide-agreement`
+
+Private (noindex) e-sign page for the Plerona × Abide Electrical Website Build Agreement
+(version `ABIDE-STARTER-2026-10-28`). Prices and the full contract text live in
+`lib/abideAgreement.ts` and are separate from `lib/pricing.ts`.
+
+**Flow:** client reads §§1–12 → checks all 9 required boxes → picks optional monthly Yes/No →
+types name + draws signature → **Sign & submit**. `POST /api/abide-agreement` validates
+everything server-side, stamps UTC + Pacific time, IP and user agent, then:
+
+1. Inserts the packet into Supabase `contract_signatures` (run `supabase/migrations/0002_contract_signatures.sql`).
+2. Emails `contact@plerona.com` via Resend — subject `[SIGNED] Abide Electrical Website Agreement — {name} — {id}`,
+   with the signature PNG, the full signed terms (HTML) and the raw packet (JSON) attached.
+
+Success is shown only when at least one of those succeeds. If the row is saved but the email
+fails, the page says "Submitted — email pending" with a retry button. If both fail, the client
+sees an error and nothing is reported as submitted.
+
+The success screen links the deposit: `https://www.paypal.com/paypalme/owenlan/600.20`
+(balance link: `.../owenlan/1800.58`). No card fields, no Stripe.
+
+**Env vars:** `RESEND_API_KEY`, `EMAIL_FROM` (or existing `FROM_EMAIL`), `SUPABASE_URL`,
+`SUPABASE_SERVICE_ROLE_KEY`. `GET /api/abide-agreement` reports which are configured
+(true/false only).
+
+---
+
 ## Design system (do not drift)
 
 Colors, radii, and type are pinned in `tailwind.config.ts`:
