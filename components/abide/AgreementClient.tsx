@@ -314,7 +314,7 @@ export default function AgreementClient() {
                 </dl>
                 <div className="mt-5 rounded-[2px] bg-offwhite px-4 py-3 text-sm leading-relaxed text-ink/80">
                   {success.emailSent ? (
-                    <>A signed copy was emailed to Plerona at contact@plerona.com.</>
+                    <>A signed copy was emailed to Plerona.</>
                   ) : (
                     <>
                       <span className="font-semibold text-ink">Submitted — email pending.</span> Your

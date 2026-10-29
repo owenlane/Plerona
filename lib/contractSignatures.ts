@@ -40,11 +40,23 @@ const emailConfigured = () => Boolean(process.env.RESEND_API_KEY);
 const fromAddress = () =>
   process.env.EMAIL_FROM || process.env.FROM_EMAIL || 'Plerona <onboarding@resend.dev>';
 
+/**
+ * TEMPORARY STOPGAP (2026-10-28): Resend's shared test sender (@resend.dev)
+ * can only deliver to the Resend account owner. Until plerona.com is verified
+ * on Resend and EMAIL_FROM uses that domain, signed packets go to the account
+ * owner instead. As soon as EMAIL_FROM is a plerona.com address, mail goes to
+ * NOTIFY_TO (contact@plerona.com) again — no code change needed.
+ */
+const SANDBOX_RECIPIENT = 'owendonlane@gmail.com';
+const usingSandboxSender = () => /@resend\.dev>?\s*$/i.test(fromAddress().trim());
+export const recipientAddress = () => (usingSandboxSender() ? SANDBOX_RECIPIENT : NOTIFY_TO);
+
 export function configStatus() {
   return {
     storage: supabaseConfigured(),
     email: emailConfigured(),
     customSender: Boolean(process.env.EMAIL_FROM || process.env.FROM_EMAIL),
+    sandboxRecipient: usingSandboxSender(),
   };
 }
 
@@ -249,15 +261,16 @@ ${checkboxList(p)}
 
 export async function sendSignedEmail(
   p: SignaturePacket,
-): Promise<{ ok: boolean; id?: string; error?: string }> {
+): Promise<{ ok: boolean; id?: string; error?: string; detail?: string }> {
   if (!emailConfigured()) return { ok: false, error: 'email_not_configured' };
   const resend = new Resend(process.env.RESEND_API_KEY);
   const sigBase64 = p.signatureDataUrl.replace(/^data:image\/png;base64,/, '');
   const { signatureDataUrl: _omit, ...packetWithoutSig } = p;
+  const to = recipientAddress();
   try {
     const { data, error } = await resend.emails.send({
       from: fromAddress(),
-      to: NOTIFY_TO,
+      to,
       replyTo: PARTIES.client.email,
       subject: `[SIGNED] Abide Electrical Website Agreement — ${p.typedName} — ${p.confirmationId}`,
       html: emailBody(p),
@@ -280,7 +293,7 @@ export async function sendSignedEmail(
       console.error('Resend send failed:', error.name, error.message);
       return { ok: false, error: `${error.name}: ${error.message}` };
     }
-    return { ok: true, id: data?.id };
+    return { ok: true, id: data?.id, detail: `sent to ${to} (resend id ${data?.id ?? 'n/a'})` };
   } catch (e) {
     const msg = e instanceof Error ? e.message : String(e);
     console.error('Resend send threw:', msg);

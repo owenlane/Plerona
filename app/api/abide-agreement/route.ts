@@ -50,7 +50,7 @@ export async function POST(req: NextRequest) {
     const packet = await loadPacket(id);
     if (!packet) return bad('Submission not found.', 404);
     const sent = await sendSignedEmail(packet);
-    await markEmailStatus(id, sent.ok ? 'sent' : 'failed', sent.error);
+    await markEmailStatus(id, sent.ok ? 'sent' : 'failed', sent.error ?? sent.detail);
     return NextResponse.json({ ok: true, emailSent: sent.ok, confirmationId: id });
   }
 
@@ -100,7 +100,7 @@ export async function POST(req: NextRequest) {
 
   const stored = await storePacket(packet);
   const sent = await sendSignedEmail(packet);
-  if (stored.ok) await markEmailStatus(packet.confirmationId, sent.ok ? 'sent' : 'failed', sent.error);
+  if (stored.ok) await markEmailStatus(packet.confirmationId, sent.ok ? 'sent' : 'failed', sent.error ?? sent.detail);
 
   // Never report success unless the server kept the packet somewhere durable:
   // the database row, or the email (with signature + signed terms attached).

@@ -183,6 +183,12 @@ The success screen links the deposit: `https://www.paypal.com/paypalme/owenlan/6
 `SUPABASE_SERVICE_ROLE_KEY`. `GET /api/abide-agreement` reports which are configured
 (true/false only).
 
+**Temporary recipient stopgap:** while `EMAIL_FROM` is Resend's shared test sender
+(`@resend.dev`), signed packets go to the Resend account owner (owendonlane@gmail.com),
+because the test sender can't deliver anywhere else. Once plerona.com is verified on Resend
+and `EMAIL_FROM` is set to a plerona.com address (then redeploy), packets go to
+contact@plerona.com automatically. Each row's `email_detail` records who received it.
+
 ---
 
 ## Design system (do not drift)
