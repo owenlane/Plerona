@@ -25,3 +25,5 @@ create table if not exists public.contract_signatures (
 create index if not exists contract_signatures_created_idx on public.contract_signatures (created_at desc);
 
 alter table public.contract_signatures enable row level security;
+-- Defense in depth: public API roles get no table access at all.
+revoke all on table public.contract_signatures from anon, authenticated;
